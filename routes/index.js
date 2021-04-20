@@ -20,4 +20,17 @@ router.get("/services", (req, res) => {
   res.render("services");
 });
 
+// about contact policies
+
+router.get("/about", (req, res) => {
+  res.render("about");
+});
+
+router.get("/contact", (req, res) => {
+  res.render("contact");
+});
+
+router.get("/policies", (req, res) => {
+  res.render("policies");
+});
 module.exports = router;
