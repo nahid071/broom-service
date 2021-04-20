@@ -30,6 +30,13 @@
                   placeholder="Search your desired workers"
                 />
                 <input type="button" value="Find" class="subscribe_btn" />
+                <script>
+                  document
+                    .querySelector(".subscribe_btn")
+                    .addEventListener("click", () => {
+                      window.location.href = "/services";
+                    });
+                </script>
               </form>
               <span class="trend_search">
                 <span class="trend_search_title">Trending Search:</span>
