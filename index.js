@@ -8,6 +8,7 @@ const morgan = require("morgan");
 app.set("view engine", "ejs");
 app.use(cors());
 app.use(morgan("tiny"));
+app.use(express.static("public"));
 
 // Handle Route
 app.use("/", require("./routes"));
