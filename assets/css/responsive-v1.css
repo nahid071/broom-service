@@ -1,0 +1,1430 @@
+/*>>>>>>>>>>>>>>>>>>>>
+@ ===> Project Created By Mahedi Hassan
+@
+@ ===> Created Date : March 26, 2021
+@
+@ ===> Theme Name: Broome Theme
+<<<<<<<<<<<<<<<<<<<<<<*/
+
+
+/*------------------------------------------
+  Responsive Grid Media Queries - 1280, 1024, 768, 480
+   1280-1024   - desktop (default grid)
+   1024-768    - tablet landscape
+   768-480     - tablet 
+   480-less    - phone landscape & smaller
+--------------------------------------------*/
+
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+							Phones and Handhelds Start
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+
+/*++++++++++++++++++++++++++++++++++++++++
+Apple Iphone Device Responsive CSS Start
+++++++++++++++++++++++++++++++++++++++++++*/
+
+
+/*=====----------- iPhone 4 and 4S ----------=====*/
+
+
+/* Portrait and Landscape */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) {
+    /* ===Home Page Section Start=== */
+    /* Navigation Section Start */
+    .scb-rate {
+        text-align: center;
+        font-size: 24px;
+        color: #03040E;
+    }
+    .menu ul li a {
+        font-size: 16px;
+        padding: 0px 10px;
+    }
+    .menu ul {
+        margin-bottom: 0px !important;
+        display: block;
+        position: absolute;
+        left: -100%;
+        top: 100%;
+        text-align: center;
+        width: 100%;
+        background: #fff;
+        z-index: 1;
+        visibility: hidden;
+        transition: all linear .3s;
+    }
+    .menu ul li {
+        display: block;
+        padding: 25px 0px;
+    }
+    .menu label {
+        display: inline !important;
+    }
+    .chck_bx i {
+        display: block;
+        font-size: 32px;
+        margin-top: 15px;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+    #check:checked~ul {
+        visibility: visible;
+        left: 0;
+    }
+    /* Navigation Section End */
+    /* Banner Section Start */
+    .banner-content {
+        padding-top: 45px;
+    }
+    .banner-content h2 {
+        font-size: 24px;
+    }
+    ul.trust_priority li {
+        padding: 10px 10px;
+    }
+    .trust_priority {
+        margin-bottom: 0 !important;
+        margin-top: 20px;
+    }
+    form.banner_email-subscribe {
+        margin-top: 20px;
+    }
+    input.subscribe_btn {
+        margin-top: 10px;
+    }
+    .banner_side_img {
+        width: 330px;
+        margin: auto;
+    }
+    /* Banner Section End */
+    /* Service Section Start */
+    .service-list-1 {
+        padding: 0px 65px;
+    }
+    .service-list-2 {
+        padding: 5px 65px;
+    }
+    .services {
+        margin-top: 35px;
+    }
+    /* Service Section End */
+    /* About Section Start */
+    .about-content {
+        padding: 40px 0px 0px 5px;
+    }
+    .about-content h2 {
+        font-size: 30px;
+    }
+    .about-content p {
+        font-size: 16px;
+    }
+    /* About Section End */
+    /* Contractor Profile Section Start */
+    .contractor-profile-main {
+        padding: 12px 0px;
+    }
+    .contractor-profile {
+        padding: 0px 15px;
+        width: 330px;
+        margin: auto;
+    }
+    .contractor-job-complete,
+    .contractor-ratings {
+        padding: 0px 0px;
+    }
+    span.contractor-job-done {
+        font-size: 14px;
+    }
+    ul.cnc-rate li {
+        font-size: 10px;
+    }
+    /* Contractor Profile Section End */
+    /* Contact Form Section Start */
+    .contact-us-col-right {
+        padding: 24px 45px 0px;
+        margin: auto;
+    }
+    .first_name,
+    .last_name,
+    .from-email,
+    .form_message-box {
+        width: 245px;
+    }
+    .contact-right-bg {
+        background: #f6f6f6;
+    }
+    /* Contact Form Section End */
+    /* Footer Section Start */
+    ul.footer-nav li a {
+        font-size: 16px;
+        padding: 15px 15px;
+    }
+    /* Footer Section End */
+    /* ===Home Page Section End=== */
+    /* ====Approved Page Start==== */
+    .approved-main {
+        padding: 50px 0px;
+    }
+    h1.request-title {
+        color: #DB4128;
+        font-weight: bold;
+        font-size: 26px;
+    }
+    ul.booking-contractor li {
+        display: inline-block;
+        margin: 0px 0px;
+    }
+    span.bkdt-title,
+    span.contractor-title {
+        color: #03040E;
+        font-size: 16px;
+        font-weight: bold;
+    }
+    h2.ar-title,
+    h2.ajrp-title,
+    h2.report-title {
+        font-size: 20px;
+        font-weight: bold;
+        color: #000;
+    }
+    span.ar-confirm-icon {
+        margin-right: 5px;
+    }
+    .approve-request p,
+    .approve-job-release-payment p,
+    .report p {
+        color: #4D4C4C;
+        font-size: 14px;
+        font-weight: 400;
+    }
+    .approve-job-release-payment p::before {
+        left: -8px;
+    }
+    .approve-request p::before {
+        left: -15px;
+    }
+    .report p::before {
+        left: -14px;
+    }
+    span.ajrp-confirm-icon i {
+        margin-right: 5px;
+    }
+    span.reprt-confirm-icon {
+        margin-right: 5px;
+    }
+    /* ====Approved Page End==== */
+    /* ====Request Page Start==== */
+    .request-main {
+        padding: 50px 0px;
+    }
+    h2.request-extra-payment-title,
+    h2.jac-title,
+    h2.cancel-jon-title {
+        text-transform: uppercase;
+        color: #000;
+        font-weight: bold;
+        font-size: 24px;
+    }
+    p.payment-request-question,
+    .job-agreement-confirm p,
+    .cancel-job-confirm p {
+        font-size: 16px;
+        color: #4D4C4C;
+        text-transform: capitalize !important;
+    }
+    /* ====Request Page End==== */
+    /* ===Profile Booking Start=== */
+    .job-description-box {
+        width: 330px;
+        height: 185px;
+        background: #F0F0F0;
+        border: 0;
+        padding: 25px;
+        margin-top: 30px;
+    }
+    .available_time-hire {
+        margin-top: 20px;
+    }
+    .client-reivew::after {
+        position: absolute;
+        bottom: 0;
+        right: 50%;
+        height: .2px;
+        width: 300px;
+        content: "";
+        background: #707070;
+        transform: translate(50%, 50%);
+        opacity: .2;
+    }
+    .review-head::after {
+        position: absolute;
+        bottom: 0;
+        right: 50%;
+        height: .2px;
+        width: 300px;
+        content: "";
+        background: #707070;
+        transform: translate(50%, 50%);
+        opacity: .2;
+    }
+    /* ===Profile Booking End=== */
+    .scb-rate-col {
+        margin-top: 20px;
+    }
+    a.scb-hire_btn {
+        background: #DB4128;
+        width: 119px;
+        height: 56px;
+        display: inline-block;
+        line-height: 56px;
+        color: #fff;
+        margin-top: 30px;
+    }
+    .breadcumb-title {
+        padding: 60px 0px;
+    }
+    .breadcumb-title h2 {
+        margin-bottom: 0 !important;
+        font-family: var(--default-font-family);
+        font-weight: bold;
+        color: #fff;
+        font-size: 24px;
+    }
+    .available-time {
+        text-align: center;
+    }
+    .hire-now ul {
+        margin-bottom: 0 !important;
+        text-align: center;
+    }
+    .hire-now {
+        text-align: right;
+        padding-top: 60px;
+    }
+}
+
+
+/* Portrait */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {}
+
+
+/* Landscape */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {}
+
+
+/*=====----------- iPhone 5, 5S, 5C and 5SE -----------=====*/
+
+
+/* Portrait and Landscape */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
+    /* =====Home Page Start===== */
+    /* Navigation section= start */
+    .menu ul li a {
+        padding: 0px 5px;
+    }
+    .menu ul {
+        margin-bottom: 0px !important;
+        display: block;
+        position: absolute;
+        left: -100%;
+        top: 100%;
+        text-align: center;
+        width: 100%;
+        background: #fff;
+        z-index: 1;
+        visibility: hidden;
+        transition: all linear .3s;
+    }
+    .menu ul li {
+        display: block;
+        padding: 25px 0px;
+    }
+    .menu label {
+        display: inline !important;
+    }
+    .chck_bx i {
+        display: block;
+        font-size: 32px;
+        margin-top: 15px;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+    #check:checked~ul {
+        visibility: visible;
+        left: 0;
+    }
+    /* Navigation section= end */
+    /* Banner Section Start */
+    .banner-content {
+        padding-top: 25px;
+    }
+    .banner-content h2 {
+        font-size: 21px;
+    }
+    a.trust_list {
+        font-size: 14px;
+    }
+    .banner_side_img {
+        width: 285px;
+        margin: auto;
+    }
+    /* Banner Section End */
+    /* Service Section Start */
+    .service-list-1 {
+        padding: 0px 45px;
+    }
+    .service-list-2 {
+        padding: 5px 45px;
+    }
+    /* Service Section End */
+    /* About Section Start */
+    .about-content p {
+        font-size: 14px;
+    }
+    /* About Section End */
+    /* Contractor Profile Section Start */
+    .contractor-profile {
+        padding: 0px 15px;
+        width: 280px;
+        margin: auto;
+    }
+    span.contractor-job-done {
+        font-size: 12px;
+    }
+    .contractor-profile-description p {
+        font-size: 14px;
+    }
+    /* Contractor Profile Section End */
+    /* Contact Section Start */
+    /* Contact Section End */
+    /* Footer Section Start */
+    ul.footer-nav li a {
+        font-size: 14px;
+        padding: 15px 10px;
+    }
+    /* Footer Section End */
+    .calender-head ul li {
+        display: inline-block;
+        color: #fff;
+        padding: 0px 35px;
+    }
+}
+
+
+/* Portrait */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {}
+
+
+/* Landscape */
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {}
+
+
+/*=====----------- iPhone 6, 6S, 7 and 8 -----------=====*/
+
+
+/* Portrait and Landscape */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) {
+    /* ====HOME Page Start==== */
+    .menu ul li a {
+        padding: 0px 12px;
+    }
+    .menu ul {
+        margin-bottom: 0px !important;
+        display: block;
+        position: absolute;
+        left: -100%;
+        top: 100%;
+        text-align: center;
+        width: 100%;
+        background: #fff;
+        z-index: 1;
+        visibility: hidden;
+        transition: all linear .3s;
+    }
+    .menu ul li {
+        display: block;
+        padding: 25px 0px;
+    }
+    .menu label {
+        display: inline !important;
+    }
+    .chck_bx i {
+        display: block;
+        font-size: 32px;
+        margin-top: 15px;
+        margin-right: 20px;
+        cursor: pointer;
+    }
+    #check:checked~ul {
+        visibility: visible;
+        left: 0;
+    }
+    /* ====HOME Page End==== */
+    /* ====Contact Section Start==== */
+    .first_name,
+    .last_name,
+    .from-email,
+    .form_message-box {
+        width: 240px;
+    }
+    .form-submit {
+        margin-right: 65px;
+    }
+    /* ====Contact Section End==== */
+    /* ====Footer Section Start==== */
+    ul.footer-nav li a {
+        font-size: 14px;
+        padding: 15px 17px;
+    }
+    /* ====Footer Section End==== */
+}
+
+
+/* Portrait */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait) {}
+
+
+/* Landscape */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 667px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: landscape) {}
+
+
+/*=====----------- iPhone 6+, 7+ and 8+ -----------=====*/
+
+
+/* Portrait and Landscape */
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) {
+    /* Contact page Section Start */
+    .first_name,
+    .last_name,
+    .from-email,
+    .form_message-box {
+        width: 285px;
+    }
+    .form-submit {
+        margin-right: 75px;
+        margin-top: 20px;
+    }
+    /* Contact page Section End */
+    .job-description-box {
+        width: 385px;
+        height: 185px;
+        background: #F0F0F0;
+        border: 0;
+        padding: 25px;
+    }
+}
+
+
+/* Portrait */
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {}
+
+
+/* Landscape */
+
+@media only screen and (min-device-width: 414px) and (max-device-width: 736px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {}
+
+
+/* ----------- iPhone X ----------- */
+
+
+/* Portrait and Landscape */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {}
+
+
+/* Portrait */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: portrait) {}
+
+
+/* Landscape */
+
+@media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) and (orientation: landscape) {}
+
+
+/*++++++++++++++++++++++++++++++++++++
+Apple Iphone Device Responsive CSS End
+++++++++++++++++++++++++++++++++++++++*/
+
+
+/*####################################################################################################################*/
+
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++++
+Samsung Galaxy Series Phone Device Responsive Start
++++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+
+/* ----------- Galaxy S3 ----------- */
+
+
+/* Portrait and Landscape */
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2) {}
+
+
+/* Portrait */
+
+@media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait) {}
+
+
+/* Landscape */
+
+@media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 2) and (orientation: landscape) {}
+
+
+/* ----------- Galaxy S4, S5 and Note 3 ----------- */
+
+
+/* Portrait and Landscape */
+
+@media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {}
+
+
+/* Portrait */
+
+@media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {}
+
+
+/* Landscape */
+
+@media screen and (device-width: 320px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {}
+
+
+/* ----------- Galaxy S6 ----------- */
+
+
+/* Portrait and Landscape */
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 4) {
+    .first_name,
+    .last_name,
+    .from-email,
+    .form_message-box {
+        width: 245px !important;
+    }
+}
+
+
+/* Portrait */
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 4) and (orientation: portrait) {
+    .first_name,
+    .last_name,
+    .from-email,
+    .form_message-box {
+        width: 245px;
+    }
+}
+
+
+/* Landscape */
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 4) and (orientation: landscape) {}
+
+
+/*+++++++++++++++++++++++++++++++++++++++++++++++
+Samsung Galaxy Series Phone Device Responsive End
++++++++++++++++++++++++++++++++++++++++++++++++++*/
+
+
+/*####################################################################################################################*/
+
+
+/*++++++++++++++++++++++++++++++++++++++++
+Google Pixel Phone Device Responsive Start
+++++++++++++++++++++++++++++++++++++++++++*/
+
+
+/* ----------- Google Pixel ----------- */
+
+
+/* Portrait and Landscape */
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {}
+
+
+/* Portrait */
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {}
+
+
+/* Landscape */
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {}
+
+
+/* ----------- Google Pixel XL ----------- */
+
+
+/* Portrait and Landscape */
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 4) {}
+
+
+/* Portrait */
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 4) and (orientation: portrait) {}
+
+
+/* Landscape */
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 4) and (orientation: landscape) {}
+
+
+/*++++++++++++++++++++++++++++++++++++++
+Google Pixel phone Device Responsive End
+++++++++++++++++++++++++++++++++++++++++*/
+
+
+/*####################################################################################################################*/
+
+
+/*++++++++++++++++++++++++++++++++
+HTC Mobile Device Responsive Start
+++++++++++++++++++++++++++++++++++*/
+
+
+/* ----------- HTC One ----------- */
+
+
+/* Portrait and Landscape */
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) {}
+
+
+/* Portrait */
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait) {}
+
+
+/* Landscape */
+
+@media screen and (device-width: 360px) and (device-height: 640px) and (-webkit-device-pixel-ratio: 3) and (orientation: landscape) {}
+
+
+/*++++++++++++++++++++++++++++++
+HTC Mobile Device Responsive End
+++++++++++++++++++++++++++++++++*/
+
+
+/*####################################################################################################################*/
+
+
+/*++++++++++++++++++++++++++++++++++++
+Windows Mobile Device Responsive Start
+++++++++++++++++++++++++++++++++++++++*/
+
+
+/* ----------- Windows Phone ----------- */
+
+
+/* Portrait and Landscape */
+
+@media screen and (device-width: 480px) and (device-height: 800px) {}
+
+
+/* Portrait */
+
+@media screen and (device-width: 480px) and (device-height: 800px) and (orientation: portrait) {}
+
+
+/* Landscape */
+
+@media screen and (device-width: 480px) and (device-height: 800px) and (orientation: landscape) {}
+
+
+/*++++++++++++++++++++++++++++++++++
+Windows Mobile Device Responsive End
+++++++++++++++++++++++++++++++++++++*/
+
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+							Phones and Handhelds End
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+							Tablets Start
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+
+/*++++++++++++++++++++++++++++++++
+Apple iPad Device Responsive Start
+++++++++++++++++++++++++++++++++++*/
+
+
+/* ----------- iPad 1, 2, Mini and Air ----------- */
+
+
+/* Portrait and Landscape */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 1) {
+    /* ====Homepage Start==== */
+    /* Banner Section Start */
+    .banner-content {
+        padding-top: 70px;
+    }
+    .banner-content h2 {
+        font-family: var(--default-font-family);
+        font-weight: 700;
+        font-size: 24px;
+    }
+    .trust_priority {
+        margin-bottom: 0 !important;
+        margin-top: 20px;
+    }
+    ul.trust_priority li {
+        display: inline-block;
+        padding: 5px 10px;
+    }
+    a.trust_list {
+        color: #111;
+        text-transform: uppercase;
+        font-family: 'Cabin';
+        font-weight: bold;
+        font-size: 14px;
+    }
+    form.banner_email-subscribe {
+        margin-top: 25px;
+    }
+    .banner_side_img {
+        position: relative;
+        text-align: center;
+        width: 355px;
+    }
+    /* Banner Section End */
+    /* Service Section Start */
+    .service-list-1 {
+        padding: 0px 5px;
+    }
+    input.subscribe_btn {
+        margin-top: 10px;
+    }
+    .services {
+        width: 155px;
+    }
+    span.service_title {
+        font-size: 16px;
+    }
+    .service-list-2 {
+        padding: 44.5px 5px;
+    }
+    /* Service Section End */
+    /* About Section Start */
+    .about-content {
+        padding: 10px 0px 0px 25px;
+    }
+    .about-content h2 {
+        font-size: 26px;
+    }
+    .about-content p {
+        font-size: 14px;
+        font-family: 'Cabin';
+        color: #707070;
+    }
+    /* About Section End */
+    /* Contractor Profile Section Start */
+    .contractor-profile {
+        padding: 0px 15px;
+    }
+    .contractor-profile-main {
+        padding: 40px 0px;
+    }
+    .contractor-profile {
+        padding: 0px 15px;
+        width: 240px;
+    }
+    .contractor-job-complete {
+        display: inline-block;
+        text-align: center;
+        padding: 0px 0px;
+    }
+    span.contractor-job-done {
+        font-family: 'Cabin';
+        font-weight: 400;
+        color: #03040E;
+        font-size: 16px;
+    }
+    .contractor-ratings {
+        padding: 5px 4px;
+    }
+    ul.cnc-rate li {
+        font-size: 15px;
+    }
+    .contractor-profile-description p {
+        font-size: 12px;
+    }
+    /* Contractor Profile Section End */
+    /* Contact us Section Start */
+    .first_name,
+    .last_name,
+    .from-email,
+    .form_message-box {
+        width: 250px;
+    }
+    .contact-us-col-left img {
+        margin-top: 100px;
+    }
+    /* Contact us Section End */
+    /* ====Homepage End==== */
+    .breadcumb-title {
+        padding: 95px 0px;
+    }
+    .job-description-box {
+        width: 460px;
+        height: 185px;
+        background: #F0F0F0;
+        border: 0;
+        padding: 25px;
+    }
+    .calender-date table tr {
+        font-size: 11px;
+    }
+    .order-calender {
+        background: #db4128;
+        text-align: center;
+        width: 230px;
+    }
+    span.duration-title {
+        font-weight: bold;
+        margin-right: 5px;
+        font-size: 15px;
+    }
+    .avt-slot ul li a {
+        display: block;
+        width: 65px;
+        height: 34px;
+        background: #F3F3F3;
+        color: #DB4128;
+        line-height: 34px;
+        text-align: center;
+        border-radius: 50px;
+        text-decoration: none;
+    }
+    .hire-now {
+        text-align: right;
+        padding-top: 120px;
+    }
+    .calender-head ul li {
+        display: inline-block;
+        color: #fff;
+        padding: 0px 20px;
+    }
+    .select-hours-opt {
+        width: 100px;
+        height: 34px;
+        line-height: 34px;
+        padding: 0px 20px;
+        border-radius: 50px;
+        border: 0;
+        background: #F3F3F3;
+        color: #000;
+    }
+    .hire-now ul li a {
+        display: block;
+        width: 95px;
+        height: 45px;
+        line-height: 45px;
+        text-align: center;
+        text-decoration: none;
+    }
+    p.profile-description {
+        font-size: 12px;
+        text-align: justify;
+    }
+    span.profile-rating {
+        margin-left: 0px;
+    }
+    .client-reivew::after {
+        width: 585px;
+    }
+    .review-head::after {
+        width: 585px;
+    }
+}
+
+
+/* Portrait */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 1) {}
+
+
+/* Landscape */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 1) {}
+
+
+/* ----------- iPad 3, 4 and Pro 9.7" ----------- */
+
+
+/* Portrait and Landscape */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) {}
+
+
+/* Portrait */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {}
+
+
+/* Landscape */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {}
+
+
+/* ----------- iPad Pro 10.5" ----------- */
+
+
+/* Portrait and Landscape */
+
+@media only screen and (min-device-width: 834px) and (max-device-width: 1112px) and (-webkit-min-device-pixel-ratio: 2) {}
+
+
+/* Portrait */
+
+
+/* Declare the same value for min- and max-width to avoid colliding with desktops */
+
+
+/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+
+@media only screen and (min-device-width: 834px) and (max-device-width: 834px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {}
+
+
+/* Landscape */
+
+
+/* Declare the same value for min- and max-width to avoid colliding with desktops */
+
+
+/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+
+@media only screen and (min-device-width: 1112px) and (max-device-width: 1112px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {}
+
+
+/* ----------- iPad Pro 12.9" ----------- */
+
+
+/* Portrait and Landscape */
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1366px) and (-webkit-min-device-pixel-ratio: 2) {
+    /* Contact Section Start */
+    .contact-us-col-left img {
+        margin-top: 50px;
+    }
+    /* Contact Section End */
+}
+
+
+/* Portrait */
+
+
+/* Declare the same value for min- and max-width to avoid colliding with desktops */
+
+
+/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1024px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {}
+
+
+/* Landscape */
+
+
+/* Declare the same value for min- and max-width to avoid colliding with desktops */
+
+
+/* Source: https://medium.com/connect-the-dots/css-media-queries-for-ipad-pro-8cad10e17106*/
+
+@media only screen and (min-device-width: 1366px) and (max-device-width: 1366px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {}
+
+
+/*++++++++++++++++++++++++++++++
+Apple iPad Device Responsive End
+++++++++++++++++++++++++++++++++*/
+
+
+/*####################################################################################################################*/
+
+
+/*+++++++++++++++++++++++++++++++++++
+Galaxy Tablet Device Responsive Start
++++++++++++++++++++++++++++++++++++++*/
+
+
+/* ----------- Galaxy Tab 2 ----------- */
+
+
+/* Portrait and Landscape */
+
+@media (min-device-width: 800px) and (max-device-width: 1280px) {}
+
+
+/* Portrait */
+
+@media (max-device-width: 800px) and (orientation: portrait) {}
+
+
+/* Landscape */
+
+@media (max-device-width: 1280px) and (orientation: landscape) {}
+
+
+/* ----------- Galaxy Tab S ----------- */
+
+
+/* Portrait and Landscape */
+
+@media (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 2) {}
+
+
+/* Portrait */
+
+@media (max-device-width: 800px) and (orientation: portrait) and (-webkit-min-device-pixel-ratio: 2) {}
+
+
+/* Landscape */
+
+@media (max-device-width: 1280px) and (orientation: landscape) and (-webkit-min-device-pixel-ratio: 2) {}
+
+
+/*+++++++++++++++++++++++++++++++++++
+Galaxy Tablet Device Responsive End
++++++++++++++++++++++++++++++++++++++*/
+
+
+/*####################################################################################################################*/
+
+
+/*+++++++++++++++++++++++++++++++++++
+Nexus Tablet Device Responsive Start
++++++++++++++++++++++++++++++++++++++*/
+
+
+/* ----------- Nexus 7 ----------- */
+
+
+/* Portrait and Landscape */
+
+@media screen and (device-width: 600px) and (device-height: 906px) and (-webkit-min-device-pixel-ratio: 1.331) and (-webkit-max-device-pixel-ratio: 1.332) {
+    .contact-us-col-right {
+        margin-left: 0px !important;
+    }
+    .first_name,
+    .last_name,
+    .from-email,
+    .form_message-box {
+        width: 365px !important;
+    }
+}
+
+
+/* Portrait */
+
+@media screen and (device-width: 600px) and (device-height: 906px) and (-webkit-min-device-pixel-ratio: 1.331) and (-webkit-max-device-pixel-ratio: 1.332) and (orientation: portrait) {
+    .contact-us-col-right {
+        padding: 24px 64px 0px;
+        background: #F6F6F6;
+        margin-left: 0px !important;
+    }
+    .first_name,
+    .last_name,
+    .from-email,
+    .form_message-box {
+        width: 365px;
+    }
+}
+
+
+/* Landscape */
+
+@media screen and (device-width: 601px) and (device-height: 906px) and (-webkit-min-device-pixel-ratio: 1.331) and (-webkit-max-device-pixel-ratio: 1.332) and (orientation: landscape) {}
+
+
+/* ----------- Nexus 9 ----------- */
+
+
+/* Portrait and Landscape */
+
+@media screen and (device-width: 1536px) and (device-height: 2048px) and (-webkit-min-device-pixel-ratio: 1.331) and (-webkit-max-device-pixel-ratio: 1.332) {}
+
+
+/* Portrait */
+
+@media screen and (device-width: 1536px) and (device-height: 2048px) and (-webkit-min-device-pixel-ratio: 1.331) and (-webkit-max-device-pixel-ratio: 1.332) and (orientation: portrait) {}
+
+
+/* Landscape */
+
+@media screen and (device-width: 1536px) and (device-height: 2048px) and (-webkit-min-device-pixel-ratio: 1.331) and (-webkit-max-device-pixel-ratio: 1.332) and (orientation: landscape) {}
+
+
+/*+++++++++++++++++++++++++++++++++++
+Nexus Tablet Device Responsive End
++++++++++++++++++++++++++++++++++++++*/
+
+
+/*####################################################################################################################*/
+
+
+/*++++++++++++++++++++++++++++++++++++++++
+Kindle Fire Tablet Device Responsive Start
+++++++++++++++++++++++++++++++++++++++++++*/
+
+
+/* ----------- Kindle Fire HD 7" ----------- */
+
+
+/* Portrait and Landscape */
+
+@media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1.5) {}
+
+
+/* Portrait */
+
+@media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1.5) and (orientation: portrait) {}
+
+
+/* Landscape */
+
+@media only screen and (min-device-width: 800px) and (max-device-width: 1280px) and (-webkit-min-device-pixel-ratio: 1.5) and (orientation: landscape) {}
+
+
+/* ----------- Kindle Fire HD 8.9" ----------- */
+
+
+/* Portrait and Landscape */
+
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1.5) {}
+
+
+/* Portrait */
+
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1.5) and (orientation: portrait) {}
+
+
+/* Landscape */
+
+@media only screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1.5) and (orientation: landscape) {}
+
+
+/*++++++++++++++++++++++++++++++++++++++++
+Kindle Fire Tablet Device Responsive End
+++++++++++++++++++++++++++++++++++++++++++*/
+
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+							Tablets End
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+							Laptop Start
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+
+/* ----------- Non-Retina Screens ----------- */
+
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+    /* Contractor Profile Section Start */
+    .contractor-profile {
+        padding: 0px 15px;
+        width: 400px;
+        margin: auto;
+    }
+    /* Contractor Profile Section End */
+}
+
+@media screen and (min-device-width: 1280px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 1) {
+    /* Contractor Profile Section Start */
+    .contractor-profile {
+        padding: 0px 15px;
+        width: 355px;
+        margin: auto;
+    }
+    .contractor-job-complete {
+        padding: 0px 10px;
+        font-size: 14px;
+    }
+    .contractor-ratings {
+        float: right;
+        text-align: center;
+        padding: 0px 10px;
+    }
+    .contractor-profile-description p {
+        font-size: 14px;
+    }
+    /* Contractor Profile Section End */
+}
+
+
+/* ----------- Retina Screens ----------- */
+
+@media screen and (min-device-width: 1200px) and (max-device-width: 1600px) and (-webkit-min-device-pixel-ratio: 2) and (min-resolution: 192dpi) {}
+
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+							Laptop End
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+							Wearable Start
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+
+/* ----------- Apple Watch ----------- */
+
+@media (max-device-width: 42mm) and (min-device-width: 38mm) {}
+
+
+/* ----------- Moto 360 Watch ----------- */
+
+@media (max-device-width: 218px) and (max-device-height: 281px) {}
+
+
+/*@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+							Wearable End
+@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@*/
+
+
+/*####################################################################################################################*/
+
+
+/* Others Universal Device Responsive CSS Start  */
+
+
+/*++++++++++++++++++++++++++++++++++++++++
+Smartphones (portrait and landscape) Start 
+++++++++++++++++++++++++++++++++++++++++++*/
+
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    /* Write your style here */
+}
+
+
+/* Portrait */
+
+@media screen and (orientation:portrait) {
+    /* Write your style here */
+}
+
+
+/* Landscape */
+
+@media screen and (orientation:landscape) {
+    /* Landscape styles */
+}
+
+
+/*++++++++++++++++++++++++++++++++++++++++
+Smartphones (portrait and landscape) End 
+++++++++++++++++++++++++++++++++++++++++++*/
+
+
+/* Desktops and laptops ----------- */
+
+@media only screen and (min-width: 1224px) {
+    /* Styles */
+}
+
+@media all and (min-width: 1024px) and (max-width: 1280px) {}
+
+@media all and (min-width: 768px) and (max-width: 1024px) {}
+
+@media all and (min-width: 480px) and (max-width: 768px) {}
+
+@media all and (max-width: 480px) {}
+
+
+/* Small screens - MOBILE */
+
+@media only screen {}
+
+
+/* Define mobile styles - Mobile First */
+
+@media only screen and (max-width: 40em) {}
+
+
+/* max-width 640px, mobile-only styles, use when QAing mobile issues */
+
+
+/* Medium screens - TABLET */
+
+@media only screen and (min-width: 40.063em) {}
+
+
+/* min-width 641px, medium screens */
+
+@media only screen and (min-width: 40.063em) and (max-width: 64em) {}
+
+
+/* min-width 641px and max-width 1024px, use when QAing tablet-only issues */
+
+
+/* Large screens - DESKTOP */
+
+@media only screen and (min-width: 64.063em) {}
+
+
+/* min-width 1025px, large screens */
+
+@media only screen and (min-width: 64.063em) and (max-width: 90em) {}
+
+
+/* min-width 1024px and max-width 1440px, use when QAing large screen-only issues */
+
+
+/* XLarge screens */
+
+@media only screen and (min-width: 90.063em) {}
+
+
+/* min-width 1441px, xlarge screens */
+
+@media only screen and (min-width: 90.063em) and (max-width: 120em) {}
+
+
+/* min-width 1441px and max-width 1920px, use when QAing xlarge screen-only issues */
+
+
+/* XXLarge screens */
+
+@media only screen and (min-width: 120.063em) {}
+
+
+/* min-width 1921px, xlarge screens */
+
+
+/*------------------------------------------*/
+
+
+/* Portrait */
+
+@media screen and (orientation:portrait) {
+    /* Portrait styles here */
+}
+
+
+/* Landscape */
+
+@media screen and (orientation:landscape) {
+    /* Landscape styles here */
+}
+
+
+/* Others Universal Device Responsive CSS End */
