@@ -8,1267 +8,1232 @@
     
 */
 
-
 /* ===Google font Connected Here=== */
 
-@import url('https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cabin:ital,wght@0,400;0,500;0,600;0,700;1,700&display=swap");
 
 /* ===Custom Font Connected here=== */
 
 @font-face {
-    src: url(../segoe-ui-4-cufonfonts-webfont/seguisb.ttf);
-    font-family: 'Segoe UI';
-    font-weight: 600;
+  src: url(../segoe-ui-4-cufonfonts-webfont/seguisb.ttf);
+  font-family: "Segoe UI";
+  font-weight: 600;
 }
-
 
 /* ===Default CSS Start=== */
 
 * {
-    margin: 0;
-    padding: 0;
-    outline: 0;
-    list-style: none;
-    text-decoration: none;
+  margin: 0;
+  padding: 0;
+  outline: 0;
+  list-style: none;
+  text-decoration: none;
 }
 
 .clr {
-    clear: both;
+  clear: both;
 }
 
 body {
-    font-family: var(--default-font-family) !important;
+  font-family: var(--default-font-family) !important;
 }
 
-
 /* ===Default CSS End=== */
-
 
 /* ===Default CSS Varriables Start === */
 
 :root {
-    --default-font-family: 'Cabin', sans-serif;
-    --font-color-1: #707070;
-    --font-color-2: #DB4128;
-    --banner-background-color: #E5E5E5;
+  --default-font-family: "Cabin", sans-serif;
+  --font-color-1: #707070;
+  --font-color-2: #db4128;
+  --banner-background-color: #e5e5e5;
 }
 
-
 /* ===Default CSS Varriables End === */
-
 
 /* ===Navigation Bar Section Start=== */
 
 .logo {
-    float: left;
+  float: left;
 }
 
 .logo a img {
-    width: 173px;
-    height: 76px;
+  width: 173px;
+  height: 76px;
 }
 
 .menu {
-    float: right;
+  float: right;
 }
 
 .menu ul {
-    margin-bottom: 0px !important;
+  margin-bottom: 0px !important;
 }
 
 .menu ul li {
-    display: inline-block;
-    padding: 25px 0px;
+  display: inline-block;
+  padding: 25px 0px;
 }
 
 .menu ul li a {
-    display: block;
-    color: #707070;
-    transition: all linear .5s;
-    font-size: 18px;
-    padding: 0px 10px;
-    font-family: var(--default-font-family);
-    font-weight: bold;
+  display: block;
+  color: #707070;
+  transition: all linear 0.5s;
+  font-size: 18px;
+  padding: 0px 10px;
+  font-family: var(--default-font-family);
+  font-weight: bold;
 }
 
 .menu ul li a:hover {
-    color: var(--font-color-2);
-    text-decoration: none;
+  color: var(--font-color-2);
+  text-decoration: none;
 }
 
 .main_nav {
-    padding: 25px 0px;
+  padding: 25px 0px;
 }
 
 #check {
-    display: none;
+  display: none;
 }
 
 .menu label {
-    display: none !important;
+  display: none !important;
 }
 
 .chck_bx i {
-    display: none;
+  display: none;
 }
 
-
 /* ===Navigation Bar Section End=== */
-
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         Home Page CSS Start
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
-
 /* ===Banner Section Start=== */
 
 .banner-main {
-    background: #FBFBFB;
+  background: #fbfbfb;
 }
 
 .banner-content {
-    padding-top: 125px;
+  padding-top: 125px;
 }
 
 .banner-content h2 {
-    font-family: var(--default-font-family);
-    font-weight: 700;
-    font-size: 40px;
+  font-family: var(--default-font-family);
+  font-weight: 700;
+  font-size: 40px;
 }
 
 .banner-content h2 span {
-    color: #DB4128;
+  color: #db4128;
 }
 
 form.banner_email-subscribe {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 
 input.banner_subscribe_form::placeholder {
-    color: #db4128;
+  color: #db4128;
 }
 
 input.banner_subscribe_form {
-    width: 270px;
-    height: 40px;
-    padding: 15px;
-    font-size: 14px;
-    color: #db4128;
-    border: 1px solid #db4128;
-    border-radius: 2px;
-    font-family: var(--default-font-family);
-    font-weight: 400;
+  width: 270px;
+  height: 40px;
+  padding: 15px;
+  font-size: 14px;
+  color: #db4128;
+  border: 1px solid #db4128;
+  border-radius: 2px;
+  font-family: var(--default-font-family);
+  font-weight: 400;
 }
 
 input.subscribe_btn {
-    background: #db4128;
-    border: 0;
-    color: #fff;
-    width: 120px;
-    height: 40px;
-    font-family: var(--default-font-family);
-    font-weight: 600;
+  background: #db4128;
+  border: 0;
+  color: #fff;
+  width: 120px;
+  height: 40px;
+  font-family: var(--default-font-family);
+  font-weight: 600;
 }
 
 span.trend_search_title {
-    color: #5BB6D5;
+  color: #5bb6d5;
 }
 
 .trust_priority {
-    margin-bottom: 0 !important;
-    margin-top: 41px;
+  margin-bottom: 0 !important;
+  margin-top: 41px;
 }
 
 ul.trust_priority li {
-    display: inline-block;
-    padding: 10px 15px;
+  display: inline-block;
+  padding: 10px 15px;
 }
 
 a.trust_list {
-    color: #111;
-    text-transform: uppercase;
-    font-family: 'Cabin';
-    font-weight: bold;
+  color: #111;
+  text-transform: uppercase;
+  font-family: "Cabin";
+  font-weight: bold;
 }
 
 a.trust_list-1 {
-    position: relative;
+  position: relative;
 }
 
 a.trust_list-2 {
-    position: relative;
+  position: relative;
 }
 
 a.trust_list-3 {
-    position: relative;
+  position: relative;
 }
 
 a.trust_list-1::after {
-    position: absolute;
-    content: "";
-    height: 10px;
-    width: 10px;
-    background: #FFDA44;
-    border-radius: 50%;
-    top: -10px;
-    right: -20px;
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  background: #ffda44;
+  border-radius: 50%;
+  top: -10px;
+  right: -20px;
 }
 
 a.trust_list-2::after {
-    position: absolute;
-    content: "";
-    height: 10px;
-    width: 10px;
-    background: #FF444F;
-    border-radius: 50%;
-    top: -10px;
-    right: -20px;
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  background: #ff444f;
+  border-radius: 50%;
+  top: -10px;
+  right: -20px;
 }
 
 a.trust_list-3::after {
-    position: absolute;
-    content: "";
-    height: 10px;
-    width: 10px;
-    background: #5BB6D5;
-    border-radius: 50%;
-    top: -10px;
-    right: -20px;
+  position: absolute;
+  content: "";
+  height: 10px;
+  width: 10px;
+  background: #5bb6d5;
+  border-radius: 50%;
+  top: -10px;
+  right: -20px;
 }
 
 a.trust_list:hover {
-    text-decoration: none;
-    color: #111;
+  text-decoration: none;
+  color: #111;
 }
 
 .banner_side_img {
-    position: relative;
-    text-align: center;
-    width: 450px;
+  position: relative;
+  text-align: center;
+  width: 450px;
 }
 
 .banner_side_img::after {
-    position: absolute;
-    content: '';
-    height: 40px;
-    width: 40px;
-    background: #FFDA44;
-    top: 25px;
-    left: 30px;
+  position: absolute;
+  content: "";
+  height: 40px;
+  width: 40px;
+  background: #ffda44;
+  top: 25px;
+  left: 30px;
 }
 
 .banner_side_img::before {
-    position: absolute;
-    content: '';
-    height: 28px;
-    width: 28px;
-    background: #FF8859;
-    top: 80px;
-    left: -5px;
+  position: absolute;
+  content: "";
+  height: 28px;
+  width: 28px;
+  background: #ff8859;
+  top: 80px;
+  left: -5px;
 }
 
-
 /* ===Banner Section End=== */
-
 
 /* ===Service Section Start=== */
 
 .service_main {
-    padding: 40px 0px;
+  padding: 40px 0px;
 }
 
 .service-head h2 {
-    font-family: 'Segoe UI';
-    font-size: 32px;
-    color: #03040E;
+  font-family: "Segoe UI";
+  font-size: 32px;
+  color: #03040e;
 }
 
 .service-list {
-    margin-top: 40px;
+  margin-top: 40px;
 }
 
 .service-list-1 {
-    padding: 0px 85px;
+  padding: 0px 85px;
 }
 
 .service-list-2 {
-    padding: 44.5px 85px;
+  padding: 44.5px 85px;
 }
 
 .services {
-    text-align: center;
-    /* height: 197px; */
-    width: 196px;
-    margin: auto;
-    padding: 25px 0px;
-    box-shadow: 0px 0px 70px -17px rgb(0 0 0 / 16%);
-    transition: all linear .5s;
+  text-align: center;
+  /* height: 197px; */
+  width: 196px;
+  margin: auto;
+  padding: 25px 0px;
+  box-shadow: 0px 0px 70px -17px rgb(0 0 0 / 16%);
+  transition: all linear 0.5s;
 }
 
-.services:hover>.service_title {
-    color: #fff;
+.services:hover > .service_title {
+  color: #fff;
 }
 
-.services:hover>i {
-    color: #fff;
+.services:hover > i {
+  color: #fff;
 }
 
 .services:hover {
-    background: #DB4128;
-    color: #fff;
+  background: #db4128;
+  color: #fff;
 }
 
 span.service_title {
-    display: block;
-    font-size: 18px;
-    color: #707070;
-    transition: all linear .5s;
+  display: block;
+  font-size: 18px;
+  color: #707070;
+  transition: all linear 0.5s;
 }
 
 .services i {
-    font-size: 60px;
-    color: #707070;
-    transition: all linear .5s;
+  font-size: 60px;
+  color: #707070;
+  transition: all linear 0.5s;
 }
 
-
 /* ===Service Section End=== */
-
 
 /* ===About Section Start=== */
 
 .about-col-left {
-    position: relative;
+  position: relative;
 }
 
 .about-col-left::before {
-    position: absolute;
-    content: '';
-    height: 28px;
-    width: 28px;
-    background: #FF415B;
-    top: 155px;
-    right: 37px;
+  position: absolute;
+  content: "";
+  height: 28px;
+  width: 28px;
+  background: #ff415b;
+  top: 155px;
+  right: 37px;
 }
 
 .about-col-left::after {
-    position: absolute;
-    content: '';
-    height: 40px;
-    width: 40px;
-    background: #FFDA44;
-    top: 100px;
-    right: -15px;
+  position: absolute;
+  content: "";
+  height: 40px;
+  width: 40px;
+  background: #ffda44;
+  top: 100px;
+  right: -15px;
 }
 
 .about-content {
-    padding: 90px 0px 0px 60px;
+  padding: 90px 0px 0px 60px;
 }
 
 .about-content h2 {
-    font-family: 'Segoe UI';
-    font-size: 32px;
-    color: #03040E;
+  font-family: "Segoe UI";
+  font-size: 32px;
+  color: #03040e;
 }
 
 .about-content p {
-    font-size: 18px;
-    font-family: 'Cabin';
-    color: #707070;
+  font-size: 18px;
+  font-family: "Cabin";
+  color: #707070;
 }
 
-
 /* ===About Section End=== */
-
 
 /* ===contractor Profile Section Start=== */
 
 .contractor-main {
-    padding: 70px 0px;
+  padding: 70px 0px;
 }
 
 .contractor-profile-main {
-    padding: 40px 90px;
+  padding: 40px 90px;
 }
 
 .contractor-profile {
-    padding: 0px 15px;
-    width: 520px;
+  padding: 0px 15px;
+  /* width: 520px; */
+  width: 100%;
 }
 
 .contractor-profile-img {
-    position: relative;
+  position: relative;
 }
 
 a.hire-now-btn {
-    position: absolute;
-    bottom: 25px;
-    right: 40px;
-    display: block;
-    background: #DB4128;
-    color: #fff;
-    font-family: 'Cabin';
-    font-weight: 600;
-    font-size: 14px;
-    width: 100px;
-    height: 40px;
-    text-align: center;
-    line-height: 40px;
+  position: absolute;
+  bottom: 25px;
+  right: 40px;
+  display: block;
+  background: #db4128;
+  color: #fff;
+  font-family: "Cabin";
+  font-weight: 600;
+  font-size: 14px;
+  width: 100px;
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
 }
 
 a.hire-now-btn:hover {
-    text-decoration: none;
-    color: #fff;
+  text-decoration: none;
+  color: #fff;
 }
 
 .contractor-profile-title {
-    margin-top: 10px;
-    margin-bottom: 10px;
-    display: block;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  display: block;
 }
 
 .contractor-name-designation {
-    float: left;
+  float: left;
 }
 
 .contractor-job-complete {
-    display: inline-block;
+  display: inline-block;
 }
 
 .contractor-ratings {
-    float: right;
+  float: right;
 }
 
 .contractor-job-complete {
-    display: inline-block;
-    text-align: center;
-    padding: 0px 90px;
+  display: inline-block;
+  text-align: center;
+  padding: 0px 90px;
 }
 
 .contractor-ratings {
-    float: right;
-    text-align: center;
-    padding: 10px 4px;
+  float: right;
+  text-align: center;
+  padding: 10px 4px;
 }
 
 .contractor-name-designation h5 {
-    font-family: 'Cabin';
-    font-weight: 400;
-    color: #03040E;
+  font-family: "Cabin";
+  font-weight: 400;
+  color: #03040e;
 }
 
 span.contractor-job-done {
-    font-family: 'Cabin';
-    font-weight: 400;
-    color: #03040E;
+  font-family: "Cabin";
+  font-weight: 400;
+  color: #03040e;
 }
 
 span.contractor-designation {
-    color: #DB4128;
-    font-family: 'Cabin';
-    font-weight: bold;
+  color: #db4128;
+  font-family: "Cabin";
+  font-weight: bold;
 }
 
 .contractor-profile-description p {
-    font-family: 'Cabin';
-    font-weight: 400;
-    color: #03040E;
+  font-family: "Cabin";
+  font-weight: 400;
+  color: #03040e;
 }
 
 .contractor-name-designation {
-    display: inline-block;
+  display: inline-block;
 }
 
 ul.cnc-rate {
-    margin-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 ul.cnc-rate li {
-    display: inline-block;
-    font-size: 13px;
-    color: #DB4128;
+  display: inline-block;
+  font-size: 13px;
+  color: #db4128;
 }
 
-
 /* ===contractor Profile Section End=== */
-
 
 /* ===Contact Section Start=== */
 
 .contact-us_main {
-    padding: 60px 0px 100px;
+  padding: 60px 0px 100px;
 }
 
 .contact-us-col-right {
-    padding: 24px 64px 0px;
-    background: #F6F6F6;
-    margin-left: -30px;
+  padding: 24px 64px 0px;
+  background: #f6f6f6;
+  margin-left: -30px;
 }
 
 .contact-us-right-title h3 {
-    color: #DB4128;
-    font-size: 32px;
-    font-family: var(--default-font-family);
-    font-weight: bold;
+  color: #db4128;
+  font-size: 32px;
+  font-family: var(--default-font-family);
+  font-weight: bold;
 }
 
 .form-first-name label,
 .form-last-name label,
 .form-email label,
 .form-message-box label {
-    display: block;
-    font-family: var(--default-font-family);
-    font-weight: 400;
-    color: #383838;
+  display: block;
+  font-family: var(--default-font-family);
+  font-weight: 400;
+  color: #383838;
 }
 
 .form-first-name,
 .form-last-name,
 .form-email,
 .form-message-box {
-    margin-top: 10px;
+  margin-top: 10px;
 }
 
 .first_name,
 .last_name,
 .from-email {
-    width: 365px;
-    height: 45px;
-    padding: 15px;
-    border: 0;
-    font-weight: 400;
-    font-family: var(--default-font-family);
-    color: #999999;
+  width: 365px;
+  height: 45px;
+  padding: 15px;
+  border: 0;
+  font-weight: 400;
+  font-family: var(--default-font-family);
+  color: #999999;
 }
 
 .form_message-box {
-    width: 365px;
-    height: 105px;
-    border: 0;
-    padding: 15px;
-    font-family: var(--default-font-family);
+  width: 365px;
+  height: 105px;
+  border: 0;
+  padding: 15px;
+  font-family: var(--default-font-family);
 }
 
 .form-submit {
-    text-align: right;
-    margin-right: 75px;
-    margin-top: 10px;
-    padding-bottom: 40px;
+  text-align: right;
+  margin-right: 75px;
+  margin-top: 10px;
+  padding-bottom: 40px;
 }
 
 input.form_submit-btn {
-    background: #db4128;
-    border: 0;
-    color: #fff;
-    font-size: 16px;
-    width: 150px;
-    height: 50px;
-    line-height: 50px;
+  background: #db4128;
+  border: 0;
+  color: #fff;
+  font-size: 16px;
+  width: 150px;
+  height: 50px;
+  line-height: 50px;
 }
 
-
 /* ===Contact Section End=== */
-
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         Home Page CSS End
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
-
 /* ===Footer Section Start=== */
 
 .footer-main {
-    background: #db4128;
+  background: #db4128;
 }
 
 .footer-left-logo {
-    float: left;
+  float: left;
 }
 
 .footer-right-nav {
-    float: right;
+  float: right;
 }
 
 ul.footer-nav {
-    margin-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 ul.footer-nav li {
-    display: inline-block;
+  display: inline-block;
 }
 
 ul.footer-nav li a {
-    display: block;
-    color: #fff;
-    font-family: var(--default-font-family);
-    font-weight: 400;
-    font-size: 18px;
-    padding: 25px 20px;
+  display: block;
+  color: #fff;
+  font-family: var(--default-font-family);
+  font-weight: 400;
+  font-size: 18px;
+  padding: 25px 20px;
 }
 
 ul.footer-nav li a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .footer-main {
-    background: #db4128;
-    padding: 30px 0px;
+  background: #db4128;
+  padding: 30px 0px;
 }
 
-
 /* ===Footer Section End=== */
-
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         Service Page CSS Start
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
-
 /* ====Breadcumb Section Start=== */
 
 .breadcumb-main {
-    background: url(../img/service-page-breadcumb-bg.png);
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+  background: url(../img/service-page-breadcumb-bg.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
 }
 
 .breadcumb-title h2 {
-    margin-bottom: 0 !important;
-    font-family: var(--default-font-family);
-    font-weight: bold;
-    color: #fff;
-    font-size: 56px;
+  margin-bottom: 0 !important;
+  font-family: var(--default-font-family);
+  font-weight: bold;
+  color: #fff;
+  font-size: 56px;
 }
 
 .breadcumb-title {
-    padding: 285px 0px;
+  padding: 285px 0px;
 }
 
-
 /* ====Breadcumb Section End=== */
-
 
 /* ===Page link Section Start=== */
 
 .page_link {
-    text-align: right;
-    padding: 30px 0px;
+  text-align: right;
+  padding: 30px 0px;
 }
 
 ul.page-link-list {
-    margin-bottom: 0 !important;
-    display: inline-block;
+  margin-bottom: 0 !important;
+  display: inline-block;
 }
 
 span.page-link_name {
-    color: #db4128;
-    font-weight: bold;
-    margin-right: 10px;
+  color: #db4128;
+  font-weight: bold;
+  margin-right: 10px;
 }
 
 ul.page-link-list li {
-    display: inline-block;
+  display: inline-block;
 }
 
 ul.page-link-list li a {
-    color: #ADBACC;
-    letter-spacing: 2px;
-    padding: 5px;
+  color: #adbacc;
+  letter-spacing: 2px;
+  padding: 5px;
 }
 
 ul.page-link-list li a:hover {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 a.page-active {
-    color: #DB4128 !important;
+  color: #db4128 !important;
 }
 
 a.page-next-key {
-    color: #DB4128 !important;
+  color: #db4128 !important;
 }
 
-
 /* ===Page link Section End=== */
-
 
 /* ===Service Profile Card Section Start=== */
 
 .service-card-body {
-    border: 1px solid #bdbdbd70;
-    border-radius: 1px;
-    padding: 45px 45px;
+  border: 1px solid #bdbdbd70;
+  border-radius: 1px;
+  padding: 45px 45px;
 }
 
 .scb-profile-details {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .scb-rate {
-    text-align: center;
+  text-align: center;
 }
 
 .scb-hire-btn {
-    text-align: center;
+  text-align: center;
 }
 
 a.scb-hire_btn {
-    background: #DB4128;
-    width: 119px;
-    height: 56px;
-    display: inline-block;
-    line-height: 56px;
-    color: #fff;
-    margin-top: 70px;
+  background: #db4128;
+  width: 119px;
+  height: 56px;
+  display: inline-block;
+  line-height: 56px;
+  color: #fff;
+  margin-top: 70px;
 }
 
 a.scb-hire_btn:hover {
-    text-decoration: none;
-    color: #fff;
+  text-decoration: none;
+  color: #fff;
 }
 
 .scb-rate {
-    text-align: center;
-    font-size: 32px;
-    color: #03040E;
-    font-weight: bold;
+  text-align: center;
+  font-size: 32px;
+  color: #03040e;
+  font-weight: bold;
 }
 
 span.scb-job-rate ul {
-    margin-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 span.scb-job-rate ul li {
-    display: inline-block;
-    color: #DB4128;
-    font-size: 12px;
+  display: inline-block;
+  color: #db4128;
+  font-size: 12px;
 }
 
 span.scb-job-rate {
-    display: inline-block;
+  display: inline-block;
 }
 
 span.scb-job-done {
-    color: #000000;
-    font-size: 14px;
-    display: inline-block;
-    margin-left: 10px;
-    font-weight: bold;
+  color: #000000;
+  font-size: 14px;
+  display: inline-block;
+  margin-left: 10px;
+  font-weight: bold;
 }
 
 span.scb-job-done span {
-    color: #707070;
+  color: #707070;
 }
 
 span.scb-ability {
-    display: block;
-    color: #DB4128;
-    font-weight: bold;
-    font-size: 18px;
-    margin-bottom: 10px;
+  display: block;
+  color: #db4128;
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 10px;
 }
 
 span.scb-date {
-    color: #707070;
-    font-size: 14px;
+  color: #707070;
+  font-size: 14px;
 }
 
 span.scb-date {
-    color: #707070;
-    font-size: 14px;
-    font-weight: bold;
+  color: #707070;
+  font-size: 14px;
+  font-weight: bold;
 }
 
 span.scb-time {
-    color: #03040E;
-    font-size: 14px;
-    font-weight: bold;
-    margin-left: 15px;
+  color: #03040e;
+  font-size: 14px;
+  font-weight: bold;
+  margin-left: 15px;
 }
 
 .scb-profile-details h5 {
-    font-weight: bold;
-    text-transform: uppercase;
+  font-weight: bold;
+  text-transform: uppercase;
 }
 
 .scb-profile-description p {
-    color: #707070;
+  color: #707070;
 }
 
-
 /* ===Service Profile Card Section End=== */
-
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         Service Page CSS End
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
-
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         Profile and Booking page Start
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
-
 /* ===Profile Section Start=== */
 
 .profile-main {
-    padding: 70px 0px;
-    background: #f2f2f269;
+  padding: 70px 0px;
+  background: #f2f2f269;
 }
 
 .all-reviews-main {
-    padding: 115px 0px;
+  padding: 115px 0px;
 }
 
 .profile-card-details {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 h3.profile-title {
-    text-transform: uppercase;
-    font-weight: bold;
-    margin-top: 30px;
-    margin-bottom: 30px;
+  text-transform: uppercase;
+  font-weight: bold;
+  margin-top: 30px;
+  margin-bottom: 30px;
 }
 
 p.profile-description {
-    font-size: 14px;
+  font-size: 14px;
 }
 
 span.profile-review {
-    font-weight: bold;
+  font-weight: bold;
 }
 
 span.profile-rating ul {
-    margin-bottom: 0 !important;
-    display: inline-block;
+  margin-bottom: 0 !important;
+  display: inline-block;
 }
 
 span.profile-rating ul li {
-    display: inline-block;
-    color: #db4128;
+  display: inline-block;
+  color: #db4128;
 }
 
 span.profile-rating {
-    margin-left: 115px;
+  margin-left: 115px;
 }
 
 .job-description-box {
-    width: 750px;
-    height: 185px;
-    background: #F0F0F0;
-    border: 0;
-    padding: 25px;
+  width: 750px;
+  height: 185px;
+  background: #f0f0f0;
+  border: 0;
+  padding: 25px;
 }
 
 .calender-head ul {
-    margin-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .calender-head ul li {
-    display: inline-block;
-    color: #fff;
-    padding: 0px 40px;
+  display: inline-block;
+  color: #fff;
+  padding: 0px 40px;
 }
 
 .calender-head ul li a {
-    color: #fff;
+  color: #fff;
 }
 
 .order-calender {
-    background: #db4128;
-    text-align: center;
+  background: #db4128;
+  text-align: center;
 }
 
 .calender-date table {
-    margin: auto;
+  margin: auto;
 }
 
 .calender-date table th {
-    color: #fff;
+  color: #fff;
 }
 
 .calender-date table tr td {
-    color: #fff;
-    padding: 10px;
+  color: #fff;
+  padding: 10px;
 }
 
 .calender-body {
-    padding: 25px 0px;
+  padding: 25px 0px;
 }
 
 td.prev-month,
 td.next-month {
-    color: #FFDA44 !important;
-    font-weight: 400 !important;
+  color: #ffda44 !important;
+  font-weight: 400 !important;
 }
 
 td.active-date {
-    background: #fff;
-    color: #db4128 !important;
-    border-radius: 10px;
+  background: #fff;
+  color: #db4128 !important;
+  border-radius: 10px;
 }
 
 .calender-date {
-    margin-top: 15px;
+  margin-top: 15px;
 }
 
 .avt-slot ul {
-    margin-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .avt-slot ul li {
-    display: inline-block;
+  display: inline-block;
 }
 
 .avt-slot ul li a {
-    display: block;
-    width: 79px;
-    height: 34px;
-    background: #F3F3F3;
-    color: #DB4128;
-    line-height: 34px;
-    text-align: center;
-    border-radius: 50px;
-    text-decoration: none;
+  display: block;
+  width: 79px;
+  height: 34px;
+  background: #f3f3f3;
+  color: #db4128;
+  line-height: 34px;
+  text-align: center;
+  border-radius: 50px;
+  text-decoration: none;
 }
 
 a.active-time {
-    background: #DB4128 !important;
-    color: #fff !important;
+  background: #db4128 !important;
+  color: #fff !important;
 }
 
 .profile-ability {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .select-hours-opt {
-    width: 127px;
-    height: 34px;
-    line-height: 34px;
-    padding: 0px 20px;
-    border-radius: 50px;
-    border: 0;
-    background: #F3F3F3;
-    color: #000;
+  width: 127px;
+  height: 34px;
+  line-height: 34px;
+  padding: 0px 20px;
+  border-radius: 50px;
+  border: 0;
+  background: #f3f3f3;
+  color: #000;
 }
 
 .select-hours-opt {
-    width: 127px;
-    height: 34px;
-    line-height: 34px;
-    padding: 0px 20px;
-    border-radius: 50px;
-    border: 0;
-    background: #F3F3F3;
-    color: #000;
+  width: 127px;
+  height: 34px;
+  line-height: 34px;
+  padding: 0px 20px;
+  border-radius: 50px;
+  border: 0;
+  background: #f3f3f3;
+  color: #000;
 }
 
 span.duration-title {
-    font-weight: bold;
-    margin-right: 20px;
+  font-weight: bold;
+  margin-right: 20px;
 }
 
 .avt-duration {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 
 .hire-now ul {
-    margin-bottom: 0 !important;
+  margin-bottom: 0 !important;
 }
 
 .hire-now ul li {
-    display: inline-block;
+  display: inline-block;
 }
 
 .hire-now {
-    text-align: right;
-    padding-top: 150px;
+  text-align: right;
+  padding-top: 150px;
 }
 
 .hire-now ul li a {
-    display: block;
-    width: 120px;
-    height: 55px;
-    line-height: 55px;
-    text-align: center;
-    text-decoration: none;
+  display: block;
+  width: 120px;
+  height: 55px;
+  line-height: 55px;
+  text-align: center;
+  text-decoration: none;
 }
 
 .go-back-btn {
-    background: #FFE2DD;
-    color: #db4128;
-    font-weight: bold;
+  background: #ffe2dd;
+  color: #db4128;
+  font-weight: bold;
 }
 
 .go-back-btn:hover {
-    color: #DB4128;
+  color: #db4128;
 }
 
 .booking-hire-now-btn {
-    background: #DB4128;
-    color: #fff;
+  background: #db4128;
+  color: #fff;
 }
 
 .booking-hire-now-btn:hover {
-    color: #fff;
+  color: #fff;
 }
 
 .review-head h5 span i {
-    color: #DB4128;
+  color: #db4128;
 }
 
 span.review-job-done {
-    color: #707070;
+  color: #707070;
 }
 
 .review-body {
-    border: .5px solid #7070705c;
-    border-radius: 28px;
-    padding: 40px;
+  border: 0.5px solid #7070705c;
+  border-radius: 28px;
+  padding: 40px;
 }
 
 h6.client_name {
-    font-weight: 400;
+  font-weight: 400;
 }
 
 h6.client_name i {
-    color: #DB4128;
-    padding: 0px 5px;
+  color: #db4128;
+  padding: 0px 5px;
 }
 
 .client-review-text p {
-    color: #707070;
-    font-weight: 400;
+  color: #707070;
+  font-weight: 400;
 }
 
 .client-reivew {
-    padding: 15px 0px;
-    position: relative;
-    margin-top: 10px;
+  padding: 15px 0px;
+  position: relative;
+  margin-top: 10px;
 }
 
 .client-reivew::after {
-    position: absolute;
-    bottom: 0;
-    right: 50%;
-    height: .2px;
-    width: 1030px;
-    content: "";
-    background: #707070;
-    transform: translate(50%, 50%);
-    opacity: .2;
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  height: 0.2px;
+  width: 1030px;
+  content: "";
+  background: #707070;
+  transform: translate(50%, 50%);
+  opacity: 0.2;
 }
 
 .review-head {
-    padding: 15px 0px;
-    position: relative;
+  padding: 15px 0px;
+  position: relative;
 }
 
 .review-head::after {
-    position: absolute;
-    bottom: 0;
-    right: 50%;
-    height: .2px;
-    width: 1030px;
-    content: "";
-    background: #707070;
-    transform: translate(50%, 50%);
-    opacity: .2;
+  position: absolute;
+  bottom: 0;
+  right: 50%;
+  height: 0.2px;
+  width: 1030px;
+  content: "";
+  background: #707070;
+  transform: translate(50%, 50%);
+  opacity: 0.2;
 }
 
 .client-reivew-view-more {
-    margin-top: 25px;
+  margin-top: 25px;
 }
 
 .view-more-review {
-    color: #DB4128;
+  color: #db4128;
 }
 
-
 /* ===Profile Section End=== */
-
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         Profile and Booking page End
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>> 
         Request Page Start
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
 
 h1.request-title {
-    color: #DB4128;
-    font-weight: bold;
-    font-size: 56px;
+  color: #db4128;
+  font-weight: bold;
+  font-size: 56px;
 }
 
 ul.booking-contractor li {
-    display: inline-block;
-    margin: 0px 25px;
+  display: inline-block;
+  margin: 0px 25px;
 }
 
 span.bkdt-title,
 span.contractor-title {
-    color: #03040E;
-    font-size: 22px;
-    font-weight: bold;
+  color: #03040e;
+  font-size: 22px;
+  font-weight: bold;
 }
 
 span.bkdt-date-time {
-    color: #383838;
-    font-weight: 400;
+  color: #383838;
+  font-weight: 400;
 }
 
 span.contractor-name {
-    color: #383838;
-    font-weight: 400;
-    text-transform: uppercase;
+  color: #383838;
+  font-weight: 400;
+  text-transform: uppercase;
 }
 
 h2.request-extra-payment-title {
-    text-transform: uppercase;
-    color: #000;
-    font-weight: bold;
-    font-size: 36px;
+  text-transform: uppercase;
+  color: #000;
+  font-weight: bold;
+  font-size: 36px;
 }
 
 p.payment-request-question {
-    font-size: 22px;
-    color: #4D4C4C;
+  font-size: 22px;
+  color: #4d4c4c;
 }
 
 .request-extra-payment ul li {
-    display: inline-block;
-    margin: 0px 10px;
+  display: inline-block;
+  margin: 0px 10px;
 }
 
 span.p-amount {
-    display: block;
-    width: 100px;
-    height: 40px;
-    background: #E9E9E9;
-    line-height: 40px;
-    position: relative;
-    font-weight: bold;
+  display: block;
+  width: 100px;
+  height: 40px;
+  background: #e9e9e9;
+  line-height: 40px;
+  position: relative;
+  font-weight: bold;
 }
 
 span.p-amount::before {
-    position: absolute;
-    content: "\f155";
-    font-family: 'Font Awesome 5 Pro';
-    left: -15px;
+  position: absolute;
+  content: "\f155";
+  font-family: "Font Awesome 5 Pro";
+  left: -15px;
 }
 
 a.payment-request-btn {
-    display: block;
-    background: #28B0DB;
-    color: #fff;
-    width: 100px;
-    height: 40px;
-    line-height: 40px;
-    text-decoration: none;
+  display: block;
+  background: #28b0db;
+  color: #fff;
+  width: 100px;
+  height: 40px;
+  line-height: 40px;
+  text-decoration: none;
 }
 
 a.payment-request-btn:hover {
-    color: #fff;
-    text-decoration: none;
+  color: #fff;
+  text-decoration: none;
 }
 
 h2.jac-title {
-    font-weight: bold;
-    color: #000;
-    font-size: 36px;
+  font-weight: bold;
+  color: #000;
+  font-size: 36px;
 }
 
 .job-agreement-confirm p {
-    color: #4D4C4C;
-    font-size: 22px;
-    font-weight: 600;
-    position: relative;
+  color: #4d4c4c;
+  font-size: 22px;
+  font-weight: 600;
+  position: relative;
 }
 
 .job-agreement-confirm p::before {
-    content: "\f058";
-    position: absolute;
-    font-family: "Font Awesome 5 Pro";
-    left: -7px;
-    color: #4F20D4;
+  content: "\f058";
+  position: absolute;
+  font-family: "Font Awesome 5 Pro";
+  left: -7px;
+  color: #4f20d4;
 }
 
 span.confirm-icon i {
-    color: #4F20D4;
+  color: #4f20d4;
 }
 
 span.confirm-icon {
-    margin-right: 10px;
+  margin-right: 10px;
 }
 
 .job-agreement-confirm ul li a {
-    display: block;
-    width: 165px;
-    height: 56px;
-    line-height: 56px;
-    color: #fff;
-    background: #4F20D4;
-    margin: auto;
-    text-decoration: none;
+  display: block;
+  width: 165px;
+  height: 56px;
+  line-height: 56px;
+  color: #fff;
+  background: #4f20d4;
+  margin: auto;
+  text-decoration: none;
 }
 
 h2.cancel-jon-title {
-    font-size: 36px;
-    color: #000;
-    font-weight: bold;
+  font-size: 36px;
+  color: #000;
+  font-weight: bold;
 }
 
 .cancel-job-confirm p {
-    color: #4D4C4C;
-    font-size: 22px;
-    font-weight: 600;
-    position: relative;
+  color: #4d4c4c;
+  font-size: 22px;
+  font-weight: 600;
+  position: relative;
 }
 
 .cancel-job-confirm p::before {
-    content: "\f058";
-    position: absolute;
-    font-family: "Font Awesome 5 Pro";
-    left: 7px;
-    color: #DB4128;
+  content: "\f058";
+  position: absolute;
+  font-family: "Font Awesome 5 Pro";
+  left: 7px;
+  color: #db4128;
 }
 
 span.cancel-icon i {
-    color: #DB4128;
+  color: #db4128;
 }
 
 .cancel-job-confirm ul li a {
-    display: block;
-    margin: auto;
-    width: 165px;
-    height: 55px;
-    line-height: 55px;
-    color: #fff;
-    background: #DB4128;
-    text-decoration: none;
+  display: block;
+  margin: auto;
+  width: 165px;
+  height: 55px;
+  line-height: 55px;
+  color: #fff;
+  background: #db4128;
+  text-decoration: none;
 }
 
 .request-extra-payment,
 .job-agreement-confirm,
 .cancel-job-confirm {
-    margin-top: 65px;
+  margin-top: 65px;
 }
 
 .request-main {
-    padding: 150px 0px;
+  padding: 150px 0px;
 }
-
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         Request Page End 
 <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<*/
-
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         Approve Page Start
@@ -1277,105 +1242,104 @@ span.cancel-icon i {
 h2.ar-title,
 h2.ajrp-title,
 h2.report-title {
-    font-size: 36px;
-    font-weight: bold;
-    color: #000;
+  font-size: 36px;
+  font-weight: bold;
+  color: #000;
 }
 
 .approve-request p,
 .approve-job-release-payment p,
 .report p {
-    color: #4D4C4C;
-    font-size: 22px;
-    font-weight: 400;
-    position: relative;
+  color: #4d4c4c;
+  font-size: 22px;
+  font-weight: 400;
+  position: relative;
 }
 
 .report p::before {
-    content: "\f058";
-    position: absolute;
-    font-family: "Font Awesome 5 Pro";
-    font-weight: 600;
-    color: #db4128;
-    left: 55px;
+  content: "\f058";
+  position: absolute;
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 600;
+  color: #db4128;
+  left: 55px;
 }
 
 .approve-job-release-payment p::before {
-    content: "\f058";
-    position: absolute;
-    font-family: "Font Awesome 5 Pro";
-    font-weight: 600;
-    color: #28B0DB;
-    left: 30px;
+  content: "\f058";
+  position: absolute;
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 600;
+  color: #28b0db;
+  left: 30px;
 }
 
 .approve-request p::before {
-    content: "\f058";
-    position: absolute;
-    font-family: "Font Awesome 5 Pro";
-    font-weight: 600;
-    color: #4f20d4;
-    left: 55px;
+  content: "\f058";
+  position: absolute;
+  font-family: "Font Awesome 5 Pro";
+  font-weight: 600;
+  color: #4f20d4;
+  left: 55px;
 }
 
 .approve-request ul li a {
-    display: block;
-    margin: auto;
-    width: 260px;
-    height: 55px;
-    line-height: 55px;
-    background: #4F20D4;
-    color: #fff;
-    text-decoration: none;
+  display: block;
+  margin: auto;
+  width: 260px;
+  height: 55px;
+  line-height: 55px;
+  background: #4f20d4;
+  color: #fff;
+  text-decoration: none;
 }
 
 .approve-job-release-payment ul li a {
-    display: block;
-    margin: auto;
-    width: 190px;
-    height: 55px;
-    line-height: 55px;
-    background: #28B0DB;
-    color: #fff;
-    text-decoration: none;
+  display: block;
+  margin: auto;
+  width: 190px;
+  height: 55px;
+  line-height: 55px;
+  background: #28b0db;
+  color: #fff;
+  text-decoration: none;
 }
 
 .report ul li a {
-    display: block;
-    margin: auto;
-    width: 245px;
-    height: 55px;
-    line-height: 55px;
-    background: #db4128;
-    color: #fff;
-    text-decoration: none;
+  display: block;
+  margin: auto;
+  width: 245px;
+  height: 55px;
+  line-height: 55px;
+  background: #db4128;
+  color: #fff;
+  text-decoration: none;
 }
 
 span.ar-confirm-icon {
-    color: #4f20d4;
-    margin-right: 35px;
+  color: #4f20d4;
+  margin-right: 35px;
 }
 
 span.ajrp-confirm-icon i {
-    color: #28b0db;
-    margin-right: 73px;
+  color: #28b0db;
+  margin-right: 73px;
 }
 
 span.reprt-confirm-icon {
-    color: #db4128;
-    margin-right: 40px;
+  color: #db4128;
+  margin-right: 40px;
 }
 
 .approve-request,
 .approve-job-release-payment,
 .report {
-    margin: 65px 0px;
+  margin: 65px 0px;
 }
 
 .approved-main {
-    padding: 150px 0px;
+  padding: 150px 0px;
 }
-
 
 /*>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
         Approve Page End

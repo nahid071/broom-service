@@ -12,6 +12,7 @@ app.use(express.static("public"));
 
 // Handle Route
 app.use("/", require("./routes"));
+app.use("/sms", require("./routes/sms"));
 
 app.get("/", (req, res) => {
   //
