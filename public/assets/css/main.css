@@ -1,0 +1,12 @@
+/* .calender-date table tr td:hover {
+  color: red;
+} */
+
+.calender-date table tr td:hover {
+  background: #ffffff;
+  border-radius: 10px;
+  cursor: pointer;
+  color: red;
+  opacity: 0.5;
+  transition: 0.2s;
+}

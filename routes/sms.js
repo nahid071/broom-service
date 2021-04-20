@@ -24,9 +24,9 @@ router.post("/wellcome", async (req, res) => {
   }
 
   const message = await client.messages.create({
-    body: "test from nodejs",
+    body: `Wellcome  ${number} , thank your for choosing us`,
     messagingServiceSid,
-    to: "+8801700607777",
+    to: `${countryCode}${number}`,
   });
 
   console.log(message);

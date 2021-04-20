@@ -1,5 +1,353 @@
 <%- include("inc/header")%>
 
-<div class="container">
-  <h1>profile booking</h1>
-</div>
+<!-- ===Profile Section Start=== -->
+<section id="profile">
+  <div class="profile-main">
+    <div class="container">
+      <div class="row">
+        <div class="col-xl-12">
+          <div class="profile-body">
+            <div class="row">
+              <!-- ./Profile card -->
+              <div class="col-md-4">
+                <div class="profile-card">
+                  <div class="profile-img">
+                    <img
+                      src="./assets/img/service-page-profile-img.png"
+                      alt="profile-img"
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="profile-card-details">
+                    <h3 class="profile-title">Jhon Doe</h3>
+                    <p class="profile-description">
+                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                      sed diam nonumy eirmod tempor Lorem ipsum dolor sit amet,
+                      consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                      sed diam nonumy eirmod tempor Lorem ipsum dolor sit amet,
+                      consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                      Lorem ipsum dolor sit amet, consetetur sadipscing elitr,
+                      sed diam nonumy eirmod tempor Lorem ipsum dolor sit amet,
+                      consetetur sadipscing elitr, sed diam nonumy eirmod tempor
+                    </p>
+                    <div class="profile-reviews-rating">
+                      <span class="profile-review">4.4(500 reviews)</span>
+                      <span class="profile-rating">
+                        <ul>
+                          <li><i class="fas fa-star"></i></li>
+                          <li><i class="fas fa-star"></i></li>
+                          <li><i class="fas fa-star"></i></li>
+                          <li><i class="fas fa-star"></i></li>
+                          <li><i class="fas fa-star"></i></li>
+                        </ul>
+                      </span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- ./Profile description, order, date, calender, ability -->
+              <div class="col-md-8">
+                <div class="profile-order-process">
+                  <div class="row">
+                    <!-- ./Job Description -->
+                    <div class="col-md-12">
+                      <div class="profile-order-description">
+                        <form action="/" method="POST">
+                          <textarea
+                            name="write description"
+                            id="job-description"
+                            cols="30"
+                            rows="10"
+                            class="job-description-box"
+                            placeholder="Write Job Description"
+                          ></textarea>
+                        </form>
+                      </div>
+                    </div>
+                    <!-- ./Order Ability -->
+                    <div class="col-md-12">
+                      <div class="profile-ability">
+                        <div class="row">
+                          <div class="col-md-6">
+                            <div class="order-calender">
+                              <div class="calender-body">
+                                <div class="calender-head">
+                                  <ul>
+                                    <li>
+                                      <a
+                                        href="#"
+                                        class="calender-arrow left-arrow"
+                                        ><i class="fas fa-angle-left"></i
+                                      ></a>
+                                    </li>
+                                    <li>
+                                      <span class="calender-month-year"
+                                        >March 2021</span
+                                      >
+                                    </li>
+                                    <li>
+                                      <a
+                                        href="#"
+                                        class="calender-arrow right-arrow"
+                                        ><i class="fas fa-angle-right"></i
+                                      ></a>
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div class="calender-date">
+                                  <table>
+                                    <tr>
+                                      <th>SU</th>
+                                      <th>MO</th>
+                                      <th>TU</th>
+                                      <th>WD</th>
+                                      <th>TH</th>
+                                      <th>FR</th>
+                                      <th>SA</th>
+                                    </tr>
+                                    <tr>
+                                      <td class="prev-month">30</td>
+                                      <td class="prev-month">31</td>
+                                      <td>1</td>
+                                      <td>2</td>
+                                      <td>3</td>
+                                      <td>4</td>
+                                      <td>5</td>
+                                    </tr>
+                                    <tr>
+                                      <td>6</td>
+                                      <td>7</td>
+                                      <td>8</td>
+                                      <td>9</td>
+                                      <td>10</td>
+                                      <td>11</td>
+                                      <td>12</td>
+                                    </tr>
+                                    <tr>
+                                      <td>13</td>
+                                      <td>14</td>
+                                      <td>15</td>
+                                      <td class="active-date">16</td>
+                                      <td>17</td>
+                                      <td>18</td>
+                                      <td>19</td>
+                                    </tr>
+                                    <tr>
+                                      <td>20</td>
+                                      <td>21</td>
+                                      <td>22</td>
+                                      <td>23</td>
+                                      <td>24</td>
+                                      <td>25</td>
+                                      <td>26</td>
+                                    </tr>
+                                    <tr>
+                                      <td>27</td>
+                                      <td>28</td>
+                                      <td>29</td>
+                                      <td>30</td>
+                                      <td>31</td>
+                                      <td class="next-month">1</td>
+                                      <td class="next-month">2</td>
+                                    </tr>
+                                  </table>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <!-- ./available time and hire -->
+                          <div class="col-md-6">
+                            <!-- ./ available time -->
+                            <div class="available_time-hire">
+                              <div class="available-time">
+                                <h4 class="at-head">Available Time</h4>
+                                <div class="avt-slot">
+                                  <ul>
+                                    <li>
+                                      <a href="#" class="av-time-slot">8am</a>
+                                    </li>
+                                    <li>
+                                      <a
+                                        href="#"
+                                        class="av-time-slot active-time"
+                                        >10am</a
+                                      >
+                                    </li>
+                                    <li>
+                                      <a href="#" class="av-time-slot">12pm</a>
+                                    </li>
+                                  </ul>
+                                </div>
+                                <div class="avt-duration">
+                                  <span class="duration-title"
+                                    >Select Duration</span
+                                  >
+                                  <span class="duraion-option">
+                                    <select
+                                      name="hours-select"
+                                      id="hours-select"
+                                      class="select-hours-opt"
+                                    >
+                                      <option
+                                        value="2hours"
+                                        class="option-hours"
+                                      >
+                                        2hours
+                                      </option>
+                                      <option
+                                        value="2hours"
+                                        class="option-hours"
+                                      >
+                                        3hours
+                                      </option>
+                                      <option
+                                        value="2hours"
+                                        class="option-hours"
+                                      >
+                                        4hours
+                                      </option>
+                                      <option
+                                        value="2hours"
+                                        class="option-hours"
+                                      >
+                                        5hours
+                                      </option>
+                                      <option
+                                        value="2hours"
+                                        class="option-hours"
+                                      >
+                                        6hours
+                                      </option>
+                                    </select>
+                                  </span>
+                                </div>
+                              </div>
+                            </div>
+                            <!-- ./Hire Now -->
+                            <div class="hire-now">
+                              <ul>
+                                <li>
+                                  <a href="#" class="ordr-btn go-back-btn"
+                                    >Go Back</a
+                                  >
+                                </li>
+                                <li>
+                                  <a
+                                    href="#"
+                                    class="ordr-btn booking-hire-now-btn"
+                                    >Hire Now</a
+                                  >
+                                </li>
+                              </ul>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===Profile Section End=== -->
+
+<!-- ===All Reviews Section start=== -->
+<section id="all-reviews">
+  <div class="all-reviews-main">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="review-body">
+            <div class="review-head">
+              <h5>
+                All Reviews <span><i class="fas fa-star"></i></span>
+                <span class="all-review-count"
+                  >4.7 <span class="review-job-done">(700 complete)</span>
+                </span>
+              </h5>
+            </div>
+            <!-- ./Client Review one -->
+            <div class="client-reivew">
+              <h6 class="client_name">Togara <i class="fas fa-star"></i> 5</h6>
+              <div class="client-review-text">
+                <p>
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                  aliquyam erat, sed diam voluptua.
+                </p>
+              </div>
+            </div>
+            <!-- ./Client Review two -->
+            <div class="client-reivew">
+              <h6 class="client_name">Togara <i class="fas fa-star"></i> 5</h6>
+              <div class="client-review-text">
+                <p>
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                  aliquyam erat, sed diam voluptua.
+                </p>
+              </div>
+            </div>
+            <!-- ./Client Review three -->
+            <div class="client-reivew">
+              <h6 class="client_name">Togara <i class="fas fa-star"></i> 5</h6>
+              <div class="client-review-text">
+                <p>
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                  aliquyam erat, sed diam voluptua.
+                </p>
+              </div>
+            </div>
+            <!-- ./Client Review four -->
+            <div class="client-reivew">
+              <h6 class="client_name">Togara <i class="fas fa-star"></i> 5</h6>
+              <div class="client-review-text">
+                <p>
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                  aliquyam erat, sed diam voluptua.
+                </p>
+              </div>
+            </div>
+            <!-- ./Client Review five -->
+            <div class="client-reivew">
+              <h6 class="client_name">Togara <i class="fas fa-star"></i> 5</h6>
+              <div class="client-review-text">
+                <p>
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                  aliquyam erat, sed diam voluptua.
+                </p>
+              </div>
+            </div>
+            <!-- ./Client Review six -->
+            <div class="client-reivew">
+              <h6 class="client_name">Togara <i class="fas fa-star"></i> 5</h6>
+              <div class="client-review-text">
+                <p>
+                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
+                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
+                  aliquyam erat, sed diam voluptua.
+                </p>
+              </div>
+            </div>
+            <!-- ./Client Review view more -->
+            <div class="client-reivew-view-more">
+              <a href="#" class="view-more-review">View more</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- ===All Reviews Section End=== -->
+
+<%- include("inc/header")%>
