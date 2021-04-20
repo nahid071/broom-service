@@ -1,0 +1,477 @@
+/* 
+    Theme Name: BOOME SERVICE
+    Coded By: Mahadi Hassan
+    Date: 18/03/2021
+    version: .1
+
+    >>Theme Core CSS Responsive Styles
+    
+    All  pages Responsive Completed here
+    
+*/
+
+
+/*=======================================================================
+>>>>>>>>>>>>>>>>>>>>>>>> Home Page Responsive <<<<<<<<<<<<<<<<<<<<<<<<<<<
+=========================================================================*/
+
+
+/* Viewport 414x846(portrait mode)-------------------------------------- */
+
+@media only screen and (min-width: 414px) and (max-width: 846px) {
+    /* ===Header Section Start=== */
+    .main_nav {
+        padding: 25px 0px;
+    }
+    .menu ul li {
+        padding: 5px 0px;
+    }
+    .menu ul li a {
+        padding: 0px 13px;
+    }
+    /* ===Header Section End=== */
+    /* ===Banner Section Start=== */
+    .banner-content {
+        padding-top: 60px;
+    }
+    .banner-content h2 {
+        font-size: 28px;
+    }
+    .trust_priority {
+        margin-bottom: 0 !important;
+        margin-top: 20px;
+    }
+    form.banner_email-subscribe {
+        margin-top: 20px;
+    }
+    .banner_side_img {
+        position: relative;
+        text-align: center;
+        width: 385px;
+    }
+    .banner_side_img::after {
+        position: absolute;
+        content: '';
+        height: 40px;
+        width: 40px;
+        background: #FFDA44;
+        top: 25px;
+        left: 30px;
+    }
+    .banner_side_img::before {
+        position: absolute;
+        content: '';
+        height: 28px;
+        width: 28px;
+        background: #FF8859;
+        top: 80px;
+        left: -5px;
+    }
+    input.subscribe_btn {
+        background: #db4128;
+        border: 0;
+        color: #fff;
+        width: 120px;
+        height: 40px;
+        font-family: var(--default-font-family);
+        font-weight: 600;
+        margin-top: 10px;
+    }
+    /* ===Banner Section End=== */
+    /* ===Service Section Start=== */
+    .service-list {
+        margin-top: 15px;
+    }
+    .service-list-1 {
+        padding: 0px 85px;
+    }
+    .service-list-2 {
+        padding: 5px 85px;
+    }
+    .services {
+        text-align: center;
+        width: 196px;
+        margin: auto;
+        padding: 25px 0px;
+        box-shadow: 0px 0px 70px -17px rgb(0 0 0 / 16%);
+        transition: all linear .5s;
+        margin-top: 30px;
+    }
+    /* ===Service Section End=== */
+    /* ===About Section Start=== */
+    .about-content {
+        padding: 30px 0px 0px 0px;
+    }
+    /* ===About Section End=== */
+    /* ===Contractor Section Start=== */
+    .contractor-profile {
+        padding: 0px 15px;
+        width: 385px;
+    }
+    .contractor-profile-main {
+        padding: 40px 0px;
+    }
+    .contractor-job-complete {
+        display: inline-block;
+        text-align: center;
+        padding: 0px 20px;
+    }
+    .contractor-ratings {
+        float: right;
+        text-align: center;
+        padding: 0px 4px;
+    }
+    /* ===Contractor Section End=== */
+    /* ===contact us section Start=== */
+    .contact-right-bg {
+        background: #f6f6f6;
+    }
+    .contact-us-col-right {
+        padding: 24px 40px 0px;
+        background: #F6F6F6;
+        margin-left: -30px;
+    }
+    /* ===contact us section End=== */
+    /* ===Footer Section Start=== */
+    ul.footer-nav li a {
+        display: block;
+        color: #fff;
+        font-family: var(--default-font-family);
+        font-weight: 400;
+        font-size: 18px;
+        padding: 15px 14px;
+    }
+    /* ===Footer Section End=== */
+}
+
+
+/* Viewport 360x640px(portrait)----------------------------------------*/
+
+@media only screen and (min-width: 360px) and (max-width: 640px) {
+    /* ===Header Section Start=== */
+    .menu ul li {
+        display: inline-block;
+        padding: 5px 0px;
+    }
+    .menu ul li a {
+        display: block;
+        color: #707070;
+        transition: all linear .5s;
+        font-size: 14px;
+        padding: 0px 14px;
+        font-family: var(--default-font-family);
+    }
+    /* ===Header Section End=== */
+    /* ===Banner Section Start=== */
+    .banner-content {
+        padding-top: 55px;
+    }
+    .banner-content h2 {
+        font-size: 24px;
+    }
+    .trust_priority {
+        margin-top: 20px;
+    }
+    form.banner_email-subscribe {
+        margin-top: 20px;
+    }
+    input.subscribe_btn {
+        margin-top: 10px;
+    }
+    .banner_side_img {
+        width: 325px;
+    }
+    .banner_side_img::after {
+        top: 10px;
+        left: 15px;
+    }
+    /* ===Banner Section End=== */
+    /* ===Service List Section Start=== */
+    .service-list-1 {
+        padding: 0px 65px;
+    }
+    .service-list-2 {
+        padding: 5px 65px;
+    }
+    .services {
+        margin-top: 25px;
+    }
+    /* ===Service List Section End=== */
+    /* ===About Section Start=== */
+    .about-content p {
+        font-size: 14px;
+        font-family: 'Cabin';
+        color: #707070;
+    }
+    .about-content {
+        padding: 40px 0px 0px 0px;
+    }
+    /* ===About Section End=== */
+    /* ===Contructor Section Start=== */
+    .contractor-profile-main {
+        padding: 40px 15px;
+    }
+    .contractor-job-complete {
+        display: inline-block;
+        text-align: center;
+        padding: 0px 0px;
+    }
+    ul.cnc-rate li {
+        display: inline-block;
+        font-size: 12px;
+        color: #DB4128;
+    }
+    .contractor-job-complete {
+        display: inline-block;
+        text-align: center;
+        padding: 0px 0px;
+    }
+    .contractor-ratings {
+        float: right;
+        text-align: center;
+        padding: 0px 0px;
+    }
+    .contractor-profile {
+        padding: 0px 0px;
+        width: 300px;
+    }
+    .contact-right-bg {
+        background: #f6f6f6;
+    }
+    .form-submit {
+        margin-right: 50px;
+    }
+    /* ===Contructor Section End=== */
+    /* ===Contact Section Start=== */
+    .contact-us-col-right {
+        padding: 24px 45px 0px;
+        background: #F6F6F6;
+        margin-left: -30px;
+    }
+    .first_name,
+    .last_name,
+    .from-email {
+        width: 300px;
+    }
+    .form_message-box {
+        width: 300px;
+    }
+    /* ===Contact Section End=== */
+    /* ===Footer Section Start=== */
+    ul.footer-nav li a {
+        padding: 15px 8px;
+    }
+    /* ===Footer Section End=== */
+}
+
+
+/* Laptop with HiDPI Screen viewport 1440x900px----------------------------------------------- */
+
+@media only screen and (min-width: 1440px) {
+    /* ===Contractor Section Start=== */
+    .contractor-profile-main {
+        padding: 40px 10px;
+    }
+    .contractor-profile {
+        padding: 0px 15px;
+        width: 425px;
+    }
+    /* ===Contractor Section End=== */
+}
+
+
+/* Laptop with MDPI Screen viewport 1280x800px----------------------------------------------- */
+
+
+/* Viewport 800px---------------------------------------------------------------------------- */
+
+
+/* ===Header Section Start=== */
+
+.menu ul li {
+    padding: 25px 0px;
+}
+
+
+/* ===Header Section End=== */
+
+
+/* ===Banner Section Start=== */
+
+.banner-content h2 {
+    font-size: 24px;
+}
+
+ul.trust_priority li {
+    display: inline-block;
+    padding: 5px 10px;
+}
+
+
+/* ===Banner Section End=== */
+
+
+/* ===Service Section Start=== */
+
+.service-list-1 {
+    padding: 0px 0px;
+}
+
+.services {
+    width: 155px;
+}
+
+.service-list-2 {
+    padding: 5px 0px;
+}
+
+span.service_title {
+    font-size: 14px;
+}
+
+
+/* ===Service Section End=== */
+
+
+/* ===About Section Start=== */
+
+.about-content p {
+    font-size: 12px;
+    font-family: 'Cabin';
+    color: #707070;
+}
+
+
+/* ===About Section End=== */
+
+
+/* ===Contractor Porfile Sections Start=== */
+
+.contractor-profile {
+    padding: 0px 0px;
+    width: 230px;
+}
+
+.contractor-job-complete {
+    display: inline-block;
+    text-align: center;
+    padding: 0px 13px;
+    font-size: 15px;
+}
+
+.contractor-profile-description p {
+    font-size: 14px;
+}
+
+a.hire-now-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+}
+
+
+/* ===Contractor Porfile Sections End=== */
+
+
+/* ===Contact Us Section Start=== */
+
+.first_name,
+.last_name,
+.from-email {
+    width: 300px;
+    height: 35px;
+    padding: 15px;
+    border: 0;
+    font-weight: 400;
+    font-family: var(--default-font-family);
+    color: #999999;
+    font-size: 12px;
+}
+
+.contact-us-col-left img {
+    margin-top: 70px;
+}
+
+.form_message-box {
+    width: 300px;
+    height: 90px;
+    border: 0;
+    padding: 15px;
+    font-family: var(--default-font-family);
+    font-size: 12px;
+}
+
+.form-submit {
+    text-align: right;
+    margin-right: 60px;
+    margin-top: 10px;
+    padding-bottom: 15px;
+}
+
+.form-first-name label,
+.form-last-name label,
+.form-email label,
+.form-message-box label {
+    display: block;
+    font-family: var(--default-font-family);
+    font-weight: 400;
+    color: #383838;
+    font-size: 14px;
+}
+
+
+/* ===Contact Us Section End=== */
+
+
+}
+
+/* I Phone 12Max pro Device------------------------------------------------------------------- */
+@media only screen and (min-width: 428px) and (max-width: 767px) {
+    /* Your Styles... */
+}
+
+/* Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+    /* Styles */
+}
+
+/* Smartphones (landscape) ----------- */
+@media only screen and (min-width: 321px) {
+    /* Styles */
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width: 320px) {
+    /* Styles */
+}
+
+/* iPads (portrait and landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+    /* Styles */
+}
+
+/* iPads (landscape) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: landscape) {
+    /* Styles */
+}
+
+/* iPads (portrait) ----------- */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation: portrait) {
+    /* Styles */
+}
+
+/* Desktops and laptops ----------- */
+@media only screen and (min-width: 1224px) {
+    /* Styles */
+}
+
+/* Large screens ----------- */
+@media only screen and (min-width: 1824px) {
+    /* Styles */
+}
+
+/* iPhone 4 ----------- */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (min-device-pixel-ratio: 1.5) {
+    /* Styles */
+}
