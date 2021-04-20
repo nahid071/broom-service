@@ -1,0 +1,5 @@
+export const FILE_UPLOADING = "FILE_UPLOADING";
+export const UPLOAD_PROGRESS = "UPLOAD_PROGRESS";
+export const UPLOAD_DONE = "UPLOAD_DONE";
+export const UPLOAD_FAIL = "UPLOAD_FAIL";
+export const UPLOAD_RESET = "UPLOAD_RESET";

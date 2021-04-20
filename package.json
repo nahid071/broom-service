@@ -16,6 +16,10 @@
     "express": "^4.17.1",
     "express-async-handler": "^1.1.4",
     "morgan": "^1.10.0",
+    "react-redux": "^7.2.3",
+    "redux": "^4.0.5",
+    "redux-devtools-extension": "^2.13.9",
+    "redux-thunk": "^2.3.0",
     "twilio": "^3.60.0"
   }
 }
