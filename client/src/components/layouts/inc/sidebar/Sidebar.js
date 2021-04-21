@@ -8,15 +8,25 @@ import {
   SidebarContent,
 } from "react-pro-sidebar";
 
-import { FaRegMoneyBillAlt, FaBalanceScale } from "react-icons/fa";
+import { FaRegMoneyBillAlt } from "react-icons/fa";
+import { IoIosCodeWorking } from "react-icons/io";
+import { AiOutlineMessage } from "react-icons/ai";
+import { FiUsers } from "react-icons/fi";
+import { VscDashboard } from "react-icons/vsc";
+
 import { CgArrowLeftO, CgArrowRightO } from "react-icons/cg";
 import { useDispatch, useSelector } from "react-redux";
 
-const Sidebar = ({ sidebarOpen, setCollapse, collapse }) => {
+const Sidebar = ({ sidebarOpen, setCollapse, collapse, setSidebarOpen }) => {
   // collapse
   const handleCollapse = () => {
     setCollapse(!collapse);
   };
+
+  const sidebarCloseHandler = () => {
+    setSidebarOpen(false);
+  };
+
   const openState = sidebarOpen ? "sidebar open" : "sidebar close";
   ////////////////////////////////////////////////////////////////////////
   const { user } = useSelector((state) => state.auth);
@@ -45,16 +55,22 @@ const Sidebar = ({ sidebarOpen, setCollapse, collapse }) => {
           </SidebarHeader>
           <SidebarContent>
             <Menu iconShape="square">
-              <MenuItem icon={<FaRegMoneyBillAlt />}>
+              <MenuItem onClick={sidebarCloseHandler} icon={<VscDashboard />}>
                 Dashboard <Link to="/" />
               </MenuItem>
-              <MenuItem icon={<FaRegMoneyBillAlt />}>
+              <MenuItem
+                onClick={sidebarCloseHandler}
+                icon={<IoIosCodeWorking />}
+              >
                 Manage Contruct <Link to="/manage-contruct" />
               </MenuItem>
-              <MenuItem icon={<FaRegMoneyBillAlt />}>
+              <MenuItem onClick={sidebarCloseHandler} icon={<FiUsers />}>
                 Contructors <Link to="/contructors" />
               </MenuItem>
-              <MenuItem icon={<FaRegMoneyBillAlt />}>
+              <MenuItem
+                onClick={sidebarCloseHandler}
+                icon={<AiOutlineMessage />}
+              >
                 Messages <Link to="/messages" />
               </MenuItem>
             </Menu>

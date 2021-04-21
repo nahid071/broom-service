@@ -22,6 +22,7 @@ const Layout = ({ children }) => {
         collapse={collapse}
         setCollapse={setCollapse}
         sidebarOpen={sidebarOpen}
+        setSidebarOpen={setSidebarOpen}
       />
       <div
         onClick={() => setTopHeaderMenuOpen(false)}

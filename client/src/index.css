@@ -24,6 +24,7 @@ body {
   font-family: "Montserrat", sans-serif;
   font-weight: var(--reqular);
   background-color: var(--bg);
+  box-sizing: border-box;
 }
 
 a {

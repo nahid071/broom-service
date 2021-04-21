@@ -1,0 +1,57 @@
+.withdraw__card {
+}
+.withdraw__card__header {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  align-items: center;
+  justify-content: center;
+}
+
+.withdraw__card__header > .card__steeper {
+  text-align: center;
+  color: #fff;
+  background: #6f7ed2;
+  padding: 10px 10px;
+  border-right: 1px solid #fff;
+  cursor: pointer;
+}
+
+.withdraw__card__header > .card__steeper:last-child {
+  border-right: none !important;
+}
+
+.withdraw__card__header > .active_stpper {
+  background: #3f51b5;
+}
+
+.withdraw__card__content {
+  width: 100%;
+  min-width: 400px;
+}
+
+.border__of__card__form {
+  border: 1px solid #b2b2b2;
+}
+
+.mt-1 {
+  margin-top: 10px;
+}
+.mt-2 {
+  margin-top: 15px;
+}
+.mt-3 {
+  margin-top: 20px;
+}
+.mt-4 {
+  margin-top: 25px;
+}
+.mt-5 {
+  margin-top: 30px;
+}
+
+.btn__custom {
+  height: 40px;
+  padding: 9px 40px;
+  border: 1px solid #6f7ed2;
+}

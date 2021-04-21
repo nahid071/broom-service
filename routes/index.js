@@ -33,4 +33,5 @@ router.get("/contact", (req, res) => {
 router.get("/policies", (req, res) => {
   res.render("policies");
 });
+
 module.exports = router;

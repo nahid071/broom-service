@@ -8,6 +8,7 @@ import Login from "./screens/auth/login";
 // Admin
 import Dashboard from "./screens/dashboard";
 import Contructors from "./screens/contructors";
+import AddContructor from "./screens/contructors/add";
 import ManageContruct from "./screens/manage-contruct";
 import Messages from "./screens/messages";
 
@@ -35,6 +36,7 @@ function App() {
         <Layout>
           <Switch>
             <Route path="/contructors" exact component={Contructors} />
+            <Route path="/contructors/add" exact component={AddContructor} />
             <Route path="/manage-contruct" exact component={ManageContruct} />
             <Route path="/messages" exact component={Messages} />
             <Route path="/" exact component={Dashboard} />
