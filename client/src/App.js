@@ -9,6 +9,8 @@ import Login from "./screens/auth/login";
 import Dashboard from "./screens/dashboard";
 import Contructors from "./screens/contructors";
 import AddContructor from "./screens/contructors/add";
+import EditContructor from "./screens/contructors/edit";
+import ContructorProfile from "./screens/contructors/profile";
 import ManageContruct from "./screens/manage-contruct";
 import Messages from "./screens/messages";
 
@@ -21,15 +23,17 @@ import { useSelector } from "react-redux";
 function App() {
   const { isAuthenticated } = useSelector((state) => state.auth);
   // Initialization firebase storage
-  firebase.storage();
-  auth
-    .signInWithEmailAndPassword("forAuth@gamil.com", "#nsm123#")
-    .then((user) => {
-      console.log("Firebase Sign in Successfull");
-    })
-    .catch((e) => {
-      console.log("Something went wrong with firebase signin");
-    });
+  (() => {
+    firebase.storage();
+    auth
+      .signInWithEmailAndPassword("forAuth@gamil.com", "#nsm123#")
+      .then((user) => {
+        console.log("Firebase Sign in Successfull");
+      })
+      .catch((e) => {
+        console.log("Something went wrong with firebase signin");
+      });
+  })();
   return (
     <>
       {isAuthenticated && (
@@ -37,6 +41,16 @@ function App() {
           <Switch>
             <Route path="/contructors" exact component={Contructors} />
             <Route path="/contructors/add" exact component={AddContructor} />
+            <Route
+              path="/contructor/:id/update"
+              exact
+              component={EditContructor}
+            />
+            <Route
+              path="/contructor/:id/profile"
+              exact
+              component={ContructorProfile}
+            />
             <Route path="/manage-contruct" exact component={ManageContruct} />
             <Route path="/messages" exact component={Messages} />
             <Route path="/" exact component={Dashboard} />

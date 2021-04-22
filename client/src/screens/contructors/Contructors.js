@@ -26,7 +26,6 @@ const Contructors = ({ history }) => {
     for (let rating of ratings) {
       ratingSum += rating.value;
     }
-
     return parseFloat(ratingSum / totalRating).toFixed(1);
   };
 
@@ -130,11 +129,16 @@ const Contructors = ({ history }) => {
     },
     {
       title: "Action",
-      dataIndex: "status",
+      dataIndex: "_id",
       render: (x) => (
         <>
-          <Button icon={<GrView />} size="small"></Button>
-          <Button icon={<FaRegEdit />} size="small"></Button>
+          <Link to={`/contructor/${x}/profile`}>
+            <Button icon={<GrView />} size="small"></Button>
+          </Link>
+          <Link to={`/contructor/${x}/update`}>
+            <Button icon={<FaRegEdit />} size="small"></Button>
+          </Link>
+
           {x ? (
             <Button
               icon={<GrStatusDisabledSmall style={{ color: "#db4128" }} />}

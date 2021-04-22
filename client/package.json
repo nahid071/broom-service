@@ -12,6 +12,7 @@
     "axios": "^0.21.1",
     "faker": "^5.5.3",
     "firebase": "^8.4.1",
+    "html-react-parser": "^1.2.6",
     "mocker-data-generator": "^2.12.0",
     "moment": "^2.29.1",
     "node-sass": "^5.0.0",
