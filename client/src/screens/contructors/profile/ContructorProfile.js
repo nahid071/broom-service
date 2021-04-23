@@ -8,14 +8,22 @@ import {
   Tag,
   Avatar,
   Typography,
+  message,
 } from "antd";
 import "./profile.css";
 import Rating from "./../../../components/utils/Rating";
-
+import { useParams } from "react-router-dom";
 import parser from "html-react-parser";
-
+import moment from "moment";
+import { useDispatch, useSelector } from "react-redux";
+import { contractorFetch } from "./../../../redux/actions/contractorAction";
 const ContructorProfile = ({ history }) => {
+  const dispatch = useDispatch();
+  const { id } = useParams();
   const ratingCount = (ratings) => {
+    if (ratings === undefined || ratings === null) {
+      return 0;
+    }
     let totalRating = ratings.length;
     let ratingSum = 0;
     for (let rating of ratings) {
@@ -24,33 +32,45 @@ const ContructorProfile = ({ history }) => {
     return parseFloat(ratingSum / totalRating).toFixed(1);
   };
 
-  const [contructor, setContructor] = useState({});
+  const [contructor, setContructor] = useState({
+    address: "",
+    availableDay: [],
+    availableTime: [],
+    createdAt: "",
+    desc: "",
+    disabled: false,
+    email: "",
+    featured: false,
+    jobName: "",
+    name: "",
+    phone: "",
+    photo: "",
+    status: true,
+  });
+
+  const { contractors: allContractors } = useSelector(
+    (state) => state.contractorFetch
+  );
+
+  const fetchContractor = () => {
+    dispatch(contractorFetch());
+  };
+
+  const findContractorById = (id, contractors) => {
+    const currentContractor = Array.from(contractors).find(
+      (x) => String(x._id) === String(id)
+    );
+    if (currentContractor) {
+      setContructor(currentContractor);
+      console.log(currentContractor);
+    } else {
+      fetchContractor();
+    }
+  };
 
   useEffect(() => {
-    setContructor({
-      _id: 2,
-      name: "Mamun Ar Ahamed",
-      phone: "922 837 8473",
-      email: "example@mail.com",
-      featured: true,
-      address: `5th floor, House 39, Avenue-5,
-block-A, Mirpur-6, Dhaka-1216`,
-      joinDate: Date.now(),
-      rating: [
-        { value: 4.5, text: "nice Job" },
-        { value: 3.5, text: "Great" },
-        { value: 5, text: "Parfect" },
-      ],
-      jobName: "Handyman",
-      desc:
-        "crambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker includin",
-      totalProject: 6,
-      profilePhoto:
-        "https://broom-service.herokuapp.com/assets/img/contractor-2.png",
-      availableTime: ["10PM", "12PM", "6PM"],
-      status: true,
-    });
-  }, []);
+    findContractorById(id, allContractors);
+  }, [id, allContractors]);
 
   return (
     <>
@@ -63,7 +83,7 @@ block-A, Mirpur-6, Dhaka-1216`,
       <Row gutter={[5, 5]}>
         <Col xs={24} sm={24} md={10} lg={10}>
           <Card className="__flex_center">
-            <Avatar size={100} src={contructor.profilePhoto} />
+            <Avatar size={100} src={contructor.photo} />
             <span
               className="__flex_center"
               style={{ display: "block", width: "100%" }}
@@ -71,7 +91,29 @@ block-A, Mirpur-6, Dhaka-1216`,
               <Typography className="__name ptb5">{contructor.name}</Typography>
               <Typography className="ptb5">{contructor.jobName}</Typography>
               <Typography className="ptb5">{contructor.address}</Typography>
-              <Button className="mtb5">mark as Featured</Button>
+
+              {/* {contructor.featured ? (
+                <Button
+                  loading={featuredDisableLoading}
+                  onClick={() => {
+                    dispatch(contractorDisable(id));
+                  }}
+                  className="mtb5"
+                >
+                  remove from Featured
+                </Button>
+              ) : (
+                <Button
+                  loading={featuredEnableLoading}
+                  onClick={() => {
+                    dispatch(contractorEnable(id));
+                  }}
+                  className="mtb5"
+                >
+                  mark as Featured
+                </Button>
+              )} */}
+
               <Button className="mtb5">Message</Button>
             </span>
           </Card>
@@ -90,13 +132,31 @@ block-A, Mirpur-6, Dhaka-1216`,
                   {contructor.email}
                 </div>
               </div>
+
+              <hr />
+              <div className="row">
+                <div className="col-sm-3">Available Days</div>
+                <div className="col-sm-9 text-secondary">
+                  {contructor
+                    ? contructor.availableDay.map((time) => (
+                        <Tag key={time} color="#1595e0">
+                          {time}
+                        </Tag>
+                      ))
+                    : ""}
+                </div>
+              </div>
               <hr />
               <div className="row">
                 <div className="col-sm-3">Available Time</div>
                 <div className="col-sm-9 text-secondary">
-                  {contructor.availableTime.map((time) => (
-                    <Tag color="#1595e0">{time}</Tag>
-                  ))}
+                  {contructor
+                    ? contructor.availableTime.map((time) => (
+                        <Tag key={time} color="#1595e0">
+                          {time}
+                        </Tag>
+                      ))
+                    : ""}
                 </div>
               </div>
               <hr />
@@ -113,7 +173,7 @@ block-A, Mirpur-6, Dhaka-1216`,
               <hr />
               <div className="row">
                 <div className="col-sm-3">Project Done</div>
-                <div className="col-sm-9 text-secondary">120</div>
+                <div className="col-sm-9 text-secondary">0</div>
               </div>
               <hr />
               <div className="row">
@@ -124,6 +184,14 @@ block-A, Mirpur-6, Dhaka-1216`,
                   ) : (
                     <Tag>General</Tag>
                   )}
+                </div>
+              </div>
+              <hr />
+              <div className="row">
+                <div className="col-sm-3">Join Date</div>
+                <div className="col-sm-9 text-secondary">
+                  {contructor.createdAt &&
+                    moment(contructor.createdAt).format("LLL")}
                 </div>
               </div>
             </div>

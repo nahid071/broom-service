@@ -8,113 +8,118 @@ import {
   Form,
   Input,
   Select,
+  message,
+  Switch,
   Avatar,
+  Tag,
 } from "antd";
 import { Editor } from "@tinymce/tinymce-react";
-const EditContructor = ({ history }) => {
-  const { Option } = Select;
-  const handleEditorChange = (content, editor) => {
-    console.log("Content was updated:", content);
+import { Days, Times } from "./../../../seeder/data";
+import { useDispatch, useSelector } from "react-redux";
+import { fileUpload, uploadReset } from "./../../../redux/actions/UtilAction";
+import {
+  contractorUpdate,
+  contractorFetch,
+} from "./../../../redux/actions/contractorAction";
+import { useParams } from "react-router-dom";
+const AddContructor = ({ history }) => {
+  const dispatch = useDispatch();
+  const [contractor, setContractor] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    address: "",
+    jobName: "",
+    desc: "",
+    photo: "",
+    availableDay: "",
+    availableTime: "",
+    featured: false,
+  });
+
+  // Update State By Id
+  const { id } = useParams();
+  const { contractors: allContractors } = useSelector(
+    (state) => state.contractorFetch
+  );
+
+  const findContractorById = (id, contractors) => {
+    const currentContractor = Array.from(contractors).find(
+      (x) => String(x._id) === String(id)
+    );
+    if (currentContractor) {
+      setContractor((pre) => ({ ...pre, id, ...currentContractor }));
+    } else {
+      dispatch(contractorFetch());
+    }
   };
 
-  const availavleTimes = [
-    <Option key="1PM" value="1 PM">
-      1 PM
-    </Option>,
-    <Option key="2PM" value="2 PM">
-      2 PM
-    </Option>,
-    <Option key="3PM" value="3 PM">
-      3 PM
-    </Option>,
-    <Option key="4PM" value="4 PM">
-      4 PM
-    </Option>,
-    <Option key="5PM" value="5 PM">
-      5 PM
-    </Option>,
-    <Option key="6PM" value="6 PM">
-      6 PM
-    </Option>,
-    <Option key="7PM" value="7 PM">
-      7 PM
-    </Option>,
-    <Option key="8PM" value="8 PM">
-      8 PM
-    </Option>,
-    <Option key="9PM" value="9 PM">
-      9 PM
-    </Option>,
-    <Option key="10PM" value="10 PM">
-      10 PM
-    </Option>,
-    <Option key="11PM" value="11 PM">
-      11 PM
-    </Option>,
-    <Option key="12PM" value="12 PM">
-      12 PM
-    </Option>,
-    <Option key="1AM" value="1 AM">
-      1 AM
-    </Option>,
-    <Option key="2AM" value="2 AM">
-      2 AM
-    </Option>,
-    <Option key="3AM" value="3 AM">
-      3 AM
-    </Option>,
-    <Option key="4AM" value="4 AM">
-      4 AM
-    </Option>,
-    <Option key="5AM" value="5 AM">
-      5 AM
-    </Option>,
-    <Option key="6AM" value="6 AM">
-      6 AM
-    </Option>,
-    <Option key="7AM" value="7 AM">
-      7 AM
-    </Option>,
-    <Option key="8AM" value="8 AM">
-      8 AM
-    </Option>,
-    <Option key="9AM" value="9 AM">
-      9 AM
-    </Option>,
-    <Option key="10AM" value="10 AM">
-      10 AM
-    </Option>,
-    <Option key="11AM" value="11 AM">
-      11 AM
-    </Option>,
-    <Option key="12AM" value="12 AM">
-      12 AM
-    </Option>,
-  ];
+  useEffect(() => {
+    findContractorById(id, allContractors);
+  }, [id, allContractors]);
+  // End State Update
 
-  const [contructor, setContructor] = useState({});
+  const { uploading, done, url } = useSelector((state) => state.upload);
+  const { success, error, loading } = useSelector(
+    (state) => state.contractorUpdate
+  );
 
   useEffect(() => {
-    setContructor({
-      _id: 2,
-      name: "Mamun Ar Ahamed",
-      phone: "922 837 8473",
-      email: "example@mail.com",
-      joinDate: Date.now(),
-      rating: [
-        { value: 4.5, text: "nice Job" },
-        { value: 3.5, text: "Great" },
-        { value: 5, text: "Parfect" },
-      ],
-      jobName: "Handyman",
-      desc: "so many",
-      totalProject: 6,
-      profilePhoto:
-        "https://broom-service.herokuapp.com/assets/img/contractor-2.png",
-      availableTime: ["10PM", "12PM", "6PM"],
-      status: true,
-    });
-  }, []);
+    if (success) {
+      message.success("Updated Successfully");
+    }
+    if (error !== null) {
+      message.error(error);
+    }
+  }, [error, success]);
+
+  useEffect(() => {
+    if (done) {
+      setContractor((pre) => ({ ...pre, photo: url }));
+      // Dispatch Reset
+      dispatch(uploadReset());
+    }
+  }, [done, dispatch]);
+
+  const handleSubmit = () => {
+    const {
+      id,
+      name,
+      phone,
+      email,
+      address,
+      jobName,
+      desc,
+      photo,
+      availableDay,
+      availableTime,
+    } = contractor;
+
+    if (!id || id === "") {
+      message.error("Id Not Found ! Go Back and come back this page again");
+    } else if (name === "") {
+      message.error("name must not be empty !");
+    } else if (phone === "") {
+      message.error("phone must not be empty !");
+    } else if (email === "") {
+      message.error("email must not be empty !");
+    } else if (address === "") {
+      message.error("Address must not be empty !");
+    } else if (jobName === "") {
+      message.error("Job Name must not be empty !");
+    } else if (desc === "") {
+      message.error("Description must not be empty !");
+    } else if (photo === "") {
+      message.error("Photo must not be empty !");
+    } else if (availableTime.length <= 0) {
+      message.error("Select Available Time !");
+    } else if (availableDay.length <= 0) {
+      message.error("Select Available Days !");
+    } else {
+      // Submit
+      dispatch(contractorUpdate(contractor));
+    }
+  };
 
   return (
     <>
@@ -122,6 +127,7 @@ const EditContructor = ({ history }) => {
         onBack={() => history.goBack()}
         style={{ background: "#fff" }}
         title="Update Contructor"
+        key="1"
       />
       <div style={{ marginTop: "10px" }}></div>
       <Row gutter={[8, 8]}>
@@ -129,27 +135,99 @@ const EditContructor = ({ history }) => {
           <Card title="Contructor Information">
             <Form layout="vertical">
               <Form.Item label="Name">
-                <Input value={contructor.name} placeholder="name" />
+                <Input
+                  value={contractor.name}
+                  onChange={(e) =>
+                    setContractor((pre) => ({ ...pre, name: e.target.value }))
+                  }
+                  placeholder="name"
+                />
               </Form.Item>
               <Form.Item label="Phone">
-                <Input value={contructor.phone} placeholder="428 431 538" />
+                <Input
+                  type="number"
+                  value={contractor.phone}
+                  onChange={(e) =>
+                    setContractor((pre) => ({ ...pre, phone: e.target.value }))
+                  }
+                  placeholder="428 431 538"
+                />
               </Form.Item>
               <Form.Item label="Email">
                 <Input
-                  value={contructor.email}
+                  value={contractor.email}
+                  onChange={(e) =>
+                    setContractor((pre) => ({ ...pre, email: e.target.value }))
+                  }
                   placeholder="example@example.com"
                 />
               </Form.Item>
-              <Form.Item label="Available Time">
+              <Form.Item label="Address">
+                <Input
+                  value={contractor.address}
+                  onChange={(e) =>
+                    setContractor((pre) => ({
+                      ...pre,
+                      address: e.target.value,
+                    }))
+                  }
+                  placeholder="..."
+                />
+              </Form.Item>
+              <Form.Item label="Job Name">
+                <Input
+                  value={contractor.jobName}
+                  onChange={(e) =>
+                    setContractor((pre) => ({
+                      ...pre,
+                      jobName: e.target.value,
+                    }))
+                  }
+                  placeholder="..."
+                />
+              </Form.Item>
+              <Form.Item label="Current Availble Day's">
+                {Array.from(contractor.availableDay).map((e) => (
+                  <Tag key={e} color="#1595e0">
+                    {e}
+                  </Tag>
+                ))}
+              </Form.Item>
+              <Form.Item label="Available Day's">
                 <Select
-                  mode="tags"
+                  mode="multiple"
                   style={{ width: "100%" }}
-                  placeholder="select available time"
-                  onChange={(e) => console.log(e)}
+                  placeholder="select available Days"
+                  allowClear
+                  onChange={(e) =>
+                    setContractor((pre) => ({ ...pre, availableDay: e }))
+                  }
+                  options={Days.map((e) => ({ value: e }))}
                 >
-                  {availavleTimes}
+                  ;
                 </Select>
                 ,
+              </Form.Item>
+              <Form.Item label="Current Availble Time">
+                {Array.from(contractor.availableTime).map((e) => (
+                  <Tag key={e} color="#1595e0">
+                    {e}
+                  </Tag>
+                ))}
+              </Form.Item>
+              <Form.Item label="Available Time">
+                <Select
+                  mode="multiple"
+                  style={{ width: "100%" }}
+                  placeholder="select available time"
+                  allowClear
+                  options={Times.map((e) => ({ value: e }))}
+                  onChange={(e) =>
+                    setContractor((pre) => ({ ...pre, availableTime: e }))
+                  }
+                >
+                  ;
+                </Select>
               </Form.Item>
             </Form>
           </Card>
@@ -160,7 +238,7 @@ const EditContructor = ({ history }) => {
             <Form layout="vertical">
               <Form.Item label="Description">
                 <Editor
-                  initialValue=""
+                  // initialValue={contractor.desc}
                   apiKey="yy95othwffaqkpskd5k5aqw8wu3wz0z8b1g526krzi2vh80j"
                   init={{
                     height: 200,
@@ -175,20 +253,35 @@ const EditContructor = ({ history }) => {
              alignleft aligncenter alignright alignjustify | \
              bullist numlist outdent indent | removeformat | help",
                   }}
-                  onEditorChange={handleEditorChange}
+                  value={contractor.desc}
+                  onEditorChange={(e) =>
+                    setContractor((pre) => ({ ...pre, desc: e }))
+                  }
                 />
               </Form.Item>
-
-              <Form.Item label="Profile photo (500 X 400)px">
-                <Avatar
-                  size={64}
-                  style={{ float: "right" }}
-                  shape="square"
-                  src={contructor.profilePhoto}
-                />
-                <Input type="file" placeholder="..." />
+              <Form.Item label="Current Photo">
+                <Avatar size={64} shape="square" src={contractor.photo} />
               </Form.Item>
-              <Button>Update Completion</Button>
+              <Form.Item label="Choose profile photo (500 X 400)px">
+                <Input
+                  onChange={(e) => {
+                    dispatch(fileUpload(e.target.files[0]));
+                  }}
+                  type="file"
+                  placeholder="..."
+                />
+              </Form.Item>
+              <Form.Item label="Featured">
+                <Switch
+                  checked={contractor.featured}
+                  onChange={(e) => {
+                    setContractor((pre) => ({ ...pre, featured: e }));
+                  }}
+                />
+              </Form.Item>
+              <Button loading={uploading || loading} onClick={handleSubmit}>
+                update Completion
+              </Button>
             </Form>
           </Card>
         </Col>
@@ -197,4 +290,4 @@ const EditContructor = ({ history }) => {
   );
 };
 
-export default EditContructor;
+export default AddContructor;

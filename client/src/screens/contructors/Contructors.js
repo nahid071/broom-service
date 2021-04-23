@@ -1,11 +1,21 @@
-import React from "react";
-import { PageHeader, Button, Table, Tag, Avatar } from "antd";
+import React, { useState, useEffect } from "react";
+import { PageHeader, Button, Table, Tag, Avatar, message } from "antd";
 import Rating from "./../../components/utils/Rating";
 import { FaCheck, FaRegEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { GrView, GrStatusDisabledSmall } from "react-icons/gr";
+import { useDispatch, useSelector } from "react-redux";
+import {
+  contractorFetch,
+  contractorEnable,
+  contractorDisable,
+} from "./../../redux/actions/contractorAction";
 const Contructors = ({ history }) => {
+  const dispatch = useDispatch();
   const ratingCount = (ratings) => {
+    if (ratings === undefined || ratings === null) {
+      return 0;
+    }
     let totalRating = ratings.length;
     let ratingSum = 0;
     for (let rating of ratings) {
@@ -14,64 +24,82 @@ const Contructors = ({ history }) => {
     return parseFloat(ratingSum / totalRating).toFixed(1);
   };
 
-  const data = [
-    {
-      _id: 1,
-      name: "Alamgir Ahamed",
-      joinDate: Date.now(),
-      rating: [
-        { value: 3.5, text: "nice Job" },
-        { value: 1.5, text: "Great" },
-        { value: 5, text: "Parfect" },
-      ],
-      jobName: "Plumber",
-      desc: "so many",
-      totalProject: 10,
-      profilePhoto:
-        "https://broom-service.herokuapp.com/assets/img/contractor-1.png",
-      availableTime: ["10PM", "12PM", "6PM"],
-      status: true,
-    },
-    {
-      _id: 2,
-      name: "Mamun Ar Ahamed",
-      joinDate: Date.now(),
-      rating: [
-        { value: 4.5, text: "nice Job" },
-        { value: 3.5, text: "Great" },
-        { value: 5, text: "Parfect" },
-      ],
-      jobName: "Handyman",
-      desc: "so many",
-      totalProject: 6,
-      profilePhoto:
-        "https://broom-service.herokuapp.com/assets/img/contractor-2.png",
-      availableTime: ["10PM", "12PM", "6PM"],
-      status: true,
-    },
-    {
-      _id: 3,
-      name: "Md Nahiduzzaman",
-      joinDate: Date.now(),
-      rating: [
-        { value: 4.5, text: "nice Job" },
-        { value: 4.5, text: "Great" },
-        { value: 5, text: "Parfect" },
-      ],
-      jobName: "Digital Service",
-      desc: "so many",
-      totalProject: 12,
-      profilePhoto:
-        "https://broom-service.herokuapp.com/assets/img/contractor-3.png",
-      availableTime: ["10PM", "12PM", "6PM"],
-      status: true,
-    },
-  ];
+  const [contractors, setContractors] = useState([]);
 
+  const isDisabled = (id) => {
+    const currentContractor = Array.from(contractors).find(
+      (x) => String(x._id) === String(id)
+    );
+
+    return currentContractor.disabled;
+  };
+
+  // Fetching
+  const {
+    contractors: allContractors,
+    error: contractorFetchError,
+    loading: contractorFetchLoading,
+  } = useSelector((state) => state.contractorFetch);
+
+  const fetchContractors = () => {
+    dispatch(contractorFetch());
+  };
+
+  useEffect(() => {
+    fetchContractors();
+  }, []);
+
+  useEffect(() => {
+    if (allContractors) {
+      const reverseContractors = Array.from(allContractors).reverse();
+      setContractors(reverseContractors);
+    }
+    if (contractorFetchError !== null) {
+      message.error(contractorFetchError);
+    }
+  }, [allContractors, contractorFetchError]);
+
+  // Featured Enable
+  const {
+    success: featuredEnableSuccess,
+    loading: featuredEnableLoading,
+    error: featuredEnableError,
+  } = useSelector((state) => state.contractorEnable);
+
+  useEffect(() => {
+    if (featuredEnableSuccess) {
+      message.success("Featuerd Enabled Successfully");
+      fetchContractors();
+    }
+
+    if (featuredEnableError !== null) {
+      message.error(featuredEnableError);
+    }
+  }, [featuredEnableSuccess, featuredEnableError]);
+
+  // Featured Disable
+  const {
+    success: featuredDisableSuccess,
+    loading: featuredDisableLoading,
+    error: featuredDisableError,
+  } = useSelector((state) => state.contractorDisable);
+
+  useEffect(() => {
+    if (featuredDisableSuccess) {
+      message.success("Featuerd Disabled Successfully");
+      fetchContractors();
+    }
+
+    if (featuredDisableError !== null) {
+      message.error(featuredDisableError);
+    }
+  }, [featuredDisableSuccess, featuredDisableError]);
+
+  // end
   const columns = [
     {
       title: "Photo",
-      dataIndex: "profilePhoto",
+      dataIndex: "photo",
       render: (x) => <Avatar size={50} src={x}></Avatar>,
     },
     {
@@ -123,13 +151,23 @@ const Contructors = ({ history }) => {
             <Button icon={<FaRegEdit />} size="small"></Button>
           </Link>
 
-          {x ? (
+          {isDisabled(x) ? (
             <Button
+              key={x}
+              loading={featuredDisableLoading}
+              onClick={() => {
+                dispatch(contractorDisable(x));
+              }}
               icon={<GrStatusDisabledSmall style={{ color: "#db4128" }} />}
               size="small"
             ></Button>
           ) : (
             <Button
+              key={x}
+              loading={featuredEnableLoading}
+              onClick={() => {
+                dispatch(contractorEnable(x));
+              }}
               icon={<FaCheck style={{ color: "green" }} />}
               size="small"
             ></Button>
@@ -138,6 +176,7 @@ const Contructors = ({ history }) => {
       ),
     },
   ];
+
   return (
     <>
       <PageHeader
@@ -146,13 +185,18 @@ const Contructors = ({ history }) => {
         title="Contructors"
         extra={[
           <Link to="/contructors/add">
-            <Button type="dashed" key="1">
+            <Button type="dashed" key="23423">
               Add Contructor
             </Button>
           </Link>,
         ]}
       />
-      <Table rowKey="_id" dataSource={data} columns={columns} />
+      <Table
+        loading={contractorFetchLoading}
+        rowKey="_id"
+        dataSource={contractors}
+        columns={columns}
+      />
     </>
   );
 };

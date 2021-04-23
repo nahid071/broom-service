@@ -20,7 +20,7 @@ import {
   CONTRACTOR_DISABLE_FAIL,
   CONTRACTOR_DISABLE_RESET,
 } from "./../constant/contractorConstant";
-
+import axios from "./../../helper/axios";
 export const contractorFetch = () => async (dispatch, getState) => {
   try {
     dispatch({ type: CONTRACTOR_FETCH_REQUEST });
@@ -114,11 +114,7 @@ export const contractorEnable = (id) => async (dispatch, getState) => {
     dispatch({ type: CONTRACTOR_ENABLE_REQUEST });
     const { token } = getState().auth;
     const options = { headers: { "auth-token": token } };
-    const { data } = await axios.put(
-      `/contractor/enable/${id}`,
-      { ...info },
-      options
-    );
+    const { data } = await axios.put(`/contractor/enable/${id}`, {}, options);
     dispatch({
       type: CONTRACTOR_ENABLE_SUCCESS,
       payload: data,
@@ -149,11 +145,7 @@ export const contractorDisable = (id) => async (dispatch, getState) => {
     dispatch({ type: CONTRACTOR_DISABLE_REQUEST });
     const { token } = getState().auth;
     const options = { headers: { "auth-token": token } };
-    const { data } = await axios.put(
-      `/contractor/disable/${id}`,
-      { ...info },
-      options
-    );
+    const { data } = await axios.put(`/contractor/disable/${id}`, {}, options);
     dispatch({
       type: CONTRACTOR_DISABLE_SUCCESS,
       payload: data,
