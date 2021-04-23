@@ -1,20 +1,5 @@
 import React from "react";
-import {
-  PageHeader,
-  Button,
-  Row,
-  Col,
-  Card,
-  Form,
-  Input,
-  Select,
-  Table,
-  DatePicker,
-  Badge,
-  Tag,
-  Avatar,
-} from "antd";
-import moment from "moment";
+import { PageHeader, Button, Table, Tag, Avatar } from "antd";
 import Rating from "./../../components/utils/Rating";
 import { FaCheck, FaRegEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -109,7 +94,6 @@ const Contructors = ({ history }) => {
     {
       title: "Rating",
       dataIndex: "rating",
-
       render: (x) => (
         <>
           <Rating value={ratingCount(x)} text="" color="#db4128" />

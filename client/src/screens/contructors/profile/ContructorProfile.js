@@ -1,19 +1,12 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   PageHeader,
   Button,
   Row,
   Col,
   Card,
-  Form,
-  Input,
-  Select,
-  Table,
-  DatePicker,
-  Badge,
   Tag,
   Avatar,
-  List,
   Typography,
 } from "antd";
 import "./profile.css";
@@ -31,29 +24,33 @@ const ContructorProfile = ({ history }) => {
     return parseFloat(ratingSum / totalRating).toFixed(1);
   };
 
-  const [contructor, setContructor] = useState({
-    _id: 2,
-    name: "Mamun Ar Ahamed",
-    phone: "922 837 8473",
-    email: "example@mail.com",
-    address: `5th floor, House 39, Avenue-5,
-block-A, Mirpur-6, Dhaka-1216`,
-    joinDate: Date.now(),
-    rating: [
-      { value: 4.5, text: "nice Job" },
-      { value: 3.5, text: "Great" },
-      { value: 5, text: "Parfect" },
-    ],
+  const [contructor, setContructor] = useState({});
 
-    jobName: "Handyman",
-    desc:
-      "crambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker includin",
-    totalProject: 6,
-    profilePhoto:
-      "https://broom-service.herokuapp.com/assets/img/contractor-2.png",
-    availableTime: ["10PM", "12PM", "6PM"],
-    status: true,
-  });
+  useEffect(() => {
+    setContructor({
+      _id: 2,
+      name: "Mamun Ar Ahamed",
+      phone: "922 837 8473",
+      email: "example@mail.com",
+      featured: true,
+      address: `5th floor, House 39, Avenue-5,
+block-A, Mirpur-6, Dhaka-1216`,
+      joinDate: Date.now(),
+      rating: [
+        { value: 4.5, text: "nice Job" },
+        { value: 3.5, text: "Great" },
+        { value: 5, text: "Parfect" },
+      ],
+      jobName: "Handyman",
+      desc:
+        "crambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker includin",
+      totalProject: 6,
+      profilePhoto:
+        "https://broom-service.herokuapp.com/assets/img/contractor-2.png",
+      availableTime: ["10PM", "12PM", "6PM"],
+      status: true,
+    });
+  }, []);
 
   return (
     <>
@@ -74,6 +71,7 @@ block-A, Mirpur-6, Dhaka-1216`,
               <Typography className="__name ptb5">{contructor.name}</Typography>
               <Typography className="ptb5">{contructor.jobName}</Typography>
               <Typography className="ptb5">{contructor.address}</Typography>
+              <Button className="mtb5">mark as Featured</Button>
               <Button className="mtb5">Message</Button>
             </span>
           </Card>
@@ -116,6 +114,17 @@ block-A, Mirpur-6, Dhaka-1216`,
               <div className="row">
                 <div className="col-sm-3">Project Done</div>
                 <div className="col-sm-9 text-secondary">120</div>
+              </div>
+              <hr />
+              <div className="row">
+                <div className="col-sm-3">Featued Status</div>
+                <div className="col-sm-9 text-secondary">
+                  {contructor.featured ? (
+                    <Tag color="#1595e0">Featured</Tag>
+                  ) : (
+                    <Tag>General</Tag>
+                  )}
+                </div>
               </div>
             </div>
           </div>

@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "./manageContruct.css";
 import { Button, Table, Tag, PageHeader, Typography } from "antd";
 import moment from "moment";
-import { BsPlus, BsPlusSquare } from "react-icons/bs";
+import { BsPlus } from "react-icons/bs";
+
 const ManageContruct = ({ history }) => {
   const incomming = (x) => {
     var payments = x.filter((e) => e.in === true);
@@ -49,6 +50,7 @@ const ManageContruct = ({ history }) => {
   const data = [
     {
       _id: 1,
+      serial: 1,
       client: { name: "Nahid", phone: "882 837 8473" },
       contructor: { name: "saif", phone: "126 364 7348" },
       location: `5th floor, House 39, Avenue-5,
@@ -70,6 +72,11 @@ block-A, Mirpur-6, Dhaka-1216`,
 
   const columns = [
     {
+      title: "Serial",
+      dataIndex: "serial",
+      render: (x) => <>{x}</>,
+    },
+    {
       title: "Client",
       dataIndex: "client",
       render: (x) => (
@@ -80,7 +87,7 @@ block-A, Mirpur-6, Dhaka-1216`,
       ),
     },
     {
-      title: "Contructor",
+      title: "Contractor",
       dataIndex: "contructor",
       render: (x) => (
         <>
@@ -90,7 +97,7 @@ block-A, Mirpur-6, Dhaka-1216`,
       ),
     },
     {
-      title: "Location",
+      title: "Job Location",
       dataIndex: "location",
       width: 250,
       render: (x) => <>{x}</>,
@@ -177,7 +184,7 @@ block-A, Mirpur-6, Dhaka-1216`,
       <PageHeader
         onBack={() => history.goBack()}
         style={{ background: "#fff" }}
-        title="Manage contructors"
+        title="Manage contracts"
       />
       <Table rowKey="_id" dataSource={data} columns={columns} />
     </>

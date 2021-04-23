@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   PageHeader,
   Button,
@@ -8,10 +8,6 @@ import {
   Form,
   Input,
   Select,
-  Table,
-  DatePicker,
-  Badge,
-  Tag,
   Avatar,
 } from "antd";
 import { Editor } from "@tinymce/tinymce-react";
@@ -96,25 +92,29 @@ const EditContructor = ({ history }) => {
     </Option>,
   ];
 
-  const [contructor, setContructor] = useState({
-    _id: 2,
-    name: "Mamun Ar Ahamed",
-    phone: "922 837 8473",
-    email: "example@mail.com",
-    joinDate: Date.now(),
-    rating: [
-      { value: 4.5, text: "nice Job" },
-      { value: 3.5, text: "Great" },
-      { value: 5, text: "Parfect" },
-    ],
-    jobName: "Handyman",
-    desc: "so many",
-    totalProject: 6,
-    profilePhoto:
-      "https://broom-service.herokuapp.com/assets/img/contractor-2.png",
-    availableTime: ["10PM", "12PM", "6PM"],
-    status: true,
-  });
+  const [contructor, setContructor] = useState({});
+
+  useEffect(() => {
+    setContructor({
+      _id: 2,
+      name: "Mamun Ar Ahamed",
+      phone: "922 837 8473",
+      email: "example@mail.com",
+      joinDate: Date.now(),
+      rating: [
+        { value: 4.5, text: "nice Job" },
+        { value: 3.5, text: "Great" },
+        { value: 5, text: "Parfect" },
+      ],
+      jobName: "Handyman",
+      desc: "so many",
+      totalProject: 6,
+      profilePhoto:
+        "https://broom-service.herokuapp.com/assets/img/contractor-2.png",
+      availableTime: ["10PM", "12PM", "6PM"],
+      status: true,
+    });
+  }, []);
 
   return (
     <>

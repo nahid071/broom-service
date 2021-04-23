@@ -3,7 +3,10 @@ const app = express();
 const cors = require("cors");
 require("dotenv").config();
 const morgan = require("morgan");
+const config = require("./config");
 
+// db Connect
+config.__db_conect();
 // middleware
 app.set("view engine", "ejs");
 app.use(cors());
@@ -14,7 +17,9 @@ app.use(express.json());
 
 // Handle Route
 app.use("/", require("./routes"));
+app.use("/auth", require("./routes/auth"));
 app.use("/sms", require("./routes/sms"));
+app.use("/contractor", require("./routes/contractor"));
 
 // error Handle
 

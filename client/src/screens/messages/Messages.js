@@ -1,21 +1,6 @@
 import React, { useState } from "react";
-import {
-  PageHeader,
-  Button,
-  Row,
-  Col,
-  Card,
-  Form,
-  Input,
-  Select,
-  Table,
-  DatePicker,
-  Badge,
-  Tag,
-  Avatar,
-} from "antd";
+import { PageHeader, Button, Table } from "antd";
 import moment from "moment";
-import { BsEnvelopeOpen } from "react-icons/bs";
 import { IoMailUnreadOutline, IoMailOutline } from "react-icons/io5";
 const Messages = ({ history }) => {
   const [steeper, setSteeper] = useState(1);

@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Col, Row, Table, Typography } from "antd";
+import { Card, Col, Row, Typography } from "antd";
 import Chart from "./../../components/utils/Chart";
 const Dashboard = () => {
   // </div>

@@ -13,6 +13,7 @@ import EditContructor from "./screens/contructors/edit";
 import ContructorProfile from "./screens/contructors/profile";
 import ManageContruct from "./screens/manage-contruct";
 import Messages from "./screens/messages";
+import Util from "./screens/utils";
 
 // Uploading
 import Uploading from "./components/utils/uploading";
@@ -53,6 +54,7 @@ function App() {
             />
             <Route path="/manage-contruct" exact component={ManageContruct} />
             <Route path="/messages" exact component={Messages} />
+            <Route path="/utils" exact component={Util} />
             <Route path="/" exact component={Dashboard} />
 
             <Route path="/" exact>

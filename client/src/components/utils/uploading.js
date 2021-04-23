@@ -1,6 +1,6 @@
 import React from "react";
-import { Progress, Card } from "antd";
-import { useDispatch, useSelector } from "react-redux";
+import { Progress } from "antd";
+import { useSelector } from "react-redux";
 const Uploading = () => {
   const { uploading, progress } = useSelector((state) => state.upload);
 

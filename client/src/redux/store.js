@@ -3,13 +3,13 @@ import rootReducer from "./reducer";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 const middleware = [thunk];
-const token = localStorage.getItem("somity_token")
-  ? localStorage.getItem("somity_token")
+const token = localStorage.getItem("broom_token")
+  ? localStorage.getItem("broom_token")
   : null;
-
 // Refresh authentication Check
 var auth = {};
 if (token === null) {
+  console.log("i am Null");
   auth.isAuthenticated = false;
   auth.token = null;
   auth.user = null;

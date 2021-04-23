@@ -1,0 +1,250 @@
+.login_wrapper {
+  min-height: 100vh;
+  background: linear-gradient(to right top, #5680e9, #8860dc);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.glass {
+  display: flex;
+  background: white;
+  min-height: 80vh;
+  width: 60%;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.4),
+    rgba(255, 255, 255, 0.1)
+  );
+  border-radius: 1em;
+  z-index: 2;
+  backdrop-filter: blur(10px);
+}
+
+.circle1,
+.circle2 {
+  position: absolute;
+  height: 200px;
+  width: 200px;
+  background: white;
+  background: linear-gradient(
+    to right bottom,
+    rgba(255, 255, 255, 0.8),
+    rgba(255, 255, 255, 0.1)
+  );
+  z-index: 1;
+  border-radius: 50%;
+}
+.circle1 {
+  top: 5%;
+  right: 15%;
+}
+.circle2 {
+  bottom: 5%;
+  left: 15%;
+}
+
+.left {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.4);
+  border-radius: 1em;
+}
+
+#icon {
+  display: flex;
+  margin-bottom: 30px;
+}
+#icon h2 {
+  margin-left: 10px;
+  font-size: 50px;
+  background: -webkit-linear-gradient(#8860dc, #5680e9);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.welcome p {
+  text-align: center;
+  color: #8860dc;
+  font-size: 17px;
+  margin-bottom: 50px;
+  padding-left: 5px;
+  padding-right: 5px;
+}
+
+.right {
+  flex: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.login-section {
+  padding-bottom: 10px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+}
+.column {
+  padding: 7px;
+}
+#email,
+#password,
+.login-btn {
+  height: 2.5em;
+  width: 25em;
+  border-radius: 5px;
+}
+.login-btn {
+  margin-top: 20px;
+  background: linear-gradient(to right top, #8860dc, #5680e6);
+  color: #fff;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
+.login-btn:hover {
+  background: linear-gradient(to right top, #5680e6, #8860dc);
+}
+.signin-section {
+  padding-top: 20px;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.signin-section a {
+  text-decoration: none;
+}
+
+/* social icon start */
+.social {
+  display: flex;
+  padding-top: 10px;
+}
+.social .button {
+  color: #000;
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  /* float: left; */
+  margin: 10px 0px;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-out;
+  cursor: pointer;
+}
+.social .button:hover {
+  width: 130px;
+}
+
+input[type="submit"] {
+  cursor: pointer;
+}
+
+.social .button .icon {
+  display: inline-block;
+  height: 40px;
+  width: 40px;
+  text-align: center;
+  border-radius: 50px;
+  box-sizing: border-box;
+  line-height: 40px;
+  transition: all 0.3s ease-out;
+}
+/* icon color start */
+.social .button:nth-child(1):hover .icon {
+  background: #4267b2;
+}
+.social .button:nth-child(2):hover .icon {
+  background: #1da1f2;
+}
+.social .button:nth-child(3):hover .icon {
+  background: #f73e2f;
+}
+.social .button:nth-child(4):hover .icon {
+  background: #0073b1;
+}
+/* icon color end */
+.social .button {
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 40px;
+  margin-left: 10px;
+}
+.social .button .icon i {
+  transition: all 0.3s ease-out;
+}
+.social .button:hover .icon i {
+  color: #fff;
+}
+/* icon name color */
+.social .button:nth-child(1) span {
+  color: #4267b2;
+}
+.social .button:nth-child(2) span {
+  color: #1da1f2;
+}
+.social .button:nth-child(3) span {
+  color: #f73e2f;
+}
+.social .button:nth-child(4) span {
+  color: #0073b1;
+}
+
+/* icon name color end */
+/* social icon end */
+.responsive {
+  display: flex;
+}
+
+/* // input  */
+
+input[type="text"],
+input[type="password"] {
+  color: #000;
+  /* font-size: 20px; */
+  padding-left: 10px;
+  border: none;
+}
+
+/* responsive start */
+@media screen and (min-width: 901px) {
+  .responsive {
+    display: none;
+  }
+}
+@media screen and (max-width: 900px) {
+  .main {
+    background: linear-gradient(to right top, #5680e9, #8860dc);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  .glass {
+    width: 500px;
+  }
+  .circle1,
+  .circle2 {
+    display: none;
+  }
+  .left {
+    display: none;
+  }
+  .responsive .res-icon span {
+    display: flex;
+    flex-direction: column;
+    font-size: 25px;
+    font-weight: 1000;
+    background: -webkit-linear-gradient(#8860dc, #5680e9);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}

@@ -8,15 +8,14 @@ import {
   SidebarContent,
 } from "react-pro-sidebar";
 
-import { FaRegMoneyBillAlt } from "react-icons/fa";
 import { IoIosCodeWorking } from "react-icons/io";
 import { AiOutlineMessage } from "react-icons/ai";
 import { FiUsers } from "react-icons/fi";
 import { VscDashboard } from "react-icons/vsc";
 
 import { CgArrowLeftO, CgArrowRightO } from "react-icons/cg";
-import { useDispatch, useSelector } from "react-redux";
-
+import { useSelector } from "react-redux";
+import { RiBarChartHorizontalLine } from "react-icons/ri";
 const Sidebar = ({ sidebarOpen, setCollapse, collapse, setSidebarOpen }) => {
   // collapse
   const handleCollapse = () => {
@@ -62,16 +61,22 @@ const Sidebar = ({ sidebarOpen, setCollapse, collapse, setSidebarOpen }) => {
                 onClick={sidebarCloseHandler}
                 icon={<IoIosCodeWorking />}
               >
-                Manage Contruct <Link to="/manage-contruct" />
+                cockpit <Link to="/manage-contruct" />
               </MenuItem>
               <MenuItem onClick={sidebarCloseHandler} icon={<FiUsers />}>
-                Contructors <Link to="/contructors" />
+                Contractors <Link to="/contructors" />
               </MenuItem>
               <MenuItem
                 onClick={sidebarCloseHandler}
                 icon={<AiOutlineMessage />}
               >
                 Messages <Link to="/messages" />
+              </MenuItem>
+              <MenuItem
+                onClick={sidebarCloseHandler}
+                icon={<RiBarChartHorizontalLine />}
+              >
+                Utils <Link to="/utils" />
               </MenuItem>
             </Menu>
           </SidebarContent>

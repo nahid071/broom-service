@@ -23,16 +23,13 @@ router.post(
   asyncHandler(async (req, res) => {
     const errors = loginSchema.validate(req.body);
     if (errors.error) {
-      return res.json(errors.error.details[0].message);
+      throw Error(errors.error.details[0].message);
     }
-
     const { phone, password } = req.body;
-
     const user = await User.findOne({ phone });
     if (!user) {
-      return res.json({ s: false, m: "Phone Number Not Found ! " });
+      throw Error("Phone Number Not Found !");
     }
-
     if (user && (await bcrypt.compare(password, user.password))) {
       // Login success
       const token = jwt.sign(
@@ -48,7 +45,7 @@ router.post(
       });
     } else {
       // Invalid Password
-      return res.json({ s: false, m: "password incorrect " });
+      throw Error("password incorrect");
     }
   })
 );
@@ -61,6 +58,33 @@ router.post("/verify", isAuthenticated, (req, res) => {
   });
   // verify Token
 });
+
+router.post(
+  "/signup",
+  asyncHandler(async (req, res) => {
+    const { name, phone, password } = req.body;
+    if ((!name, !phone, !password)) {
+      throw Error("Name Or Phone Or Password is not Found");
+    }
+    if ((name === "", phone === "", password === "")) {
+      throw Error("Name Or Phone Or Password must not be empty !");
+    }
+
+    const hash = await bcrypt.hash(password, 10);
+
+    const created = await new User({
+      name,
+      phone,
+      password: hash,
+    }).save();
+
+    if (created) {
+      res.send("successfuly Created");
+    } else {
+      throw Error("Not Created");
+    }
+  })
+);
 
 // // reset password
 // router.post("/reset", async (req, res) => {

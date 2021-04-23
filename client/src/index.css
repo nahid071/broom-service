@@ -606,3 +606,7 @@ input[type="number"] {
   background: #bebebe;
   opacity: 0.8;
 }
+
+input[type="text"] {
+  border: 1px solid #363738 !important;
+}
