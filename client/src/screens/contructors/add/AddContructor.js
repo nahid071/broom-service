@@ -1,13 +1,31 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { PageHeader, Button, Row, Col, Card, Form, Input, Select } from "antd";
 import { Editor } from "@tinymce/tinymce-react";
 import { Days, Times } from "./../../../seeder/data";
+import { useDispatch } from "react-redux";
+
 const AddContructor = ({ history }) => {
   const { Option } = Select;
+  const [contractor, setContractor] = useState({
+    name: "",
+    phone: "",
+    email: "",
+    address: "",
+    jobName: "",
+    desc: "",
+    photo: "",
+    availableDay: "",
+    availableTime: "",
+    featured: "",
+  });
+
   const handleEditorChange = (content, editor) => {
     console.log("Content was updated:", content);
   };
-
+  const dispatch = useDispatch();
+  function handleChange(value) {
+    console.log(`selected ${value}`);
+  }
   return (
     <>
       <PageHeader
@@ -37,11 +55,16 @@ const AddContructor = ({ history }) => {
               </Form.Item>
               <Form.Item label="Available Day">
                 <Select
-                  mode="tags"
+                  // mode="tags"
                   style={{ width: "100%" }}
-                  placeholder="select available time"
-                  onChange={(e) => console.log(e)}
+                  placeholder="select available Days"
+                  allowClear
+                  onChange={handleChange}
+                  onSelect={(e) => console.log(e)}
                 >
+                  {/* <Option key={"Hello"} value={"Hello"}>
+                    {"Hello"}
+                  </Option> */}
                   {Days.map((e) => (
                     <Option key={e} value={e}>
                       {e}
@@ -56,6 +79,7 @@ const AddContructor = ({ history }) => {
                   mode="tags"
                   style={{ width: "100%" }}
                   placeholder="select available time"
+                  allowClear
                   onChange={(e) => console.log(e)}
                 >
                   {Times.map((e, i) => (
