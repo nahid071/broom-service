@@ -2,6 +2,7 @@ const router = require("express").Router();
 const asyncHandler = require("express-async-handler");
 const Joi = require("joi");
 const { isAuthenticated } = require("./../middleware/auth");
+const Rating = require("./../models/RatingModel");
 const Contractor = require("./../models/ContractorModel");
 // const Order = require("../models/orderModel");
 

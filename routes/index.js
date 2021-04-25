@@ -130,8 +130,9 @@ router.get(
   "/service-contractors",
   paginatedResults(Contractor),
   async (req, res) => {
-    //const contractors = await Contractor.find().lean().populate("ratings");
-    res.json(res.paginatedResults);
+    const total = await Contractor.countDocuments();
+    let { next, previous, results } = res.paginatedResults;
+    res.json({ next, previous, results, total });
   }
 );
 

@@ -17,8 +17,8 @@ const contractorsSchema = new Schema(
       type: String,
     },
     ratings: {
-      type: Schema.Types.ObjectId,
-      ref: "ratings",
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "contractor-ratings",
       default: null,
     },
     jobName: {

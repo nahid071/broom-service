@@ -3,7 +3,7 @@ const Schema = mongoose.Schema;
 const ratingSchema = new Schema(
   {
     clientId: {
-      type: Schema.Types.ObjectId,
+      type: mongoose.Schema.Types.ObjectId,
       ref: "clients",
       required: true,
     },
@@ -19,4 +19,4 @@ const ratingSchema = new Schema(
     timestamps: true,
   }
 );
-module.exports = Rating = mongoose.model("ratings", ratingSchema);
+module.exports = Rating = mongoose.model("contractor-ratings", ratingSchema);

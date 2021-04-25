@@ -1,12 +1,11 @@
 import firebase from "firebase";
 var firebaseConfig = {
-  apiKey: "AIzaSyDEom83FfNSLmtzy0u2hrliwjQCWWifBYc",
-  authDomain: "bbsamity.firebaseapp.com",
-  projectId: "bbsamity",
-  storageBucket: "bbsamity.appspot.com",
-  messagingSenderId: "114426697691",
-  appId: "1:114426697691:web:e7fdcee4c9e13744f1f9fe",
-  measurementId: "G-G6B5ZRKWJK",
+  apiKey: "AIzaSyDAJThdqguOg1hEoD23nOUgGYXkC3Rdjw0",
+  authDomain: "admin-broom-service.firebaseapp.com",
+  projectId: "admin-broom-service",
+  storageBucket: "admin-broom-service.appspot.com",
+  messagingSenderId: "40558494877",
+  appId: "1:40558494877:web:cb66bbe226cbbce062c074",
 };
 // Initialize Firebase
 firebase.initializeApp(firebaseConfig);

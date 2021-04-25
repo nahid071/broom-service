@@ -158,55 +158,149 @@
 <%- include('inc/footer'); %>
 <script>
   //contructor
+  var nextPage = null;
+  var prevPage = null;
+  var total = 0;
+
+  const generateRating = (ratings) => {
+    if (ratings === null || ratings === undefined) {
+      return 0;
+    }
+
+    const totalRating = Array.from(ratings).reduce(
+      (acc, x) => acc + x.value,
+      0
+    );
+    return totalRating / Array.from(ratings).length;
+  };
+
   (() => {
-    $.get("/service-contractors", (contractors) => {
-      let contructorArea = document.querySelector("#contractors");
-      contructorArea.innerHTML = "Hello";
-      for (contractor of contractors) {
-        console.log(contractor);
-        // console.log(contractor);
-        // contructorArea.innerHTML += `
-        // <div class="col-md-4">
-        //     <div class="contractor-profile">
-        //       <div class="contractor-profile-img">
-        //         <img
-        //           src="${contractor.photo}"
-        //           alt="${contractor.name}"
-        //           class="img-fluid"
-        //         />
-        //         <a href="/profile-booking-${
-        //           contractor._id
-        //         }?ref=/" class="hire-now-btn">Hire Now</a>
-        //       </div>
-        //       <div class="contractor-profile-details">
-        //         <div class="contractor-profile-title">
-        //           <div class="contractor-name-designation">
-        //             <h5>${contractor.name}</h5>
-        //             <span class="contractor-designation">${
-        //               contractor.jobName
-        //             }</span>
-        //           </div>
-        //           <div class="contractor-job-complete">
-        //             <span class="contractor-job-done">${generateRating(
-        //               contractor.ratings
-        //             )}(0 Complete)</span>
-        //           </div>
-        //           <div class="contractor-ratings">
-        //             <ul class="cnc-rate">
-        //               ${Rating(generateRating(contractor.ratings), "#db4128")}
-        //             </ul>
-        //           </div>
-        //           <div class="clr"></div>
-        //         </div>
-        //         <div class="contractor-profile-description">
-        //          ${String(contractor.desc).substring(0, 200)}
-        //         </div>
-        //       </div>
-        //     </div>
-        //   </div>
-        // `;
+    $.get(
+      "/service-contractors?page=1&limit=2",
+      ({ next, previous, results, total }) => {
+        let contructorArea = document.querySelector("#contractors");
+        nextPage = next;
+        prevPage = previous;
+        total = total;
+        contructorArea.innerHTML = "";
+        for (contractor of results) {
+          console.log(contractor);
+          contructorArea.innerHTML += `
+        <div class="col-xl-12 pt-4">
+          <div class="service-card-body">
+            <div class="row">
+              <!-- profile identity -->
+              <div class="col-xl-3">
+                <div class="scb-profile-info">
+                  <div class="scb-profile-img">
+                    <img
+                      src="${contractor.photo}"
+                      alt="${contractor.name}"
+                      srcset="${contractor.photo}"
+                      class="img-fluid"
+                    />
+                  </div>
+                  <div class="scb-profile-details">
+                    <h5>${contractor.name}</h5>
+                    <div class="scb-job-detail">
+                      <span class="scb-job-rate">
+                        <ul>
+                          ${Rating(
+                            generateRating(contractor.ratings),
+                            "#db4128"
+                          )}
+                        </ul>
+                      </span>
+                      <span class="scb-job-done"
+                        >${generateRating(contractor.ratings)} <span>(${
+            contractor.ratings !== null
+              ? Array.from(contractor.ratings).length
+              : 0
+          } complete)</span></span
+                      >
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <!-- profile description -->
+              <div class="col-xl-6">
+                <div class="scb-profile-description">
+                   ${String(contractor.desc).substring(0, 250)}
+                  <span class="scb-ability">NEXT AVAILABLE</span>
+                  <span class="scb-date-time">
+                    <span class="scb-date">Thu 12/02/2021</span>
+                    <span class="scb-time">${
+                      Array.from(contractor.availableTime)[0]
+                    }</span>
+                  </span>
+                </div>
+              </div>
+              <!-- profile rate details -->
+              <div class="col-xl-3">
+                <div class="scb-rate-col">
+                  <div class="scb-rate">
+                    <span class="scb-rate-number"> $${
+                      contractor.rate
+                    }/hour </span>
+                  </div>
+                  <div class="scb-hire-btn">
+                    <a href="#" class="scb-hire_btn">Hire Now</a>
+                  </div>
+                </div>
+              </div>
+              <div class="clr"></div>
+            </div>
+          </div>
+        </div>
+
+        `;
+          // console.log(contractor);
+          // contructorArea.innerHTML += `
+          // <div class="col-md-4">
+          //     <div class="contractor-profile">
+          //       <div class="contractor-profile-img">
+          //         <img
+          //           src="${contractor.photo}"
+          //           alt="${contractor.name}"
+          //           class="img-fluid"
+          //         />
+          //         <a href="/profile-booking-${
+          //           contractor._id
+          //         }?ref=/" class="hire-now-btn">Hire Now</a>
+          //       </div>
+          //       <div class="contractor-profile-details">
+          //         <div class="contractor-profile-title">
+          //           <div class="contractor-name-designation">
+          //             <h5>${contractor.name}</h5>
+          //             <span class="contractor-designation">${
+          //               contractor.jobName
+          //             }</span>
+          //           </div>
+          //           <div class="contractor-job-complete">
+          //             <span class="contractor-job-done">${generateRating(
+          //               contractor.ratings
+          //             )}(0 Complete)</span>
+          //           </div>
+          //           <div class="contractor-ratings">
+          //             <ul class="cnc-rate">
+          //               ${Rating(generateRating(contractor.ratings), "#db4128")}
+          //             </ul>
+          //           </div>
+          //           <div class="clr"></div>
+          //         </div>
+          //         <div class="contractor-profile-description">
+          //          ${String(contractor.desc).substring(0, 200)}
+          //         </div>
+          //       </div>
+          //     </div>
+          //   </div>
+          // `;
+        }
+
+        console.log(nextPage);
+        console.log(prevPage);
       }
-    });
+    );
   })();
 
   (() => {

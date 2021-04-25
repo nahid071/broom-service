@@ -25,7 +25,7 @@ function App() {
   const { isAuthenticated } = useSelector((state) => state.auth);
   // Initialization firebase storage
   (() => {
-    firebase.storage();
+    // firebase.storage();
     auth
       .signInWithEmailAndPassword("forAuth@gamil.com", "#nsm123#")
       .then((user) => {
