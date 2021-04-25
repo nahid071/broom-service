@@ -1,40 +1,85 @@
-
-    <!-- ===Footer Section Start=== -->
-    <footer id="footer">
-      <div class="footer-main">
-        <div class="container">
-          <div class="row">
-            <div class="col-md-12">
-              <div class="footer-left-logo">
-                <a href="#">
-                  <img
-                    src="./assets/img/footer-logo.png"
-                    alt="footer logo"
-                    class="img-fluid"
-                  />
-                </a>
-              </div>
-              <div class="footer-right-nav">
-                <ul class="footer-nav">
-                  <li><a href="#">Home</a></li>
-                  <li><a href="#">About us</a></li>
-                  <li><a href="#">Policies</a></li>
-                  <li><a href="#">Contact us</a></li>
-                </ul>
-              </div>
-              <div class="clr"></div>
-            </div>
+<!-- ===Footer Section Start=== -->
+<footer id="footer">
+  <div class="footer-main">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="footer-left-logo">
+            <a href="#">
+              <img
+                src="./assets/img/footer-logo.png"
+                alt="footer logo"
+                class="img-fluid"
+              />
+            </a>
           </div>
+          <div class="footer-right-nav">
+            <ul class="footer-nav">
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About us</a></li>
+              <li><a href="#">Policies</a></li>
+              <li><a href="#">Contact us</a></li>
+            </ul>
+          </div>
+          <div class="clr"></div>
         </div>
       </div>
-    </footer>
-    <!-- ===Footer Section End=== -->
-    <!-- ===All Javascript files are Connected here=== -->
-    <script src="./assets/js/jquery-3.6.0.min.js"></script>
-    <script src="./assets/js/jquery-migrate.min.js"></script>
-    <script src="./assets/js/bootstrap.min.js"></script>
-    <script src="./assets/js/popper.min.js"></script>
-    <script src="./assets/js/6332f77505.js"></script>
-    <script src="./assets/js/fontawesome.min.js"></script>
-  </body>
-</html>
+    </div>
+  </div>
+</footer>
+<!-- ===Footer Section End=== -->
+<!-- ===All Javascript files are Connected here=== -->
+<script src="./assets/js/jquery-3.6.0.min.js"></script>
+<script src="./assets/js/jquery-migrate.min.js"></script>
+<script src="./assets/js/bootstrap.min.js"></script>
+<script src="./assets/js/popper.min.js"></script>
+<script src="./assets/js/6332f77505.js"></script>
+<script src="./assets/js/fontawesome.min.js"></script>
+<script>
+  const Rating = (value, color, text = "") => {
+    var rating = `<div className="rating">`;
+
+    rating += `  <span> ${
+      value >= 1
+        ? '<i style="color:' + color + '" class="fa fa-star"></i>'
+        : value >= 0.5
+        ? '<i style="color:' + color + '" class="fas fa-star-half-alt"></i>'
+        : '<i style="color:' + color + '" class="far fa-star"></i>'
+    } </span>`;
+
+    rating += `  <span> ${
+      value >= 2
+        ? '<i style="color:' + color + '" class="fa fa-star"></i>'
+        : value >= 1.5
+        ? '<i style="color:' + color + '" class="fas fa-star-half-alt"></i>'
+        : '<i style="color:' + color + '" class="far fa-star"></i>'
+    } </span>`;
+
+    rating += `  <span> ${
+      value >= 3
+        ? '<i style="color:' + color + '" class="fa fa-star"></i>'
+        : value >= 2.5
+        ? '<i style="color:' + color + '" class="fas fa-star-half-alt"></i>'
+        : '<i style="color:' + color + '" class="far fa-star"></i>'
+    } </span>`;
+
+    rating += `  <span> ${
+      value >= 4
+        ? '<i style="color:' + color + '" class="fa fa-star"></i>'
+        : value >= 3.5
+        ? '<i style="color:' + color + '" class="fas fa-star-half-alt"></i>'
+        : '<i style="color:' + color + '" class="far fa-star"></i>'
+    } </span>`;
+
+    rating += `  <span> ${
+      value >= 5
+        ? '<i style="color:' + color + '" class="fa fa-star"></i>'
+        : value >= 4.5
+        ? '<i style="color:' + color + '" class="fas fa-star-half-alt"></i>'
+        : '<i style="color:' + color + '" class="far fa-star"></i>'
+    } </span>`;
+    rating += `</div>`;
+
+    return rating;
+  };
+</script>

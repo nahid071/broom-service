@@ -21,16 +21,15 @@
                   <div class="profile-card-details">
                     <h3 class="profile-title"><%= contractor.name %></h3>
                     <p class="profile-description"><%- contractor.desc %></p>
-                    <div class="profile-reviews-rating">
-                      <span class="profile-review">4.4(500 reviews)</span>
-                      <span class="profile-rating">
-                        <ul>
-                          <li><i class="fas fa-star"></i></li>
-                          <li><i class="fas fa-star"></i></li>
-                          <li><i class="fas fa-star"></i></li>
-                          <li><i class="fas fa-star"></i></li>
-                          <li><i class="fas fa-star"></i></li>
-                        </ul>
+                    <div
+                      style="display: flex; justify-content: space-between"
+                      class="profile-reviews-rating"
+                    >
+                      <span class="profile-review"
+                        ><%= totalRating %>(<%= ratingCount %> reviews)</span
+                      >
+                      <span style="margin-left: 0px" class="profile-rating">
+                        <%- rating %>
                       </span>
                     </div>
                   </div>
@@ -219,7 +218,8 @@
                               <ul>
                                 <li>
                                   <a
-                                    href="/services"
+                                    id="goBack"
+                                    href="/"
                                     class="ordr-btn go-back-btn"
                                     >Go Back</a
                                   >
@@ -260,23 +260,17 @@
               <h5>
                 All Reviews <span><i class="fas fa-star"></i></span>
                 <span class="all-review-count"
-                  >4.7 <span class="review-job-done">(700 complete)</span>
+                  ><%= totalRating %>
+                  <span class="review-job-done">(- complete)</span>
                 </span>
               </h5>
             </div>
-            <!-- ./Client Review one -->
-            <div class="client-reivew">
-              <h6 class="client_name">Togara <i class="fas fa-star"></i> 5</h6>
-              <div class="client-review-text">
-                <p>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua.
-                </p>
-              </div>
-            </div>
+
+            <h6 class="client_name">No Rating</h6>
+
             <!-- ./Client Review two -->
-            <div class="client-reivew">
+            <!-- 
+              <div class="client-reivew">
               <h6 class="client_name">Togara <i class="fas fa-star"></i> 5</h6>
               <div class="client-review-text">
                 <p>
@@ -286,54 +280,13 @@
                 </p>
               </div>
             </div>
-            <!-- ./Client Review three -->
-            <div class="client-reivew">
-              <h6 class="client_name">Togara <i class="fas fa-star"></i> 5</h6>
-              <div class="client-review-text">
-                <p>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua.
-                </p>
-              </div>
-            </div>
-            <!-- ./Client Review four -->
-            <div class="client-reivew">
-              <h6 class="client_name">Togara <i class="fas fa-star"></i> 5</h6>
-              <div class="client-review-text">
-                <p>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua.
-                </p>
-              </div>
-            </div>
-            <!-- ./Client Review five -->
-            <div class="client-reivew">
-              <h6 class="client_name">Togara <i class="fas fa-star"></i> 5</h6>
-              <div class="client-review-text">
-                <p>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua.
-                </p>
-              </div>
-            </div>
-            <!-- ./Client Review six -->
-            <div class="client-reivew">
-              <h6 class="client_name">Togara <i class="fas fa-star"></i> 5</h6>
-              <div class="client-review-text">
-                <p>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua.
-                </p>
-              </div>
-            </div>
+            -->
+
             <!-- ./Client Review view more -->
-            <div class="client-reivew-view-more">
+            <!-- <div class="client-reivew-view-more">
               <a href="#" class="view-more-review">View more</a>
             </div>
+            -->
           </div>
         </div>
       </div>
@@ -343,9 +296,13 @@
 <!-- ===All Reviews Section End=== -->
 
 <%- include("inc/footer")%>
-<!-- 
+
 <script>
-  $(".booking-hire-now-btn").click((e) => {
-    window.location.href = "/profile-booking";
-  });
-</script> -->
+  // For Go Back
+  let ref = window.location.href;
+  let refurl = String(ref).split("ref")[1].replace("=", "");
+  $("#goBack").attr("href", refurl);
+  // end for go back
+
+  // Rating
+</script>
