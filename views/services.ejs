@@ -31,7 +31,10 @@
               <li><a href="#">4</a></li>
               <li><a href="#">....</a></li>
               <li>
-                <a href="#" class="page-next-key"
+                <a
+                  style="cursor: pointer"
+                  onclick="next()"
+                  class="page-next-key"
                   ><i class="fas fa-angle-right"></i
                 ></a>
               </li>
@@ -174,9 +177,22 @@
     return totalRating / Array.from(ratings).length;
   };
 
-  (() => {
+  const availableTime = (arr) => {
+    // console.log(arr);
+    let allTimes = "";
+    for (var i = 0; i < arr.length; i++) {
+      if (arr.length - 1 === i) {
+        allTimes += arr[i];
+      } else {
+        allTimes += arr[i] + " , ";
+      }
+    }
+    return allTimes;
+  };
+
+  function showProduct(page = 1, limit = 5) {
     $.get(
-      "/service-contractors?page=1&limit=2",
+      `/service-contractors?page=${page}&limit=${limit}`,
       ({ next, previous, results, total }) => {
         let contructorArea = document.querySelector("#contractors");
         nextPage = next;
@@ -184,7 +200,7 @@
         total = total;
         contructorArea.innerHTML = "";
         for (contractor of results) {
-          console.log(contractor);
+          // console.log(contractor);
           contructorArea.innerHTML += `
         <div class="col-xl-12 pt-4">
           <div class="service-card-body">
@@ -229,9 +245,9 @@
                   <span class="scb-ability">NEXT AVAILABLE</span>
                   <span class="scb-date-time">
                     <span class="scb-date">Thu 12/02/2021</span>
-                    <span class="scb-time">${
-                      Array.from(contractor.availableTime)[0]
-                    }</span>
+                    <span class="scb-time">${availableTime(
+                      Array.from(contractor.availableTime)
+                    )}</span>
                   </span>
                 </div>
               </div>
@@ -244,7 +260,9 @@
                     }/hour </span>
                   </div>
                   <div class="scb-hire-btn">
-                    <a href="#" class="scb-hire_btn">Hire Now</a>
+                    <a href="/profile-booking-${
+                      contractor._id
+                    }?ref=/" class="scb-hire_btn">Hire Now</a>
                   </div>
                 </div>
               </div>
@@ -254,55 +272,17 @@
         </div>
 
         `;
-          // console.log(contractor);
-          // contructorArea.innerHTML += `
-          // <div class="col-md-4">
-          //     <div class="contractor-profile">
-          //       <div class="contractor-profile-img">
-          //         <img
-          //           src="${contractor.photo}"
-          //           alt="${contractor.name}"
-          //           class="img-fluid"
-          //         />
-          //         <a href="/profile-booking-${
-          //           contractor._id
-          //         }?ref=/" class="hire-now-btn">Hire Now</a>
-          //       </div>
-          //       <div class="contractor-profile-details">
-          //         <div class="contractor-profile-title">
-          //           <div class="contractor-name-designation">
-          //             <h5>${contractor.name}</h5>
-          //             <span class="contractor-designation">${
-          //               contractor.jobName
-          //             }</span>
-          //           </div>
-          //           <div class="contractor-job-complete">
-          //             <span class="contractor-job-done">${generateRating(
-          //               contractor.ratings
-          //             )}(0 Complete)</span>
-          //           </div>
-          //           <div class="contractor-ratings">
-          //             <ul class="cnc-rate">
-          //               ${Rating(generateRating(contractor.ratings), "#db4128")}
-          //             </ul>
-          //           </div>
-          //           <div class="clr"></div>
-          //         </div>
-          //         <div class="contractor-profile-description">
-          //          ${String(contractor.desc).substring(0, 200)}
-          //         </div>
-          //       </div>
-          //     </div>
-          //   </div>
-          // `;
         }
-
-        console.log(nextPage);
-        console.log(prevPage);
       }
     );
-  })();
+  }
 
+  showProduct();
+  function next() {
+    console.log("next");
+  }
+
+  //
   (() => {
     let service = String(window.location.href).split("=")[1];
     $(".banner-title").text(service);
