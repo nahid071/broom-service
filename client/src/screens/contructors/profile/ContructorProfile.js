@@ -46,6 +46,7 @@ const ContructorProfile = ({ history }) => {
     phone: "",
     photo: "",
     status: true,
+    rate: 0,
   });
 
   const { contractors: allContractors } = useSelector(
@@ -192,6 +193,13 @@ const ContructorProfile = ({ history }) => {
                 <div className="col-sm-9 text-secondary">
                   {contructor.createdAt &&
                     moment(contructor.createdAt).format("LLL")}
+                </div>
+              </div>
+              <hr />
+              <div className="row">
+                <div className="col-sm-3">Hourly Rate</div>
+                <div className="col-sm-9 text-secondary">
+                  ${contructor.rate}
                 </div>
               </div>
             </div>

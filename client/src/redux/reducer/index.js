@@ -9,7 +9,11 @@ import {
   contractorDisableReducer,
 } from "./contractorReducer";
 
-import { fileUploadReducer } from "./../reducer/utilReducer";
+import {
+  fileUploadReducer,
+  aboutUpdateReducer,
+  aboutFetchReducer,
+} from "./../reducer/utilReducer";
 const rootReducer = combineReducers({
   auth: authReducer,
   // File upload
@@ -21,6 +25,10 @@ const rootReducer = combineReducers({
   contractorUpdate: contractorUpdateReducer,
   contractorEnable: contractorEnableReducer,
   contractorDisable: contractorDisableReducer,
+
+  // about
+  aboutUpdate: aboutUpdateReducer,
+  aboutFetch: aboutFetchReducer,
 });
 
 export default rootReducer;

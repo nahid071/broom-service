@@ -35,6 +35,7 @@ const AddContructor = ({ history }) => {
     availableDay: "",
     availableTime: "",
     featured: false,
+    rate: 0,
   });
 
   // Update State By Id
@@ -93,6 +94,7 @@ const AddContructor = ({ history }) => {
       photo,
       availableDay,
       availableTime,
+      rate,
     } = contractor;
 
     if (!id || id === "") {
@@ -115,6 +117,8 @@ const AddContructor = ({ history }) => {
       message.error("Select Available Time !");
     } else if (availableDay.length <= 0) {
       message.error("Select Available Days !");
+    } else if (rate <= 0) {
+      message.error("Hourly Rate ?");
     } else {
       // Submit
       dispatch(contractorUpdate(contractor));
@@ -271,6 +275,19 @@ const AddContructor = ({ history }) => {
                   placeholder="..."
                 />
               </Form.Item>
+              <Form.Item label="Hourly Rate">
+                <Input
+                  type="number"
+                  value={contractor.rate}
+                  onChange={(e) => {
+                    setContractor((pre) => ({
+                      ...pre,
+                      featured: e.target.value,
+                    }));
+                  }}
+                />
+              </Form.Item>
+
               <Form.Item label="Featured">
                 <Switch
                   checked={contractor.featured}

@@ -20,6 +20,7 @@ app.use("/", require("./routes"));
 app.use("/auth", require("./routes/auth"));
 app.use("/sms", require("./routes/sms"));
 app.use("/contractor", require("./routes/contractor"));
+app.use("/util", require("./routes/util"));
 
 // error Handle
 

@@ -148,6 +148,7 @@
         <div class="col-md-6">
           <div class="about-col-left">
             <img
+              id="about-section-img"
               src="./assets/img/about-left.png"
               alt="about compnay"
               class="img-fluid"
@@ -157,18 +158,8 @@
         <div class="col-md-6">
           <div class="about-col-right">
             <div class="about-content">
-              <h2>About Broome Serices</h2>
-              <p>
-                Amet minim mollit non deserunt ullamco est sit aliqua dolor do
-                amet sint. Velit officia consequat duis enim velit mollit.
-                Exercitation veniam consequat sunt nostrud amet. Amet minim
-                mollit non deserunt ullamco est sit aliqua dolor do amet sint.
-                Velit officia consequat duis enim velit mollit. Exercitation
-                veniam consequat sunt nostrud amet. Amet minim mollit non
-                deserunt ullamco est sit aliqua dolor do amet sint. Velit
-                officia consequat duis enim velit mollit. Exercitation veniam
-                consequat sunt nostrud amet.
-              </p>
+              <h2 class="about-title"></h2>
+              <span class="about-desc"></span>
             </div>
           </div>
         </div>
@@ -192,128 +183,7 @@
       </div>
       <!-- Contracttor Profile -->
       <div class="contractor-profile-main">
-        <div class="row">
-          <div class="col-md-4">
-            <div class="contractor-profile">
-              <div class="contractor-profile-img">
-                <img
-                  src="./assets/img/contractor-1.png"
-                  alt="contractor profile images"
-                  class="img-fluid"
-                />
-                <a href="#" class="hire-now-btn">Hire Now</a>
-              </div>
-              <div class="contractor-profile-details">
-                <div class="contractor-profile-title">
-                  <div class="contractor-name-designation">
-                    <h5>Andy</h5>
-                    <span class="contractor-designation">Handyman</span>
-                  </div>
-                  <div class="contractor-job-complete">
-                    <span class="contractor-job-done">4.4(500 Complete)</span>
-                  </div>
-                  <div class="contractor-ratings">
-                    <ul class="cnc-rate">
-                      <li><i class="fas fa-star"></i></li>
-                      <li><i class="fas fa-star"></i></li>
-                      <li><i class="fas fa-star"></i></li>
-                      <li><i class="fas fa-star"></i></li>
-                      <li><i class="fas fa-star"></i></li>
-                    </ul>
-                  </div>
-                  <div class="clr"></div>
-                </div>
-                <div class="contractor-profile-description">
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor Lorem ipsum dolor sit amet,
-                    consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="contractor-profile">
-              <div class="contractor-profile-img">
-                <img
-                  src="./assets/img/contractor-2.png"
-                  alt="contractor profile images"
-                  class="img-fluid"
-                />
-                <a href="#" class="hire-now-btn">Hire Now</a>
-              </div>
-              <div class="contractor-profile-details">
-                <div class="contractor-profile-title">
-                  <div class="contractor-name-designation">
-                    <h5>Andy</h5>
-                    <span class="contractor-designation">Handyman</span>
-                  </div>
-                  <div class="contractor-job-complete">
-                    <span class="contractor-job-done">4.4(500 Complete)</span>
-                  </div>
-                  <div class="contractor-ratings">
-                    <ul class="cnc-rate">
-                      <li><i class="fas fa-star"></i></li>
-                      <li><i class="fas fa-star"></i></li>
-                      <li><i class="fas fa-star"></i></li>
-                      <li><i class="fas fa-star"></i></li>
-                      <li><i class="fas fa-star"></i></li>
-                    </ul>
-                  </div>
-                  <div class="clr"></div>
-                </div>
-                <div class="contractor-profile-description">
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor Lorem ipsum dolor sit amet,
-                    consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="col-md-4">
-            <div class="contractor-profile">
-              <div class="contractor-profile-img">
-                <img
-                  src="./assets/img/contractor-3.png"
-                  alt="contractor profile images"
-                  class="img-fluid"
-                />
-                <a href="#" class="hire-now-btn">Hire Now</a>
-              </div>
-              <div class="contractor-profile-details">
-                <div class="contractor-profile-title">
-                  <div class="contractor-name-designation">
-                    <h5>Andy</h5>
-                    <span class="contractor-designation">Handyman</span>
-                  </div>
-                  <div class="contractor-job-complete">
-                    <span class="contractor-job-done">4.4(500 Complete)</span>
-                  </div>
-                  <div class="contractor-ratings">
-                    <ul class="cnc-rate">
-                      <li><i class="fas fa-star"></i></li>
-                      <li><i class="fas fa-star"></i></li>
-                      <li><i class="fas fa-star"></i></li>
-                      <li><i class="fas fa-star"></i></li>
-                      <li><i class="fas fa-star"></i></li>
-                    </ul>
-                  </div>
-                  <div class="clr"></div>
-                </div>
-                <div class="contractor-profile-description">
-                  <p>
-                    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                    diam nonumy eirmod tempor Lorem ipsum dolor sit amet,
-                    consetetur sadipscing elitr, sed diam nonumy eirmod tempor
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <div id="contructors" class="row"></div>
       </div>
     </div>
   </div>
@@ -340,7 +210,8 @@
               <div class="contact-us-right-title">
                 <h3>Contact Us</h3>
               </div>
-              <form action="#" method="POST" class="contact-form">
+              <div class="message_show"></div>
+              <form id="messageForm" class="contact-form">
                 <div class="form-first-name">
                   <label for="fName">First Name</label>
                   <input
@@ -380,10 +251,16 @@
                     rows="10"
                     class="form_message-box"
                     placeholder="Typer your Message here..."
+                    required
                   ></textarea>
                 </div>
                 <div class="form-submit">
-                  <input type="button" value="Submit" class="form_submit-btn" />
+                  <input
+                    type="submit"
+                    id="sendMessage"
+                    value="Submit"
+                    class="form_submit-btn"
+                  />
                 </div>
               </form>
             </div>
@@ -395,3 +272,159 @@
 </section>
 
 <%- include('inc/footer'); %>
+
+<script>
+  // About
+  (() => {
+    $.get("/util/about", (res) => {
+      $("#about-section-img").attr("src", res.photo);
+      $(".about-title").text(res.title);
+      $(".about-desc").html(res.desc);
+    });
+  })();
+
+  const Rating = (value, color, text = "") => {
+    var rating = `<div className="rating">`;
+
+    rating += `  <span> ${
+      value >= 1
+        ? '<i style="color:' + color + '" class="fa fa-star"></i>'
+        : value >= 0.5
+        ? '<i style="color:' + color + '" class="fas fa-star-half-alt"></i>'
+        : '<i style="color:' + color + '" class="far fa-star"></i>'
+    } </span>`;
+
+    rating += `  <span> ${
+      value >= 2
+        ? '<i style="color:' + color + '" class="fa fa-star"></i>'
+        : value >= 1.5
+        ? '<i style="color:' + color + '" class="fas fa-star-half-alt"></i>'
+        : '<i style="color:' + color + '" class="far fa-star"></i>'
+    } </span>`;
+
+    rating += `  <span> ${
+      value >= 3
+        ? '<i style="color:' + color + '" class="fa fa-star"></i>'
+        : value >= 2.5
+        ? '<i style="color:' + color + '" class="fas fa-star-half-alt"></i>'
+        : '<i style="color:' + color + '" class="far fa-star"></i>'
+    } </span>`;
+
+    rating += `  <span> ${
+      value >= 4
+        ? '<i style="color:' + color + '" class="fa fa-star"></i>'
+        : value >= 3.5
+        ? '<i style="color:' + color + '" class="fas fa-star-half-alt"></i>'
+        : '<i style="color:' + color + '" class="far fa-star"></i>'
+    } </span>`;
+
+    rating += `  <span> ${
+      value >= 5
+        ? '<i style="color:' + color + '" class="fa fa-star"></i>'
+        : value >= 4.5
+        ? '<i style="color:' + color + '" class="fas fa-star-half-alt"></i>'
+        : '<i style="color:' + color + '" class="far fa-star"></i>'
+    } </span>`;
+    rating += `</div>`;
+
+    return rating;
+  };
+
+  const generateRating = (ratings) => {
+    if (ratings === null || ratings === undefined) {
+      return 0;
+    }
+
+    const totalRating = Array.from(ratings).reduce(
+      (acc, x) => acc + x.value,
+      0
+    );
+    return totalRating / Array.from(ratings).length;
+  };
+
+  //contructor
+  (() => {
+    $.get("/contractor/all", (contractors) => {
+      let contructorArea = document.querySelector("#contructors");
+      contructorArea.innerHTML = "";
+      let featured = Array.from(contractors).filter((x) => x.featured);
+      for (contractor of featured) {
+        // console.log(contractor);
+        contructorArea.innerHTML += `
+        <div class="col-md-4">
+            <div class="contractor-profile">
+              <div class="contractor-profile-img">
+                <img
+                  src="${contractor.photo}"
+                  alt="${contractor.name}"
+                  class="img-fluid"
+                />
+                <a href="/profile-booking-${
+                  contractor._id
+                }" class="hire-now-btn">Hire Now</a>
+              </div>
+              <div class="contractor-profile-details">
+                <div class="contractor-profile-title">
+                  <div class="contractor-name-designation">
+                    <h5>${contractor.name}</h5>
+                    <span class="contractor-designation">${
+                      contractor.jobName
+                    }</span>
+                  </div>
+                  <div class="contractor-job-complete">
+                    <span class="contractor-job-done">${generateRating(
+                      contractor.ratings
+                    )}(0 Complete)</span>
+                  </div>
+                  <div class="contractor-ratings">
+                    <ul class="cnc-rate">
+                      ${Rating(generateRating(contractor.ratings), "#db4128")}
+                    </ul>
+                  </div>
+                  <div class="clr"></div>
+                </div>
+                <div class="contractor-profile-description">
+                 ${String(contractor.desc).substring(0, 200)}
+                </div>
+              </div>
+            </div>
+          </div>
+        `;
+      }
+    });
+  })();
+
+  (() => {
+    // Message Section
+
+    $("#messageForm").submit((e) => {
+      e.preventDefault();
+      var fName = $("#fName").val();
+      var lName = $("#lName").val();
+      var form_email = $("#form_email").val();
+      var message = $("#form-message").val();
+
+      $.post(
+        "/util/message",
+        { fName, lName, form_email, message },
+        (res, err) => {
+          $("#fName").val("");
+          $("#lName").val("");
+          $("#form_email").val("");
+          $("#form-message").val("");
+
+          $(".message_show")
+            .addClass("alert alert-success")
+            .text("message Sent Successfully ");
+        }
+      ).fail((e) => {
+        $(".message_show")
+          .addClass("alert alert-danger")
+          .text(e.responseJSON.message);
+        setTimeout(() => {
+          $(".message_show").removeClass("alert alert-danger").text("");
+        }, 5000);
+      });
+    });
+  })();
+</script>

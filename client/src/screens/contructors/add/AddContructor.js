@@ -29,6 +29,7 @@ const AddContructor = ({ history }) => {
     availableDay: "",
     availableTime: "",
     featured: false,
+    rate: 0,
   });
 
   const dispatch = useDispatch();
@@ -50,6 +51,7 @@ const AddContructor = ({ history }) => {
       availableDay: "",
       availableTime: "",
       featured: false,
+      rate: 0,
     });
   };
 
@@ -83,6 +85,7 @@ const AddContructor = ({ history }) => {
       availableDay,
       availableTime,
       featured,
+      rate,
     } = contractor;
 
     if (name === "") {
@@ -103,6 +106,8 @@ const AddContructor = ({ history }) => {
       message.error("Select Available Time !");
     } else if (availableDay.length <= 0) {
       message.error("Select Available Days !");
+    } else if (rate <= 0) {
+      message.error("Hourly Rate ?");
     } else {
       // Submit
       dispatch(contractorAdd(contractor));
@@ -244,6 +249,18 @@ const AddContructor = ({ history }) => {
                   }}
                   type="file"
                   placeholder="..."
+                />
+              </Form.Item>
+              <Form.Item label="Hourly Rate">
+                <Input
+                  type="number"
+                  value={contractor.rate}
+                  onChange={(e) => {
+                    setContractor((pre) => ({
+                      ...pre,
+                      rate: e.target.value,
+                    }));
+                  }}
                 />
               </Form.Item>
               <Form.Item label="Featured">

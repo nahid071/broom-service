@@ -4,7 +4,7 @@ const messageSchema = new Schema(
   {
     serial: {
       type: Number,
-      required: true,
+      default: 0,
     },
     name: {
       fname: {

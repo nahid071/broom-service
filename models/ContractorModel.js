@@ -19,6 +19,7 @@ const contractorsSchema = new Schema(
     ratings: {
       type: Schema.Types.ObjectId,
       ref: "ratings",
+      default: null,
     },
     jobName: {
       type: String,
@@ -29,6 +30,10 @@ const contractorsSchema = new Schema(
     },
     photo: {
       type: String,
+    },
+    rate: {
+      type: Number,
+      required: true,
     },
     availableDay: {
       type: Array,
