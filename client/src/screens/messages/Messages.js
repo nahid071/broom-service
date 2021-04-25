@@ -1,59 +1,83 @@
-import React, { useState } from "react";
-import { PageHeader, Button, Table } from "antd";
+import React, { useState, useEffect } from "react";
+import { PageHeader, Button, Table, message } from "antd";
 import moment from "moment";
+import { useDispatch, useSelector } from "react-redux";
 import { IoMailUnreadOutline, IoMailOutline } from "react-icons/io5";
+import {
+  messageFetch,
+  messageUpdate,
+} from "./../../redux/actions/messageAction";
 const Messages = ({ history }) => {
   const [steeper, setSteeper] = useState(1);
-  const unReadMessages = [
-    {
-      _id: 1,
-      serial: 1,
-      name: { fname: "faysal ", lname: "ahamed" },
-      email: "saif@gmail.com",
-      message: "test message",
-      dateTime: Date.now(),
-      readed: false,
-    },
-    {
-      _id: 2,
-      serial: 2,
-      name: { fname: "Maria ", lname: "" },
-      email: "maria@gmail.com",
-      message: "I am message",
-      dateTime: Date.now(),
-      readed: false,
-    },
-    {
-      _id: 3,
-      serial: 3,
-      name: { fname: "Nahiduzzaman ", lname: "khan" },
-      email: "mdnahid071@gmail.com",
-      message: "I am message from mine",
-      dateTime: Date.now(),
-      readed: false,
-    },
-  ];
+  const dispatch = useDispatch();
+  const { messages } = useSelector((state) => state.messageFetch);
 
-  const ReadMessages = [
-    {
-      _id: 1,
-      serial: 1,
-      name: { fname: "saif ", lname: "ahamed" },
-      email: "saif@gmail.com",
-      message: "test message",
-      dateTime: Date.now(),
-      readed: true,
-    },
-    {
-      _id: 2,
-      serial: 2,
-      name: { fname: "Mamun Ar ", lname: "Rashid" },
-      email: "mamun@gmail.com",
-      message: "I am message",
-      dateTime: Date.now(),
-      readed: true,
-    },
-  ];
+  const [ReadMessages, setReadMessages] = useState([]);
+  const [unReadMessages, setUnReadMessages] = useState([]);
+
+  const [allMessage, setAllMessage] = useState([]);
+
+  useEffect(() => {
+    dispatch(messageFetch());
+  }, [dispatch]);
+  const filterMessage = (msg) => {
+    // Filtered messages
+    setAllMessage(msg);
+    const read = [];
+    const unread = [];
+
+    let serial = 0;
+    Array.from(msg).forEach((e) => {
+      if (!e.readed) {
+        serial++;
+        read.push({ ...e, serial });
+      }
+    });
+    let i = 0;
+    Array.from(msg).forEach((e) => {
+      if (e.readed) {
+        i++;
+        unread.push({ ...e, serial: i });
+      }
+    });
+    setReadMessages(read);
+    setUnReadMessages(unread);
+  };
+  useEffect(() => {
+    filterMessage(messages);
+  }, [messages]);
+
+  const { success, error, loading } = useSelector(
+    (state) => state.messageUpdate
+  );
+
+  useEffect(() => {
+    if (success) {
+      message.success("Message Read successfull");
+      dispatch(messageFetch());
+    }
+
+    if (error !== null) {
+      message.error(error);
+    }
+  }, [success, error]);
+
+  const actionButtonRenderer = (x) => {
+    const currentMessage = allMessage.find((e) => String(e._id) === x);
+    return currentMessage.readed ? (
+      <Button icon={<IoMailUnreadOutline />} size="small"></Button>
+    ) : (
+      <Button
+        loading={loading}
+        onClick={() => dispatch(messageUpdate(x))}
+        icon={<IoMailOutline />}
+        size="small"
+      ></Button>
+    );
+  };
+
+  // messageFetch;
+  // messageUpdate;
 
   const columns = [
     {
@@ -83,16 +107,8 @@ const Messages = ({ history }) => {
     },
     {
       title: "Status",
-      dataIndex: "readed",
-      render: (x) => (
-        <>
-          {x ? (
-            <Button icon={<IoMailUnreadOutline />} size="small"></Button>
-          ) : (
-            <Button icon={<IoMailOutline />} size="small"></Button>
-          )}
-        </>
-      ),
+      dataIndex: "_id",
+      render: (x) => <>{actionButtonRenderer(x)}</>,
     },
   ];
   return (
@@ -131,7 +147,7 @@ const Messages = ({ history }) => {
           pagination={{
             size: "",
           }}
-          dataSource={unReadMessages}
+          dataSource={ReadMessages}
           columns={columns}
         />
       )}
@@ -141,7 +157,7 @@ const Messages = ({ history }) => {
           pagination={{
             size: "",
           }}
-          dataSource={ReadMessages}
+          dataSource={unReadMessages}
           columns={columns}
         />
       )}

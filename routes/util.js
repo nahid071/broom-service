@@ -95,5 +95,34 @@ router.post(
   })
 );
 
+router.get("/message", isAuthenticated, async (req, res) => {
+  const messages = await Message.find();
+  if (messages) {
+    res.json(messages);
+  } else {
+    res.json([]);
+  }
+});
+
+router.get(
+  "/message/:id",
+  isAuthenticated,
+  asyncHandler(async (req, res) => {
+    const message = await Message.findOne({ _id: req.params.id });
+    if (message) {
+      // update
+      message.readed = true;
+      const updated = await message.save();
+      if (updated) {
+        res.send("Readed");
+      } else {
+        throw Error("can't Readed");
+      }
+    } else {
+      throw Error("message not found !");
+    }
+  })
+);
+
 //
 module.exports = router;

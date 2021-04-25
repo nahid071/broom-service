@@ -14,6 +14,11 @@ import {
   aboutUpdateReducer,
   aboutFetchReducer,
 } from "./../reducer/utilReducer";
+
+import {
+  messageFetchReducer,
+  messageUpdateReducer,
+} from "./../reducer/messageReducer";
 const rootReducer = combineReducers({
   auth: authReducer,
   // File upload
@@ -29,6 +34,10 @@ const rootReducer = combineReducers({
   // about
   aboutUpdate: aboutUpdateReducer,
   aboutFetch: aboutFetchReducer,
+
+  //message
+  messageFetch: messageFetchReducer,
+  messageUpdate: messageUpdateReducer,
 });
 
 export default rootReducer;
