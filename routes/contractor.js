@@ -95,21 +95,35 @@ router.put(
       rate,
     } = req.body;
 
-    if (
-      id === "" ||
-      name === "" ||
-      phone === "" ||
-      email === "" ||
-      address === "" ||
-      jobName === "" ||
-      desc === "" ||
-      photo === "" ||
-      rate === "" ||
-      !featured
-    ) {
-      throw Error("Check all the Field");
+    if (id === "") {
+      throw Error("Contractor not found with This Identification");
+    }
+    if (name === "") {
+      throw Error("Contractor Name must not be empty ");
+    }
+    if (phone === "") {
+      throw Error("Contractor phone must not empty !");
+    }
+    if (email === "") {
+      throw Error("Contractor Email must not empty !");
+    }
+    if (address === "") {
+      throw Error("Contractor Address must not empty !");
+    }
+    if (jobName === "") {
+      throw Error("Contractor jobName must not empty !");
     }
 
+    if (desc === "") {
+      throw Error("Contractor Description must not empty !");
+    }
+
+    if (photo === "") {
+      throw Error("Contractor Photo must not empty !");
+    }
+    if (rate === "") {
+      throw Error("Contractor Rate must not empty !");
+    }
     const contracor = await Contractor.findOne({ _id: id });
     if (!contracor) {
       throw Error("Not Found !");

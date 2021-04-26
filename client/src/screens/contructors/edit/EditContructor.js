@@ -120,7 +120,7 @@ const AddContructor = ({ history }) => {
       message.error("Hourly Rate ?");
     } else {
       // Submit
-      dispatch(contractorUpdate(contractor));
+      dispatch(contractorUpdate({ ...contractor, id }));
     }
   };
 
@@ -166,8 +166,6 @@ const AddContructor = ({ history }) => {
       availableTime: newArray,
     }));
   };
-
-  console.log(contractor);
 
   return (
     <>

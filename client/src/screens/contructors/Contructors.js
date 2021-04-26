@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { PageHeader, Button, Table, Tag, Avatar, message, Badge } from "antd";
 import Rating from "./../../components/utils/Rating";
-import { FaCheck, FaRegEdit } from "react-icons/fa";
+import { FaCheck, FaRegEdit, FaXing } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { GrView, GrStatusDisabledSmall } from "react-icons/gr";
 import { AiOutlineSchedule } from "react-icons/ai";
@@ -134,9 +134,16 @@ const Contructors = ({ history }) => {
       dataIndex: "availableTime",
       render: (x) => (
         <>
-          {formatDateTime(String(moment(x[0].date).format("LLLL")))}
+          {Array.from(x).length > 0
+            ? formatDateTime(String(moment(x[0].date).format("LLLL")))
+            : ""}
+          {/* {formatDateTime(String(moment(x[0].date).format("LLLL")))} */}
           &nbsp;&nbsp;&nbsp;
-          <Tag color="red">{x[0].times[0]}</Tag>
+          {Array.from(x).length > 0 ? (
+            <Tag color="red">{x[0].times[0]}</Tag>
+          ) : (
+            "not set"
+          )}
         </>
       ),
     },
