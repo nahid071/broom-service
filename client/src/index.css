@@ -607,6 +607,6 @@ input[type="number"] {
   opacity: 0.8;
 }
 
-input[type="text"] {
+/* input[type="text"] {
   border: 1px solid #363738 !important;
-}
+} */

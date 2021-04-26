@@ -169,7 +169,6 @@
     if (ratings === null || ratings === undefined) {
       return 0;
     }
-
     const totalRating = Array.from(ratings).reduce(
       (acc, x) => acc + x.value,
       0
@@ -285,6 +284,26 @@
   //
   (() => {
     let service = String(window.location.href).split("=")[1];
-    $(".banner-title").text(service);
+    let filtered = service.replace("#", "").replace("-", " ");
+    $(".banner-title").text(
+      filtered[0].toUpperCase() + filtered.slice(1, filtered.length)
+    );
+
+    // Change Image of Banner
+    var image = "";
+    switch (service) {
+      case "delivery-transport":
+        image = "../img/contact-us-left-col-img.png";
+    }
+
+    // breadcumb - main;
+    let img = new Image();
+    img.onload = () => {
+      var div = document.querySelector(".breadcumb-main");
+      div.style.backgroundImage =
+        "url(http://localhost:5000/assets/img/contact-us-left-col-img.png)";
+    };
+    img.src = image;
+    console.log(image);
   })();
 </script>

@@ -27,6 +27,7 @@ export const contractorFetch = () => async (dispatch, getState) => {
     const { token } = getState().auth;
     const options = { headers: { "auth-token": token } };
     const { data } = await axios.get("/contractor", options);
+    console.log(data);
     dispatch({
       type: CONTRACTOR_FETCH_SUCCESS,
       payload: data,

@@ -35,10 +35,8 @@ const contractorsSchema = new Schema(
       type: Number,
       required: true,
     },
-    availableDay: {
-      type: Array,
-      required: true,
-    },
+    // Not Required
+
     availableTime: {
       type: Array,
       required: true,

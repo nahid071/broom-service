@@ -12,11 +12,13 @@ import {
   Switch,
   Avatar,
   Tag,
+  DatePicker,
 } from "antd";
 import { Editor } from "@tinymce/tinymce-react";
 import { Days, Times } from "./../../../seeder/data";
 import { useDispatch, useSelector } from "react-redux";
 import { fileUpload, uploadReset } from "./../../../redux/actions/UtilAction";
+import moment from "moment";
 import {
   contractorUpdate,
   contractorFetch,
@@ -24,6 +26,7 @@ import {
 import { useParams } from "react-router-dom";
 const AddContructor = ({ history }) => {
   const dispatch = useDispatch();
+  const { Option } = Select;
   const [contractor, setContractor] = useState({
     name: "",
     phone: "",
@@ -32,8 +35,7 @@ const AddContructor = ({ history }) => {
     jobName: "",
     desc: "",
     photo: "",
-    availableDay: "",
-    availableTime: "",
+    availableTime: [],
     featured: false,
     rate: 0,
   });
@@ -92,7 +94,6 @@ const AddContructor = ({ history }) => {
       jobName,
       desc,
       photo,
-      availableDay,
       availableTime,
       rate,
     } = contractor;
@@ -115,8 +116,6 @@ const AddContructor = ({ history }) => {
       message.error("Photo must not be empty !");
     } else if (availableTime.length <= 0) {
       message.error("Select Available Time !");
-    } else if (availableDay.length <= 0) {
-      message.error("Select Available Days !");
     } else if (rate <= 0) {
       message.error("Hourly Rate ?");
     } else {
@@ -124,6 +123,51 @@ const AddContructor = ({ history }) => {
       dispatch(contractorUpdate(contractor));
     }
   };
+
+  // Add Schedule
+  const [schedules, setSchedules] = useState({
+    date: "",
+    times: [],
+  });
+
+  const addSchedule = () => {
+    // schedule
+    if (schedules.date === "") {
+      message.error("Please select a Date !");
+    } else if (schedules.times.length <= 0) {
+      message.error("Choose Sloot !");
+    } else {
+      setContractor((pre) => ({
+        ...pre,
+        availableTime: [...pre.availableTime, schedules],
+      }));
+      setSchedules({
+        date: "",
+        times: [],
+      });
+    }
+  };
+
+  const formatDateTime = (date) => {
+    return `${date.split(" ")[0]}${date.split(" ")[1]} ${date.split(" ")[2]} ${
+      date.split(" ")[3]
+    }`;
+  };
+
+  const removeSchedule = (schedule, index) => {
+    var newArray = [];
+    Array.from(contractor.availableTime).forEach((e, i) => {
+      if (i !== index) {
+        newArray.push(e);
+      }
+    });
+    setContractor((pre) => ({
+      ...pre,
+      availableTime: newArray,
+    }));
+  };
+
+  console.log(contractor);
 
   return (
     <>
@@ -178,62 +222,103 @@ const AddContructor = ({ history }) => {
                   placeholder="..."
                 />
               </Form.Item>
-              <Form.Item label="Job Name">
-                <Input
+              <Form.Item label="Select Job">
+                <Select
+                  showSearch
                   value={contractor.jobName}
-                  onChange={(e) =>
+                  onSelect={(e) =>
                     setContractor((pre) => ({
                       ...pre,
-                      jobName: e.target.value,
+                      jobName: e,
                     }))
                   }
-                  placeholder="..."
-                />
-              </Form.Item>
-              <Form.Item label="Current Availble Day's">
-                {Array.from(contractor.availableDay).map((e) => (
-                  <Tag key={e} color="#1595e0">
-                    {e}
-                  </Tag>
-                ))}
-              </Form.Item>
-              <Form.Item label="Available Day's">
-                <Select
-                  mode="multiple"
-                  style={{ width: "100%" }}
-                  placeholder="select available Days"
-                  allowClear
-                  onChange={(e) =>
-                    setContractor((pre) => ({ ...pre, availableDay: e }))
-                  }
-                  options={Days.map((e) => ({ value: e }))}
                 >
-                  ;
+                  <Option key="Cleaning" value="Cleaning">
+                    Cleaning
+                  </Option>
+                  <Option key="Gardening" value="Gardening">
+                    Gardening
+                  </Option>
+                  <Option
+                    key="Delivery & Transport"
+                    value="Delivery & Transport"
+                  >
+                    Delivery & Transport
+                  </Option>
+                  <Option key="Handyman" value="Handyman">
+                    Handyman
+                  </Option>
+                  <Option key="Plumbing" value="Plumbing">
+                    Plumbing
+                  </Option>
+                  <Option key="Digital Service" value="Digital Service">
+                    Digital Service
+                  </Option>
+                  <Option key="Removals" value="Removals">
+                    Removals
+                  </Option>
+                  <Option key="General Maintenance" value="General Maintenance">
+                    General Maintenance
+                  </Option>
                 </Select>
-                ,
               </Form.Item>
-              <Form.Item label="Current Availble Time">
-                {Array.from(contractor.availableTime).map((e) => (
-                  <Tag key={e} color="#1595e0">
-                    {e}
-                  </Tag>
-                ))}
-              </Form.Item>
-              <Form.Item label="Available Time">
+            </Form>
+          </Card>
+        </Col>
+
+        <Col xs={24} sm={24} md={12} lg={12}>
+          <Card title="Add Schedule">
+            <Row gutter={[8, 8]}>
+              <Col sm={10} xs={10} md={10} lg={10}>
+                <DatePicker
+                  value={schedules.date}
+                  onChange={(e) => {
+                    setSchedules((pre) => ({ ...pre, date: e }));
+                  }}
+                  style={{ width: "100%" }}
+                />
+              </Col>
+              <Col sm={10} xs={10} md={10} lg={10}>
                 <Select
+                  value={schedules.times}
                   mode="multiple"
                   style={{ width: "100%" }}
                   placeholder="select available time"
                   allowClear
                   options={Times.map((e) => ({ value: e }))}
                   onChange={(e) =>
-                    setContractor((pre) => ({ ...pre, availableTime: e }))
+                    setSchedules((pre) => ({ ...pre, times: e }))
                   }
                 >
                   ;
                 </Select>
-              </Form.Item>
-            </Form>
+              </Col>
+              <Col sm={4} xs={4} md={4} lg={4}>
+                <Button onClick={addSchedule}>Add</Button>
+              </Col>
+            </Row>
+            <Row style={{ marginTop: 30 }}>
+              {contractor?.availableTime?.map((e, i) => (
+                <Col md={24} xs={24} sm={24} lg={24} key={i}>
+                  <div style={styles.schedule}>
+                    <div className="date">
+                      {i + 1} ) &nbsp;&nbsp;&nbsp;{" "}
+                      {formatDateTime(String(moment(e.date).format("LLLL")))}
+                    </div>
+                    <div className="times">
+                      {e.times.map((each, index) => (
+                        <Tag key={index} color="red">
+                          {each}
+                        </Tag>
+                      ))}
+                      <Button onClick={() => removeSchedule(e, i)} size="small">
+                        X
+                      </Button>
+                    </div>
+                  </div>
+                </Col>
+              ))}
+            </Row>
           </Card>
         </Col>
 
@@ -308,3 +393,10 @@ const AddContructor = ({ history }) => {
 };
 
 export default AddContructor;
+const styles = {
+  schedule: {
+    display: "flex",
+    justifyContent: "space-between",
+    height: 40,
+  },
+};

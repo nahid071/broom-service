@@ -14,7 +14,6 @@ const contractorSchema = Joi.object({
   address: Joi.string().required(),
   jobName: Joi.string().required(),
   photo: Joi.string().required(),
-  availableDay: Joi.array().required(),
   availableTime: Joi.array().required(),
   featured: Joi.boolean().required(),
   desc: Joi.string(),
@@ -52,7 +51,6 @@ router.post(
       jobName,
       desc,
       photo,
-      availableDay,
       availableTime,
       featured,
       rate,
@@ -66,7 +64,6 @@ router.post(
       jobName,
       desc,
       photo,
-      availableDay,
       availableTime,
       featured,
       rate,
@@ -93,7 +90,6 @@ router.put(
       jobName,
       desc,
       photo,
-      availableDay,
       availableTime,
       featured,
       rate,
@@ -109,8 +105,6 @@ router.put(
       desc === "" ||
       photo === "" ||
       rate === "" ||
-      Array.from(availableDay).length === 0 ||
-      Array.from(availableTime).length === 0 ||
       !featured
     ) {
       throw Error("Check all the Field");
@@ -127,7 +121,6 @@ router.put(
     contracor.jobName = jobName;
     contracor.desc = desc;
     contracor.photo = photo;
-    contracor.availableDay = availableDay;
     contracor.availableTime = availableTime;
     contracor.featured = featured;
     contracor.rate = rate;

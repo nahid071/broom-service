@@ -34,7 +34,6 @@ const ContructorProfile = ({ history }) => {
 
   const [contructor, setContructor] = useState({
     address: "",
-    availableDay: [],
     availableTime: [],
     createdAt: "",
     desc: "",
@@ -73,6 +72,12 @@ const ContructorProfile = ({ history }) => {
     findContractorById(id, allContractors);
   }, [id, allContractors]);
 
+  const formatDateTime = (date) => {
+    return `${date.split(" ")[0]}${date.split(" ")[1]} ${date.split(" ")[2]} ${
+      date.split(" ")[3]
+    }`;
+  };
+
   return (
     <>
       <PageHeader
@@ -92,29 +97,6 @@ const ContructorProfile = ({ history }) => {
               <Typography className="__name ptb5">{contructor.name}</Typography>
               <Typography className="ptb5">{contructor.jobName}</Typography>
               <Typography className="ptb5">{contructor.address}</Typography>
-
-              {/* {contructor.featured ? (
-                <Button
-                  loading={featuredDisableLoading}
-                  onClick={() => {
-                    dispatch(contractorDisable(id));
-                  }}
-                  className="mtb5"
-                >
-                  remove from Featured
-                </Button>
-              ) : (
-                <Button
-                  loading={featuredEnableLoading}
-                  onClick={() => {
-                    dispatch(contractorEnable(id));
-                  }}
-                  className="mtb5"
-                >
-                  mark as Featured
-                </Button>
-              )} */}
-
               <Button className="mtb5">Message</Button>
             </span>
           </Card>
@@ -131,33 +113,6 @@ const ContructorProfile = ({ history }) => {
                 <div className="col-sm-3">Email</div>
                 <div className="col-sm-9 text-secondary">
                   {contructor.email}
-                </div>
-              </div>
-
-              <hr />
-              <div className="row">
-                <div className="col-sm-3">Available Days</div>
-                <div className="col-sm-9 text-secondary">
-                  {contructor
-                    ? contructor.availableDay.map((time) => (
-                        <Tag key={time} color="#1595e0">
-                          {time}
-                        </Tag>
-                      ))
-                    : ""}
-                </div>
-              </div>
-              <hr />
-              <div className="row">
-                <div className="col-sm-3">Available Time</div>
-                <div className="col-sm-9 text-secondary">
-                  {contructor
-                    ? contructor.availableTime.map((time) => (
-                        <Tag key={time} color="#1595e0">
-                          {time}
-                        </Tag>
-                      ))
-                    : ""}
                 </div>
               </div>
               <hr />
@@ -206,7 +161,32 @@ const ContructorProfile = ({ history }) => {
           </div>
         </Col>
         <Col xs={24} sm={24} md={14} lg={14}>
-          <Card title="description">{parser(contructor.desc)}</Card>
+          <Row>
+            <Col md={24} xs={24} sm={24} lg={24}>
+              <Card title="description">{parser(contructor.desc)}</Card>
+            </Col>
+          </Row>
+          <Card title="Schedule" style={{ marginTop: 10 }}>
+            <Row>
+              {contructor?.availableTime?.map((e, i) => (
+                <Col md={24} xs={24} sm={24} lg={24} key={i}>
+                  <div style={styles.schedule}>
+                    <div className="date">
+                      {i + 1} ) &nbsp;&nbsp;&nbsp;{" "}
+                      {formatDateTime(String(moment(e.date).format("LLLL")))}
+                    </div>
+                    <div className="times">
+                      {e.times.map((each, index) => (
+                        <Tag key={index} color="red">
+                          {each}
+                        </Tag>
+                      ))}
+                    </div>
+                  </div>
+                </Col>
+              ))}
+            </Row>
+          </Card>
         </Col>
       </Row>
     </>
@@ -214,3 +194,11 @@ const ContructorProfile = ({ history }) => {
 };
 
 export default ContructorProfile;
+
+const styles = {
+  schedule: {
+    display: "flex",
+    justifyContent: "space-between",
+    height: 40,
+  },
+};

@@ -1,17 +1,26 @@
 import React, { useState, useEffect } from "react";
-import { PageHeader, Button, Table, Tag, Avatar, message } from "antd";
+import { PageHeader, Button, Table, Tag, Avatar, message, Badge } from "antd";
 import Rating from "./../../components/utils/Rating";
 import { FaCheck, FaRegEdit } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { GrView, GrStatusDisabledSmall } from "react-icons/gr";
+import { AiOutlineSchedule } from "react-icons/ai";
 import { useDispatch, useSelector } from "react-redux";
 import {
   contractorFetch,
   contractorEnable,
   contractorDisable,
 } from "./../../redux/actions/contractorAction";
+import moment from "moment";
+import Schedule from "./schedule";
 const Contructors = ({ history }) => {
   const dispatch = useDispatch();
+  const [sheduleModal, setSheduleModal] = useState(false);
+  const [scheduleId, setScheduleId] = useState("");
+  const handleScheduleClose = () => {
+    setSheduleModal(false);
+  };
+
   const ratingCount = (ratings) => {
     if (ratings === undefined || ratings === null) {
       return 0;
@@ -95,6 +104,13 @@ const Contructors = ({ history }) => {
     }
   }, [featuredDisableSuccess, featuredDisableError]);
 
+  // Format Date & Time
+  const formatDateTime = (date) => {
+    return `${date.split(" ")[0]}${date.split(" ")[1]} ${date.split(" ")[2]} ${
+      date.split(" ")[3]
+    }`;
+  };
+
   // end
   const columns = [
     {
@@ -107,37 +123,46 @@ const Contructors = ({ history }) => {
       dataIndex: "name",
       render: (x) => <>{x}</>,
     },
-    {
-      title: "Available Time",
-      dataIndex: "availableTime",
-      render: (x) => (
-        <>
-          {x.map((e, i) => (
-            <Tag key={i}>{e}</Tag>
-          ))}
-        </>
-      ),
-    },
 
-    {
-      title: "Rating",
-      dataIndex: "rating",
-      render: (x) => (
-        <>
-          <Rating value={ratingCount(x)} text="" color="#db4128" />
-        </>
-      ),
-    },
     {
       title: "Job Name",
       dataIndex: "jobName",
       render: (x) => <>{x}</>,
     },
+    {
+      title: "Next Available Time",
+      dataIndex: "availableTime",
+      render: (x) => (
+        <>
+          {formatDateTime(String(moment(x[0].date).format("LLLL")))}
+          &nbsp;&nbsp;&nbsp;
+          <Tag color="red">{x[0].times[0]}</Tag>
+        </>
+      ),
+    },
+    {
+      title: "New Schedule",
+      dataIndex: "_id",
+      render: (x) => (
+        <>
+          <Button
+            onClick={() => {
+              setScheduleId(x);
+              setSheduleModal(true);
+            }}
+            style={{ background: "#3f51b5", color: "#fff" }}
+            size="small"
+          >
+            &nbsp;create new
+          </Button>
+        </>
+      ),
+    },
 
     {
       title: "Project Completed",
       dataIndex: "totalProject",
-      render: (x) => <>{x}</>,
+      render: (x) => <>{0}</>,
     },
     {
       title: "Action",
@@ -196,6 +221,12 @@ const Contructors = ({ history }) => {
         rowKey="_id"
         dataSource={contractors}
         columns={columns}
+      />
+
+      <Schedule
+        id={scheduleId}
+        onClose={handleScheduleClose}
+        sheduleModal={sheduleModal}
       />
     </>
   );
