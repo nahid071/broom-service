@@ -290,20 +290,53 @@
     );
 
     // Change Image of Banner
-    var image = "";
-    switch (service) {
-      case "delivery-transport":
-        image = "../img/contact-us-left-col-img.png";
+    console.log(service);
+    var image;
+    if (service === "digital-service#" || service == "digital-service") {
+      image =
+        "https://firebasestorage.googleapis.com/v0/b/admin-broom-service.appspot.com/o/digital.jpg?alt=media&token=1493cc95-2c61-47e7-a5a2-ee2da2b1cb0e";
+    } else if (service === "cleaning#" || service == "cleaning") {
+      // change color
+      $(".banner-title").css({ marginLeft: "-470px", color: "#30333a" });
+      image =
+        "https://firebasestorage.googleapis.com/v0/b/admin-broom-service.appspot.com/o/cleaning.jpg?alt=media&token=ec1d85e0-bc5d-4de6-a7a0-790930b8b131";
+    } else if (service === "gardening#" || service == "gardening") {
+      image =
+        "https://firebasestorage.googleapis.com/v0/b/admin-broom-service.appspot.com/o/gardening.jpg?alt=media&token=f00cf0e4-89f9-4a64-b4f2-14d9a3e3adf9";
+    } else if (
+      service === "delivery-transport#" ||
+      service == "delivery-transport"
+    ) {
+      image =
+        "https://firebasestorage.googleapis.com/v0/b/admin-broom-service.appspot.com/o/delivery.jpg?alt=media&token=586b511e-f909-45fd-a0b4-f192703ddadb";
+    } else if (service === "handyman#" || service == "handyman") {
+      image =
+        "https://firebasestorage.googleapis.com/v0/b/admin-broom-service.appspot.com/o/handyman.jpg?alt=media&token=12cc7e62-ecfb-4ec1-afc2-847b597c71f3";
+    } else if (service === "plumbing#" || service == "plumbing") {
+      image =
+        "https://firebasestorage.googleapis.com/v0/b/admin-broom-service.appspot.com/o/plumbing.jpg?alt=media&token=5f89b7aa-7c22-4068-b369-c95ccd43cb3c";
+    } else if (service === "removals#" || service == "removals") {
+      $(".banner-title").css({ color: "#5bb6d5" });
+      image =
+        "https://firebasestorage.googleapis.com/v0/b/admin-broom-service.appspot.com/o/removals_.jpg?alt=media&token=e4b63093-0e82-40b4-a2c1-1f66a6f6e599";
+    } else if (
+      service === "general-maintenance#" ||
+      service == "general-maintenance"
+    ) {
+      image =
+        "https://firebasestorage.googleapis.com/v0/b/admin-broom-service.appspot.com/o/maintain.jpg?alt=media&token=dd571cc2-3ab6-4521-b00e-85ba3d55e1a9";
+    } else {
+      image =
+        "https://img.freepik.com/free-vector/technicians-people-group-engineering-worker-construction_180264-20.jpg";
     }
 
     // breadcumb - main;
     let img = new Image();
+
     img.onload = () => {
       var div = document.querySelector(".breadcumb-main");
-      div.style.backgroundImage =
-        "url(http://localhost:5000/assets/img/contact-us-left-col-img.png)";
+      div.style.backgroundImage = "url(" + image + ")";
     };
     img.src = image;
-    console.log(image);
   })();
 </script>

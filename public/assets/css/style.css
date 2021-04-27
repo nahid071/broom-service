@@ -606,7 +606,7 @@ ul.footer-nav li a:hover {
 /* ====Breadcumb Section Start=== */
 
 .breadcumb-main {
-  background: url(../img/service-page-breadcumb-bg.png);
+  /* background: url(../img/service-page-breadcumb-bg.png); */
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;

@@ -341,6 +341,7 @@ const Contructors = ({ history }) => {
       <Modal
         title={`Customize Schedule of ${contractor?.name}`}
         visible={sheduleModal}
+        onCancel={scheduleModalClose}
         footer={[
           <Button shape="dotted" key="1" onClick={scheduleModalClose}>
             Cancel
