@@ -1,245 +1,246 @@
 <%- include("inc/header")%>
+<style>
+  .calendar {
+    width: 100%;
+    height: 400px;
+    position: absolute;
+    background-color: #db4128;
+    color: #fff;
+    box-shadow: 0 0.5rem 3rem rgba(0, 0, 0, 0.4);
+  }
 
+  .month {
+    width: 100%;
+    height: 5.5rem;
+    background-color: #db4128;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2rem;
+    text-align: center;
+    /* text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5); */
+  }
+
+  .month i {
+    font-size: 15px;
+    cursor: pointer;
+  }
+
+  .month h1 {
+    font-size: 15px;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 0.2rem;
+    margin-bottom: 0rem;
+  }
+
+  .month p {
+    font-size: 1.6rem;
+  }
+
+  .weekdays {
+    width: 100%;
+    height: 5rem;
+    padding: 0 0.4rem;
+    display: flex;
+    align-items: center;
+  }
+
+  .weekdays div {
+    font-size: 15px;
+    font-weight: 400;
+    letter-spacing: 0.1rem;
+    width: calc(44.2rem / 7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 30%);
+  }
+
+  .days {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0.2rem;
+  }
+
+  .days div {
+    font-size: 15px;
+    margin: 0.3rem;
+    /* width: calc(40.2rem / 7); */
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-shadow: 0 0.3rem 0.5rem rgba(0, 0, 0, 0.5);
+    transition: background-color 0.2s;
+  }
+
+  .days div:hover:not(.today) {
+    background-color: #262626;
+    /* border: 0.2rem solid #777; */
+    cursor: pointer;
+  }
+
+  .prev-date,
+  .next-date {
+    opacity: 0.5;
+  }
+
+  .today {
+    background-color: #fff;
+    color: #000;
+  }
+
+  .available-time {
+    text-align: center;
+  }
+
+  .__custom_profile_img {
+    margin-top: 20px;
+  }
+
+  .reviews {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    align-content: flex-end;
+    align-items: flex-end;
+    flex-direction: row;
+  }
+
+  h3 {
+    padding-top: 20px;
+    padding-bottom: 10px;
+  }
+
+  #available {
+    border: 1px solid rgb(221, 205, 205);
+    /* color: #000; */
+  }
+
+  .showTotal {
+    /* height: 100px; */
+    display: flex;
+    align-content: flex-end;
+    justify-content: center;
+    align-items: flex-end;
+    margin: 20px;
+  }
+
+  @media only screen and (max-width: 1000px) {
+    #calender-wrapper {
+      height: 400px;
+      position: relative;
+      width: 350px;
+    }
+    .calendar {
+      height: 100%;
+    }
+  }
+</style>
 <!-- ===Profile Section Start=== -->
+
 <section id="profile">
-  <div class="profile-main">
-    <div class="container">
-      <div class="row">
-        <div class="col-xl-12">
-          <div class="profile-body">
-            <div class="row">
-              <!-- ./Profile card -->
-              <div class="col-md-4">
-                <div class="profile-card">
-                  <div class="profile-img">
-                    <img
-                      src="<%= contractor.photo %>"
-                      alt="profile-img"
-                      class="img-fluid"
-                    />
-                  </div>
-                  <div class="profile-card-details">
-                    <h3 class="profile-title"><%= contractor.name %></h3>
-                    <p class="profile-description"><%- contractor.desc %></p>
-                    <div
-                      style="display: flex; justify-content: space-between"
-                      class="profile-reviews-rating"
+  <div class="container">
+    <div class="row">
+      <div class="col-md-4 col-sm-12">
+        <div class="__custom_profile_img">
+          <div class="img-fluid">
+            <img
+              src="<%= contractor.photo %>"
+              alt="profile-img"
+              class="img-fluid"
+            />
+          </div>
+        </div>
+        <h3><%= contractor.name %></h3>
+        <div class="desc"><%- contractor.desc %></div>
+        <div class="reviews">
+          <div class="state">
+            <%= totalRating %>(<%= ratingCount %> reviews)
+          </div>
+          <div class="rating"><%- rating %></div>
+        </div>
+      </div>
+      <div class="col-md-8 col-sm-12">
+        <div class="col-md-12 col-sm-12 col-xl-12">
+          <textarea
+            class="job-description-box"
+            placeholder="Job Description"
+            cols="30"
+            rows="5"
+          ></textarea>
+        </div>
+        <div class="row">
+          <div id="calender-wrapper" class="col-md-6 col-sm-12">
+            <div class="calendar">
+              <div class="month">
+                <i class="fas fa-angle-left prev"></i>
+                <div class="date">
+                  <h1></h1>
+                  <!-- <p></p> -->
+                </div>
+                <i class="fas fa-angle-right next"></i>
+              </div>
+              <div class="weekdays">
+                <div>SU</div>
+                <div>MO</div>
+                <div>TU</div>
+                <div>WD</div>
+                <div>TH</div>
+                <div>FR</div>
+                <div>SA</div>
+              </div>
+              <div class="days"></div>
+            </div>
+          </div>
+          <div class="col-md-6 col-sm-12">
+            <div class="available_time-hire">
+              <div class="available-time">
+                <h4 class="at-head">Available Time</h4>
+                <div style="margin: 20px" class="avt-slot">
+                  <ul class="showTimes"></ul>
+                </div>
+                <div style="margin: 20px" class="avt-duration">
+                  <span class="duration-title">Select Duration</span>
+                  <span class="duraion-option">
+                    <select
+                      name="hours-select"
+                      id="hours-select"
+                      class="select-hours-opt"
                     >
-                      <span class="profile-review"
-                        ><%= totalRating %>(<%= ratingCount %> reviews)</span
-                      >
-                      <span style="margin-left: 0px" class="profile-rating">
-                        <%- rating %>
-                      </span>
-                    </div>
-                  </div>
+                      <option value="1" class="option-hours">1hours</option>
+                      <option value="2" class="option-hours">2hours</option>
+                      <option value="3" class="option-hours">3hours</option>
+                      <option value="4" class="option-hours">4hours</option>
+                      <option value="5" class="option-hours">5hours</option>
+                      <option value="6" class="option-hours">6hours</option>
+                    </select>
+                  </span>
+                </div>
+                <div class="showTotal">
+                  <h4></h4>
                 </div>
               </div>
-              <!-- ./Profile description, order, date, calender, ability -->
-              <div class="col-md-8">
-                <div class="profile-order-process">
-                  <div class="row">
-                    <!-- ./Job Description -->
-                    <div class="col-md-12">
-                      <div class="profile-order-description">
-                        <form action="/" method="POST">
-                          <textarea
-                            name="write description"
-                            id="job-description"
-                            cols="30"
-                            rows="10"
-                            class="job-description-box"
-                            placeholder="Write Job Description"
-                          ></textarea>
-                        </form>
-                      </div>
-                    </div>
-                    <!-- ./Order Ability -->
-                    <div class="col-md-12">
-                      <div class="profile-ability">
-                        <div class="row">
-                          <div class="col-md-6">
-                            <div class="order-calender">
-                              <div class="calender-body">
-                                <div class="calender-head">
-                                  <ul>
-                                    <li>
-                                      <a
-                                        href="#"
-                                        class="calender-arrow left-arrow"
-                                        ><i class="fas fa-angle-left"></i
-                                      ></a>
-                                    </li>
-                                    <li>
-                                      <span class="calender-month-year"
-                                        >March 2021</span
-                                      >
-                                    </li>
-                                    <li>
-                                      <a
-                                        href="#"
-                                        class="calender-arrow right-arrow"
-                                        ><i class="fas fa-angle-right"></i
-                                      ></a>
-                                    </li>
-                                  </ul>
-                                </div>
-                                <div class="calender-date">
-                                  <table>
-                                    <tr>
-                                      <th>SU</th>
-                                      <th>MO</th>
-                                      <th>TU</th>
-                                      <th>WD</th>
-                                      <th>TH</th>
-                                      <th>FR</th>
-                                      <th>SA</th>
-                                    </tr>
-                                    <tr>
-                                      <td class="prev-month">30</td>
-                                      <td class="prev-month">31</td>
-                                      <td>1</td>
-                                      <td>2</td>
-                                      <td>3</td>
-                                      <td>4</td>
-                                      <td>5</td>
-                                    </tr>
-                                    <tr>
-                                      <td>6</td>
-                                      <td>7</td>
-                                      <td>8</td>
-                                      <td>9</td>
-                                      <td>10</td>
-                                      <td>11</td>
-                                      <td>12</td>
-                                    </tr>
-                                    <tr>
-                                      <td>13</td>
-                                      <td>14</td>
-                                      <td>15</td>
-                                      <td class="active-date">16</td>
-                                      <td>17</td>
-                                      <td>18</td>
-                                      <td>19</td>
-                                    </tr>
-                                    <tr>
-                                      <td>20</td>
-                                      <td>21</td>
-                                      <td>22</td>
-                                      <td>23</td>
-                                      <td>24</td>
-                                      <td>25</td>
-                                      <td>26</td>
-                                    </tr>
-                                    <tr>
-                                      <td>27</td>
-                                      <td>28</td>
-                                      <td>29</td>
-                                      <td>30</td>
-                                      <td>31</td>
-                                      <td class="next-month">1</td>
-                                      <td class="next-month">2</td>
-                                    </tr>
-                                  </table>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <!-- ./available time and hire -->
-                          <div class="col-md-6">
-                            <!-- ./ available time -->
-                            <div class="available_time-hire">
-                              <div class="available-time">
-                                <h4 class="at-head">Available Time</h4>
-                                <div class="avt-slot">
-                                  <ul>
-                                    <li>
-                                      <a href="#" class="av-time-slot">8am</a>
-                                    </li>
-                                    <li>
-                                      <a
-                                        href="#"
-                                        class="av-time-slot active-time"
-                                        >10am</a
-                                      >
-                                    </li>
-                                    <li>
-                                      <a href="#" class="av-time-slot">12pm</a>
-                                    </li>
-                                  </ul>
-                                </div>
-                                <div class="avt-duration">
-                                  <span class="duration-title"
-                                    >Select Duration</span
-                                  >
-                                  <span class="duraion-option">
-                                    <select
-                                      name="hours-select"
-                                      id="hours-select"
-                                      class="select-hours-opt"
-                                    >
-                                      <option
-                                        value="2hours"
-                                        class="option-hours"
-                                      >
-                                        2hours
-                                      </option>
-                                      <option
-                                        value="2hours"
-                                        class="option-hours"
-                                      >
-                                        3hours
-                                      </option>
-                                      <option
-                                        value="2hours"
-                                        class="option-hours"
-                                      >
-                                        4hours
-                                      </option>
-                                      <option
-                                        value="2hours"
-                                        class="option-hours"
-                                      >
-                                        5hours
-                                      </option>
-                                      <option
-                                        value="2hours"
-                                        class="option-hours"
-                                      >
-                                        6hours
-                                      </option>
-                                    </select>
-                                  </span>
-                                </div>
-                              </div>
-                            </div>
-                            <!-- ./Hire Now -->
-                            <div class="hire-now">
-                              <ul>
-                                <li>
-                                  <a
-                                    id="goBack"
-                                    href="/"
-                                    class="ordr-btn go-back-btn"
-                                    >Go Back</a
-                                  >
-                                </li>
-                                <li>
-                                  <a
-                                    href="/approved"
-                                    class="ordr-btn booking-hire-now-btn"
-                                    >Hire Now</a
-                                  >
-                                </li>
-                              </ul>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
+            </div>
+            <div style="padding-top: 0; text-align: center" class="hire-now">
+              <ul>
+                <li>
+                  <a id="goBack" href="/" class="ordr-btn go-back-btn"
+                    >Go Back</a
+                  >
+                </li>
+                <li>
+                  <a
+                    href="#"
+                    onclick="hireNow()"
+                    class="ordr-btn booking-hire-now-btn"
+                    >Hire Now</a
+                  >
+                </li>
+              </ul>
             </div>
           </div>
         </div>
@@ -267,26 +268,6 @@
             </div>
 
             <h6 class="client_name">No Rating</h6>
-
-            <!-- ./Client Review two -->
-            <!-- 
-              <div class="client-reivew">
-              <h6 class="client_name">Togara <i class="fas fa-star"></i> 5</h6>
-              <div class="client-review-text">
-                <p>
-                  Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed
-                  diam nonumy eirmod tempor invidunt ut labore et dolore magna
-                  aliquyam erat, sed diam voluptua.
-                </p>
-              </div>
-            </div>
-            -->
-
-            <!-- ./Client Review view more -->
-            <!-- <div class="client-reivew-view-more">
-              <a href="#" class="view-more-review">View more</a>
-            </div>
-            -->
           </div>
         </div>
       </div>
@@ -304,5 +285,191 @@
   $("#goBack").attr("href", refurl);
   // end for go back
 
-  // Rating
+  // build calender
+  const date = new Date();
+
+  // set width
+
+  const renderCalendar = (availableTimes) => {
+    date.setDate(1);
+
+    const monthDays = document.querySelector(".days");
+
+    const lastDay = new Date(
+      date.getFullYear(),
+      date.getMonth() + 1,
+      0
+    ).getDate();
+
+    const prevLastDay = new Date(
+      date.getFullYear(),
+      date.getMonth(),
+      0
+    ).getDate();
+
+    const firstDayIndex = date.getDay();
+
+    const lastDayIndex = new Date(
+      date.getFullYear(),
+      date.getMonth() + 1,
+      0
+    ).getDay();
+
+    const nextDays = 7 - lastDayIndex - 1;
+
+    const months = [
+      "January",
+      "February",
+      "March",
+      "April",
+      "May",
+      "June",
+      "July",
+      "August",
+      "September",
+      "October",
+      "November",
+      "December",
+    ];
+
+    document.querySelector(".date h1").innerHTML = `${
+      months[date.getMonth()]
+    } ${date.getFullYear()}`;
+
+    // for show on Calender
+    let availableDateArray = [];
+    Array.from(availableTimes).forEach((e, i) => {
+      const availableDate = new Date(e.date);
+      if (availableDate.getMonth() === date.getMonth()) {
+        const availableDay = availableDate.getDate();
+        availableDateArray.push({ availableDay, index: i });
+      }
+    });
+
+    let days = "";
+
+    for (let x = firstDayIndex; x > 0; x--) {
+      days += `<div class="prev-date">${prevLastDay - x + 1}</div>`;
+    }
+
+    for (let i = 1; i <= lastDay; i++) {
+      var availableId = "";
+      var onClickFunction = `onclick="showTime(null, null)"`;
+      for (let each of availableDateArray) {
+        if (i === each.availableDay) {
+          // check this date is lowar then today or not
+          let todayDate = new Date().getDate();
+
+          if (i < todayDate) {
+            console.log("Not show previous data");
+          } else {
+            availableId = "available";
+            onClickFunction = `onclick="showTime(${each.availableDay},${each.index})"`;
+          }
+        }
+      }
+
+      if (
+        i === new Date().getDate() &&
+        date.getMonth() === new Date().getMonth()
+      ) {
+        days += `<div ${onClickFunction} id="${availableId}" class="today">${i}</div>`;
+      } else {
+        days += `<div ${onClickFunction} id="${availableId}">${i}</div>`;
+      }
+    }
+
+    for (let j = 1; j <= nextDays; j++) {
+      days += `<div class="next-date">${j}</div>`;
+      monthDays.innerHTML = days;
+    }
+  };
+
+  /// store contractor
+  var contractor = null;
+  var order = {
+    date: null,
+    time: null,
+    hour: 1,
+    totalAmt: null,
+    contractor: null,
+  };
+
+  document.querySelector(".prev").addEventListener("click", () => {
+    date.setMonth(date.getMonth() - 1);
+    renderCalendar();
+  });
+
+  document.querySelector(".next").addEventListener("click", () => {
+    date.setMonth(date.getMonth() + 1);
+    renderCalendar();
+  });
+
+  document.addEventListener("DOMContentLoaded", () => {
+    const id = String(window.location.href)
+      .split("profile-booking-")[1]
+      .split("?")[0];
+
+    $.get("/contractor/id/" + id, (res) => {
+      contractor = res;
+      order.contractor = res;
+      order.totalAmt = contractor.rate;
+      renderCalendar(res.availableTime);
+      showTotalAmount();
+    });
+  });
+
+  function showTime(date, index) {
+    var showTimes = document.querySelector(".showTimes");
+    Array.from(contractor.availableTime).forEach((e, i) => {
+      var current_date = new Date(e.date);
+      if (current_date.getDate() === date) {
+        order.date = current_date;
+        showTimes.innerHTML = "";
+        for (let time in e.times) {
+          if (time == 0) {
+            order.time = e.times[time];
+            showTimes.innerHTML += `<li>
+                      <a style="cursor:pointer;" id="time-slot" class="av-time-slot active-time">${e.times[time]}</a>
+                    </li>`;
+          } else {
+            showTimes.innerHTML += `<li>
+                      <a style="cursor:pointer;" id="time-slot" class="av-time-slot">${e.times[time]}</a>
+                    </li>`;
+          }
+        }
+        runAfterSelectDate();
+      }
+    });
+    // console.log(date, index);
+  }
+
+  function runAfterSelectDate() {
+    // console.log(document.querySelectorAll("#time-slot"));
+    Array.from(document.querySelectorAll("#time-slot")).forEach((e, i) => {
+      e.addEventListener("click", (event) => {
+        let allSlot = document.querySelectorAll("#time-slot");
+        Array.from(allSlot).forEach((eachSlot) => {
+          eachSlot.classList.remove("active-time");
+        });
+        order.time = event.target.textContent;
+        event.target.classList.add("active-time");
+      });
+    });
+  }
+
+  $("#hours-select").change((e) => {
+    order.hour = $(e.target).val();
+    order.totalAmt = $(e.target).val() * contractor.rate;
+    showTotalAmount();
+  });
+
+  function showTotalAmount() {
+    $(".showTotal h4").text(`Total Amount : $${order.totalAmt}`);
+  }
+
+  function hireNow() {
+    console.log("hiring");
+    console.log(order);
+  }
 </script>

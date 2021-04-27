@@ -203,4 +203,19 @@ router.get(
     }
   })
 );
+
+router.get(
+  "/id/:id",
+  asyncHandler(async (req, res) => {
+    const contractor = await Contractor.findOne({
+      _id: req.params.id,
+    }).populate("ratings");
+    if (contractor) {
+      res.json(contractor);
+    } else {
+      res.json([]);
+    }
+  })
+);
+
 module.exports = router;
