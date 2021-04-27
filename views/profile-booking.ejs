@@ -468,8 +468,20 @@
     $(".showTotal h4").text(`Total Amount : $${order.totalAmt}`);
   }
 
+  let stripe_key = "<%= stripePublic %>";
+  var stripeHandler = StripeCheckout.configure({
+    key: stripe_key,
+    locale: "en",
+    token: (token) => {
+      //
+    },
+  });
+
   function hireNow() {
     console.log("hiring");
     console.log(order);
+    stripeHandler.open({
+      amount: parseFloat(order.totalAmt) * 100,
+    });
   }
 </script>

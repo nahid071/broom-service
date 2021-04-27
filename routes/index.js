@@ -61,6 +61,7 @@ router.get(
   "/profile-booking-:id",
   asyncHandler(async (req, res) => {
     const contractor = await Contractor.findById(req.params.id);
+    const stripePublic = process.env.STRIPE_PUBLIC;
 
     // Rating
     var rating = ``;
@@ -82,6 +83,7 @@ router.get(
         rating,
         totalRating,
         ratingCount,
+        stripePublic,
       });
     } else {
       res.render("404");
