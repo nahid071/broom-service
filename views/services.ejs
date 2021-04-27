@@ -180,9 +180,12 @@
         for (contractor of results) {
           var nextAvailableTime = contractor.availableTime[0].times[0];
 
-          var date = new Date(contractor.availableTime[0].date);
-          var getDay = date.getDate();
-          console.log(getDay);
+          var d = new Date(contractor.availableTime[0].date);
+          var getDay = d.toString().split(" ")[0];
+          var day = d.getDay();
+          var month = d.getMonth();
+          var year = d.getFullYear();
+          var fullDate = `${getDay} ${day}/${month}/${year}`;
 
           contructorArea.innerHTML += `
         <div class="col-xl-12 pt-4">
@@ -227,7 +230,7 @@
                    ${String(contractor.desc).substring(0, 250)}
                   <span class="scb-ability">NEXT AVAILABLE</span>
                   <span class="scb-date-time">
-                    <span class="scb-date">Thu 12/02/2021</span>
+                    <span class="scb-date">${fullDate}</span>
                     <span class="scb-time">${nextAvailableTime}</span>
                   </span>
                 </div>
